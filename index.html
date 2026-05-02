@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El Quincho is an Argentine BBQ restaurant in Christchurch, serving wood-fired asado, empanadas, Argentine wine and warm hospitality at Riverside Market." />
+  <title>El Quincho | Argentine BBQ Restaurant in Christchurch</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --fire: #d4451a;
+      --fire-dark: #a83213;
+      --ember: #f06a2f;
+      --oxblood: #5c1714;
+      --charcoal: #161412;
+      --smoke: #2d2925;
+      --ash: #6d655d;
+      --cream: #fbf4ea;
+      --paper: #fffaf2;
+      --sand: #e8d8c4;
+      --gold: #c6a15b;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(22, 20, 18, 0.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Subtle paper texture overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
+
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2.6px;
+      color: var(--fire);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-title { font-size: clamp(34px, 4.2vw, 56px); margin-bottom: 16px; }
+    .section-intro { color: var(--ash); max-width: 680px; font-size: 17px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      min-height: 50px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(212,69,26,.3); }
+    .btn-fire:hover { background: var(--fire-dark); }
+    .btn-dark { background: var(--charcoal); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
+    .btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid rgba(22,20,18,.22); }
+
+    /* ─── TOP STRIP ─── */
+    .top-strip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: var(--charcoal);
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      transition: transform .3s ease;
+    }
+    .top-strip.hidden { transform: translateY(-100%); }
+    .top-strip .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    .top-strip a:hover { color: var(--gold); }
+    .top-actions { display: flex; gap: 18px; align-items: center; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 34px;
+      left: 0;
+      right: 0;
+      z-index: 79;
+      transition: all .25s ease;
+      color: var(--white);
+    }
+    .nav.is-scrolled { top: 0; background: rgba(22,20,18,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+    .nav .container {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
+    .logo img { width: 44px; height: 44px; object-fit: contain; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
+    .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
+    .nav-links a:hover { color: var(--white); }
+    .mobile-toggle { display: none; background: transparent; border: 0; color: white; font-size: 28px; cursor: pointer; }
+
+    /* ─── HERO WITH VIDEO ─── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      align-items: center;
+      background: var(--charcoal);
+      color: var(--white);
+      overflow: hidden;
+      padding: 148px 0 80px;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%) scale(1.02);
+      object-fit: cover;
+    }
+
+    .hero-fallback {
+      position: absolute;
+      inset: 0;
+      background: url('https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg') center/cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(22,20,18,.92) 0%, rgba(22,20,18,.72) 42%, rgba(22,20,18,.2) 100%);
+    }
+
+    .hero-overlay-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 72% 42%, rgba(212,69,26,.28), transparent 33%),
+        linear-gradient(180deg, transparent 65%, var(--charcoal) 100%);
+    }
+
+    .hero-content { position: relative; z-index: 3; max-width: 720px; }
+    .hero-kicker { color: var(--gold); letter-spacing: 2.8px; text-transform: uppercase; font-size: 12px; font-weight: 700; margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(48px, 7.8vw, 92px); letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero h1 em { color: var(--ember); font-weight: 500; }
+    .hero-copy { font-size: clamp(18px, 2vw, 23px); color: rgba(255,255,255,.82); max-width: 650px; margin-bottom: 30px; }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 10px; color: rgba(255,255,255,.72); font-size: 14px; }
+    .proof-pill { border: 1px solid rgba(255,255,255,.17); background: rgba(255,255,255,.06); padding: 8px 12px; border-radius: 999px; }
+
+    /* ─── SPECIALS CARD ─── */
+    .live-special {
+      position: relative;
+      z-index: 3;
+      margin-top: -44px;
+    }
+    .special-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      padding: 24px;
+      border-left: 7px solid var(--fire);
+    }
+    .special-card h2 { font-size: 28px; margin-bottom: 4px; }
+    .special-card p { color: var(--ash); }
+    .special-label { display: inline-flex; margin-bottom: 10px; color: var(--fire); font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
+
+    /* ─── STORY ─── */
+    .intro { padding: 96px 0; background: var(--cream); }
+    .intro-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .intro-text p { color: var(--ash); font-size: 17px; margin-bottom: 18px; }
+    .image-stack { position: relative; min-height: 520px; }
+    .main-photo, .small-photo {
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      border: 8px solid var(--paper);
+      position: absolute;
+    }
+    .main-photo { width: 78%; height: 460px; right: 0; top: 0; }
+    .small-photo { width: 48%; height: 260px; left: 0; bottom: 0; }
+    .stamp {
+      position: absolute;
+      right: 10px;
+      bottom: 26px;
+      background: var(--oxblood);
+      color: var(--white);
+      border-radius: 50%;
+      width: 132px;
+      height: 132px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      transform: rotate(-8deg);
+      box-shadow: 0 18px 40px rgba(92,23,20,.25);
+      padding: 20px;
+    }
+
+    /* ─── MENU PREVIEW ─── */
+    .menu-section { padding: 96px 0; background: var(--paper); }
+    .menu-head { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 34px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .menu-item {
+      background: var(--white);
+      border: 1px solid rgba(22,20,18,.07);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(22,20,18,.06);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .menu-item:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(22,20,18,.1); }
+    .menu-img { height: 210px; background: linear-gradient(135deg, #412018, #a83a18); position: relative; overflow: hidden; }
+    .menu-img img { width: 100%; height: 100%; object-fit: cover; opacity: .88; }
+    .menu-badge { position: absolute; top: 14px; left: 14px; background: var(--fire); color: var(--white); font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 800; padding: 6px 10px; border-radius: 999px; }
+    .menu-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .menu-title-row { display: flex; justify-content: space-between; gap: 14px; align-items: start; margin-bottom: 10px; }
+    .menu-title-row h3 { font-size: 24px; }
+    .price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--fire); font-weight: 700; white-space: nowrap; }
+    .menu-body p { color: var(--ash); font-size: 14px; margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+    .tag { font-size: 11px; padding: 5px 8px; border-radius: 999px; background: var(--cream); color: var(--ash); font-weight: 700; }
+
+    /* ─── WHY ─── */
+    .why { padding: 90px 0; background: var(--charcoal); color: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 36px; }
+    .why-card { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.09); border-radius: var(--radius); padding: 24px; }
+    .why-card strong { display: block; font-family: 'Playfair Display', serif; font-size: 23px; margin-bottom: 9px; }
+    .why-card p { color: rgba(255,255,255,.67); font-size: 14px; }
+
+    /* ─── VISIT ─── */
+    .visit { padding: 96px 0; background: var(--cream); }
+    .visit-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 36px; align-items: stretch; }
+    .visit-card { background: var(--paper); border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow); }
+    .hours-list { margin: 26px 0; display: grid; gap: 12px; }
+    .hours-row { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgba(22,20,18,.08); padding-bottom: 10px; }
+    .map-card { min-height: 420px; border-radius: var(--radius); overflow: hidden; background: url('https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg') center/cover; position: relative; box-shadow: var(--shadow); cursor: pointer; }
+    .map-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,20,18,.12), rgba(22,20,18,.76)); }
+    .map-overlay { position: absolute; left: 26px; right: 26px; bottom: 26px; z-index: 2; color: white; }
+
+    /* ─── EVENTS ─── */
+    .events { padding: 96px 0; background: var(--paper); }
+    .event-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 32px; }
+    .event-card { border-radius: var(--radius); background: var(--cream); padding: 28px; border: 1px solid rgba(22,20,18,.07); }
+    .event-date { color: var(--fire); font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; }
+    .event-card h3 { font-size: 28px; margin-bottom: 10px; }
+    .event-card p { color: var(--ash); }
+
+    /* ─── REVIEWS ─── */
+    .reviews { padding: 96px 0; background: var(--oxblood); color: white; }
+    .reviews-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 34px; }
+    .review { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 26px; }
+    .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
+    .review p { color: rgba(255,255,255,.78); font-style: italic; margin-bottom: 14px; }
+
+    /* ─── NEWSLETTER ─── */
+    .newsletter { padding: 70px 0; background: var(--charcoal); color: white; }
+    .newsletter-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .newsletter h2 { font-size: 36px; margin-bottom: 8px; }
+    .newsletter p { color: rgba(255,255,255,.75); }
+    .form { display: flex; gap: 10px; min-width: min(480px, 100%); }
+    .form input { flex: 1; border-radius: 999px; border: 0; padding: 0 18px; min-height: 50px; font: inherit; }
+
+    /* ─── FOOTER ─── */
+    .footer { background: var(--smoke); color: rgba(255,255,255,.65); padding: 58px 0 100px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+    .footer h3, .footer h4 { color: white; margin-bottom: 14px; }
+    .footer a:hover { color: var(--gold); }
+    .footer ul { list-style: none; display: grid; gap: 9px; }
+
+    /* ─── MOBILE STICKY ─── */
+    .mobile-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(22,20,18,.96);
+      z-index: 90;
+      display: none;
+      gap: 8px;
+      padding: 10px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,.22);
+    }
+    .mobile-sticky .btn { flex: 1; min-height: 46px; padding: 12px; font-size: 11px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 940px) {
+      .top-actions { display: none; }
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(22,20,18,.98);
+        padding: 20px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .intro-grid, .visit-grid { grid-template-columns: 1fr; }
+      .image-stack { min-height: 430px; }
+      .menu-head { display: block; }
+      .menu-grid, .why-grid, .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .newsletter-inner { display: block; }
+      .form { margin-top: 22px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .top-strip { display: none; }
+      .nav { top: 0; background: rgba(22,20,18,.92); }
+      .hero { padding-top: 120px; min-height: 88vh; }
+      .hero-buttons, .special-card, .newsletter-inner, .form { display: grid; grid-template-columns: 1fr; }
+      .hero-proof { display: none; }
+      .live-special { margin-top: 0; }
+      .special-card { border-radius: 0; width: calc(100% + 28px); margin-left: -14px; }
+      .intro, .menu-section, .why, .visit, .events, .reviews { padding: 68px 0; }
+      .main-photo { width: 86%; height: 320px; }
+      .small-photo { width: 58%; height: 190px; }
+      .stamp { width: 108px; height: 108px; font-size: 14px; }
+      .menu-grid, .why-grid, .event-list, .reviews-grid, .footer-grid { grid-template-columns: 1fr; }
+      .newsletter { padding-bottom: 96px; }
+      .mobile-sticky { display: flex; }
+    }
+  </style>
+
+  <!-- Restaurant structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "El Quincho",
+    "description": "Argentine BBQ restaurant serving wood-fired asado, empanadas, and Argentine wine at Riverside Market, Christchurch.",
+    "servesCuisine": ["Argentine", "BBQ", "Steakhouse", "Latin American"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "16/96 Oxford Terrace, Riverside Market",
+      "addressLocality": "Christchurch",
+      "addressRegion": "Canterbury",
+      "postalCode": "8013",
+      "addressCountry": "NZ"
+    },
+    "telephone": "+64272891487",
+    "email": "hola@elquincho.co.nz",
+    "url": "https://elquincho.co.nz/",
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 11:00-21:00",
+    "hasMenu": "https://elquincho.co.nz/menus/",
+    "acceptsReservations": "True"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ═══ ADDRESS STRIP ═══ -->
+  <div class="top-strip" id="topStrip">
+    <div class="container">
+      <a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">&#x1F4CD; 16/96 Oxford Terrace, Riverside Market, Christchurch</a>
+      <div class="top-actions">
+        <a href="tel:+64272891487">027 289 1487</a>
+        <a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a class="logo" href="#top" aria-label="El Quincho home">
+        <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <span>El Quincho</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
+        <li><a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero" id="top">
+    <div class="hero-video-wrap">
+      <div class="hero-fallback"></div>
+      <!--
+        TO ADD YOUR VIDEO:
+        1. Upload .mp4 to WordPress Media Library
+        2. Replace YOUR_VIDEO_URL_HERE.mp4 with the file URL
+      -->
+      <video class="hero-video" autoplay muted loop playsinline poster="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg">
+        <source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-overlay-glow"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-kicker">Argentine BBQ &middot; Riverside Market, Christchurch</div>
+      <h1>Fire, flavour, and a table worth sharing.</h1>
+      <p class="hero-copy">Wood-fired asado, house-made empanadas, Argentine wine and warm hospitality. Simple food, cooked properly. No shortcuts.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a>
+        <a class="btn btn-outline" href="#menu">View Menu</a>
+      </div>
+      <div class="hero-proof" aria-label="Highlights">
+        <span class="proof-pill">&#11088; Google-loved local restaurant</span>
+        <span class="proof-pill">&#x1F525; Wood-fire grill</span>
+        <span class="proof-pill">&#x1F377; Argentine wines</span>
+        <span class="proof-pill">&#x1F6B6; Walk-ins welcome</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ WEEKLY SPECIALS ═══ -->
+  <section class="live-special" id="specials">
+    <div class="container">
+      <div class="special-card">
+        <div>
+          <span class="special-label">This Week</span>
+          <h2>Pasta Night at El Quincho</h2>
+          <p><strong>Ragu Pappardelle $32</strong> &middot; <strong>Red & White Sauce Pappardelle $30</strong>. Honouring the Italian roots woven into Argentina's culinary soul.</p>
+        </div>
+        <a class="btn btn-dark" href="#menu">See Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR STORY ═══ -->
+  <section class="intro">
+    <div class="container intro-grid">
+      <div class="intro-text">
+        <div class="eyebrow">Our story</div>
+        <h2 class="section-title">A little piece of Argentina, without pretending to be fancy.</h2>
+        <p>A quincho is where people gather around the fire. Family, friends, stories, wine, meat, bread, sauce, and the kind of meal that makes everyone slow down for a bit.</p>
+        <p>At El Quincho, we bring that spirit to Christchurch through wood-fire cooking, honest ingredients, and food made from scratch. It is not complicated. It just takes care, time, and a few good embers.</p>
+        <a class="btn btn-outline-dark" href="#visit">Find us at Riverside</a>
+      </div>
+      <div class="image-stack" aria-label="El Quincho food and grill images">
+        <!--
+          TO CHANGE THESE IMAGES:
+          Upload photos to WordPress Media Library, then replace the src URLs below.
+          Ideal: one photo of the fire/grill, one of a plated dish.
+        -->
+        <img class="main-photo" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Wood-fired grill at El Quincho Christchurch">
+        <img class="small-photo" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Argentine BBQ served at El Quincho">
+        <div class="stamp">Made from scratch</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MENU PREVIEW ═══ -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="menu-head">
+        <div>
+          <div class="eyebrow">From our kitchen</div>
+          <h2 class="section-title">What are you hungry for?</h2>
+          <p class="section-intro">Fire-grilled perfection, house-made sauces, and everything crafted from scratch.</p>
+        </div>
+        <a class="btn btn-outline-dark" href="https://elquincho.co.nz/menus/">Full Interactive Menu</a>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="El Quincho Parrillada Argentine BBQ platter">
+            <span class="menu-badge">Signature</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>El Quincho Parrillada</h3><span class="price">$96</span></div>
+            <p>The full Argentine BBQ experience with wood-fire grilled meats, grilled bread, chimichurri, criolla and alioli.</p>
+            <div class="tags"><span class="tag">Good to share</span><span class="tag">Wood fire</span><span class="tag">~1.1kg</span></div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Tomahawk steak cooked over wood fire">
+            <span class="menu-badge">Premium</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>Tomahawk</h3><span class="price">$95</span></div>
+            <p>Big, smoky, juicy and made for the table that came hungry. 600g of wood-fired perfection.</p>
+            <div class="tags"><span class="tag">600g</span><span class="tag">Steak</span><span class="tag">Wood fire</span></div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="House-made Argentine empanadas">
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>Empanadas</h3><span class="price">$10</span></div>
+            <p>House-made pastry with premium fillings. Carne a cuchillo, pulled pollo, verdura or clasica. Four flavours, one tradition.</p>
+            <div class="tags"><span class="tag">House-made</span><span class="tag">Great starter</span></div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Ragu Pappardelle weekly special">
+            <span class="menu-badge">This week</span>
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>Ragu Pappardelle</h3><span class="price">$32</span></div>
+            <p>Slow-braised beef ragu in the tradition of Argentine domingo cooking, served over silky hand-cut pappardelle.</p>
+            <div class="tags"><span class="tag">Weekly special</span><span class="tag">Comfort food</span></div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Argentine Malbec wine">
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>Argentine Malbec</h3><span class="price">From $14</span></div>
+            <p>Selected Argentine reds that sit beautifully next to grilled meats, smoky edges and chimichurri.</p>
+            <div class="tags"><span class="tag">Argentina</span><span class="tag">By glass</span><span class="tag">By bottle</span></div>
+          </div>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-img">
+            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Choripan Argentine sausage sandwich">
+          </div>
+          <div class="menu-body">
+            <div class="menu-title-row"><h3>Choripan</h3><span class="price">$26</span></div>
+            <p>El Quincho's chorizo, lettuce, tomato, aioli and criolla in housemade sourdough baguette. Simple, proper, satisfying.</p>
+            <div class="tags"><span class="tag">Casual</span><span class="tag">Lunch favourite</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY PEOPLE COME BACK ═══ -->
+  <section class="why">
+    <div class="container">
+      <div class="eyebrow" style="color: var(--gold);">Why people come back</div>
+      <h2 class="section-title">Not just steak. A proper asado feeling.</h2>
+      <p class="section-intro" style="color: rgba(255,255,255,.68);">Good food is the starting point. What keeps people coming back is how they feel at the table.</p>
+      <div class="why-grid">
+        <div class="why-card"><strong>Wood fire</strong><p>The grill is part of the theatre. You'll smell it before you see it.</p></div>
+        <div class="why-card"><strong>From scratch</strong><p>Sauces, bread, empanadas and chorizo. All made in-house, no shortcuts.</p></div>
+        <div class="why-card"><strong>Riverside energy</strong><p>Easy to find inside Riverside Market. Walk in or book ahead.</p></div>
+        <div class="why-card"><strong>Generous hospitality</strong><p>Warm, casual and welcoming. The opposite of cold corporate dining.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VISIT ═══ -->
+  <section class="visit" id="visit">
+    <div class="container visit-grid">
+      <div class="visit-card">
+        <div class="eyebrow">Visit us</div>
+        <h2 class="section-title">Inside Riverside Market, Christchurch.</h2>
+        <p class="section-intro">Book a table for a proper catch-up, or walk in when the smell of the grill wins the argument.</p>
+        <div class="hours-list">
+          <div class="hours-row"><strong>Monday to Sunday</strong><span>11am to 9pm</span></div>
+          <div class="hours-row"><strong>Address</strong><span><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire);">16/96 Oxford Terrace</a></span></div>
+          <div class="hours-row"><strong>Phone</strong><span><a href="tel:+64272891487">027 289 1487</a></span></div>
+          <div class="hours-row"><strong>Email</strong><span><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a></span></div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a>
+          <a class="btn btn-outline-dark" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+      <a class="map-card" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" aria-label="Open in Google Maps">
+        <div class="map-overlay">
+          <h3 style="font-size: 36px; margin-bottom: 8px;">Hungry already?</h3>
+          <p style="color: rgba(255,255,255,.78);">Tap to open Google Maps and find your way to the fire.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ EVENTS ═══ -->
+  <section class="events" id="events">
+    <div class="container">
+      <div class="eyebrow">Events & private tables</div>
+      <h2 class="section-title">Gatherings around the fire.</h2>
+      <p class="section-intro">From weekly specials to private celebrations, there's always a reason to come hungry.</p>
+      <div class="event-list">
+        <article class="event-card">
+          <div class="event-date">Every week in May</div>
+          <h3>Pasta Night</h3>
+          <p>Our weekly special celebrating the Italian roots of Argentine cuisine. Hand-cut pappardelle with slow-braised ragu or our signature red and white sauce.</p>
+        </article>
+        <article class="event-card">
+          <div class="event-date">Private enquiry</div>
+          <h3>Celebrations around the fire</h3>
+          <p>Birthdays, team dinners, small groups. Get in touch and let us put together something special. Pre-order options available for larger parties.</p>
+        </article>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a class="btn btn-outline-dark" href="mailto:hola@elquincho.co.nz">Enquire About Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVIEWS ═══ -->
+  <section class="reviews">
+    <div class="container">
+      <div class="eyebrow" style="color: var(--gold);">Guest proof</div>
+      <h2 class="section-title">Real words from people who came hungry.</h2>
+      <div class="reviews-grid">
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The parrillada was superbly cooked and absolutely delicious. We'll be back for sure."</p><strong>Mike F.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Empanadas tasted like real Argentinian empanadas. Highly recommended."</p><strong>Agustin V.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Great for special occasions with family or friends. Food is delicious, service is excellent."</p><strong>Sacha B.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER ─── -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div>
+        <h2>Specials, events and fire-side news.</h2>
+        <p>No spam. Just useful updates, offers and reasons to come hungry.</p>
+      </div>
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Thanks!'; this.querySelector('input').value = '';">
+        <input type="email" placeholder="Your email address" required>
+        <button class="btn btn-fire" type="submit">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 style="font-size: 32px; font-style: italic;">El Quincho</h3>
+        <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
+        <p style="margin-top:14px;">Argentine BBQ at Riverside Market, Christchurch. Wood fire, handmade food, Argentine wine, and a table worth sharing.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
+          <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <p><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">16/96 Oxford Terrace<br>Riverside Market<br>Christchurch 8013</a></p>
+        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Get Directions &rarr;</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
+        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ">Facebook</a></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,.3);">
+      <span>&copy; 2026 El Quincho. All rights reserved.</span>
+      <span>Riverside Market, Christchurch NZ</span>
+    </div>
+  </footer>
+
+  <!-- ═══ MOBILE STICKY BAR ═══ -->
+  <div class="mobile-sticky" aria-label="Mobile quick actions">
+    <a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book</a>
+    <a class="btn btn-outline" href="#menu">Menu</a>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    const nav = document.getElementById('nav');
+    const topStrip = document.getElementById('topStrip');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      // Nav scroll effect
+      if (y > 40) {
+        nav.classList.add('is-scrolled');
+        topStrip.classList.add('hidden');
+        nav.style.top = '0';
+      } else {
+        nav.classList.remove('is-scrolled');
+        topStrip.classList.remove('hidden');
+        nav.style.top = '34px';
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        document.querySelector('.nav-links')?.classList.remove('open');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
