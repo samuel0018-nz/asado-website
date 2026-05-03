@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El Quincho interactive menu. Wood-fired Argentine BBQ, empanadas, wines and more at Riverside Market, Christchurch." />
+  <title>Menu | El Quincho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fire: #d4451a;
+      --fire-dark: #a83213;
+      --ember: #f06a2f;
+      --oxblood: #5c1714;
+      --charcoal: #161412;
+      --smoke: #2d2925;
+      --ash: #6d655d;
+      --cream: #fbf4ea;
+      --paper: #fffaf2;
+      --sand: #e8d8c4;
+      --gold: #c6a15b;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(22,20,18,.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(22,20,18,.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    }
+    .nav .container {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--white); }
+    .logo img { width: 38px; height: 38px; object-fit: contain; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
+    .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: rgba(255,255,255,.7); transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; padding: 11px 20px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-fire { background: var(--fire); color: var(--white); }
+    .btn-fire:hover { background: var(--fire-dark); }
+
+    /* ─── MENU TYPE TABS ─── */
+    .menu-tabs-bar {
+      background: var(--paper);
+      border-bottom: 1px solid rgba(22,20,18,.06);
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+    }
+    .menu-tabs-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .menu-tabs-bar .container::-webkit-scrollbar { display: none; }
+
+    .mtab {
+      background: none;
+      border: none;
+      padding: 16px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ash);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: all .2s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .mtab:hover { color: var(--smoke); }
+    .mtab.on { color: var(--fire); border-bottom-color: var(--fire); }
+
+    /* ─── SPECIALS BANNER ─── */
+    .specials-banner {
+      background: linear-gradient(135deg, var(--fire), var(--fire-dark));
+      padding: 18px 0;
+    }
+    .specials-inner {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .specials-inner::-webkit-scrollbar { display: none; }
+
+    .special-chip {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 14px;
+      padding: 16px 22px;
+      cursor: pointer;
+      transition: all .2s;
+      flex: 1;
+      min-width: 260px;
+    }
+    .special-chip:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .special-chip-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,.5); font-weight: 700; margin-bottom: 6px; }
+    .special-chip-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .special-chip-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+    .special-chip-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); font-weight: 700; }
+    .special-chip-desc { font-size: 12px; color: rgba(255,255,255,.65); margin-top: 6px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* ─── MENU BODY ─── */
+    .menu-body { padding: 32px 0 100px; }
+
+    .cat-section { margin-bottom: 40px; }
+    .cat-head { margin-bottom: 6px; }
+    .cat-title { font-size: clamp(26px, 3.5vw, 36px); font-weight: 700; }
+    .cat-line { width: 36px; height: 3px; background: var(--fire); margin-bottom: 8px; border-radius: 2px; }
+    .cat-note { font-size: 13px; color: var(--ash); font-style: italic; margin-bottom: 14px; line-height: 1.6; max-width: 700px; }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    /* ─── ITEM CARD ─── */
+    .item-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all .2s;
+      border: 1px solid rgba(22,20,18,.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .item-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--fire);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .item-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(22,20,18,.08); }
+    .item-card:hover::before { opacity: 1; }
+
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; }
+    .card-name { font-weight: 600; font-size: 15px; color: var(--charcoal); line-height: 1.3; flex: 1; }
+    .card-price { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--fire); white-space: nowrap; }
+
+    .card-desc { font-size: 12.5px; color: var(--ash); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .card-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
+    .tag-v { font-size: 10px; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .tag-note { font-size: 10px; background: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .tag-a { font-size: 11px; }
+
+    /* ─── DRINK CARD ─── */
+    .drink-prices { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .dp { font-size: 11px; background: var(--cream); padding: 3px 9px; border-radius: 10px; color: var(--ash); font-weight: 500; }
+    .dp b { color: var(--fire); font-weight: 700; }
+
+    /* ─── MODAL ─── */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(5px);
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-bg.open { display: flex; }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: 20px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,.25);
+      animation: mslide .25s ease;
+    }
+    @keyframes mslide { from { opacity:0; transform:scale(.96) translateY(12px) } to { opacity:1; transform:scale(1) translateY(0) } }
+
+    .modal-x {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      color: white;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background .2s;
+    }
+    .modal-x:hover { background: var(--fire); }
+
+    .modal-hero {
+      height: 160px;
+      background: linear-gradient(135deg, var(--sand), var(--cream));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px 20px 0 0;
+      font-size: 52px;
+      opacity: .25;
+    }
+
+    .modal-inner { padding: 26px 32px 32px; }
+    .modal-item-name { font-size: 30px; font-weight: 700; margin-bottom: 6px; }
+    .modal-item-price { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--fire); font-weight: 700; margin-bottom: 18px; }
+    .modal-item-desc { font-size: 15px; line-height: 1.75; color: var(--ash); margin-bottom: 18px; }
+    .modal-note { font-size: 13px; color: #e65100; background: #fff3e0; padding: 10px 14px; border-radius: 10px; margin-bottom: 16px; font-style: italic; }
+    .modal-section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ash); font-weight: 700; margin-bottom: 8px; }
+    .modal-allergens { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .modal-allergen { display: flex; align-items: center; gap: 4px; background: var(--cream); padding: 5px 12px; border-radius: 16px; font-size: 12px; color: var(--smoke); font-weight: 500; }
+    .modal-veg { color: #2e7d32; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .modal-drink-sizes { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .modal-size { flex: 1; min-width: 80px; text-align: center; background: var(--cream); padding: 12px; border-radius: 12px; }
+    .modal-size-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ash); margin-bottom: 4px; }
+    .modal-size-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--fire); font-weight: 700; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--charcoal);
+      padding: 24px 0;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,.4);
+    }
+    .footer a { color: var(--fire); }
+
+    /* ─── LOADING ─── */
+    .loading { text-align: center; padding: 80px 24px; color: var(--ash); }
+    .loading-spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--sand);
+      border-top-color: var(--fire);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg) } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .items-grid { grid-template-columns: 1fr; }
+      .modal-bg { padding: 12px; align-items: flex-end; }
+      .modal-box { max-height: 90vh; border-radius: 20px 20px 0 0; }
+      .special-chip { min-width: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <span>El Quincho</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">Find Us</a></li>
+        <li><a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MENU TYPE TABS -->
+  <div class="menu-tabs-bar">
+    <div class="container">
+      <button class="mtab on" data-menu="food">Food</button>
+      <button class="mtab" data-menu="drinks">Drinks</button>
+    </div>
+  </div>
+
+  <!-- SPECIALS BANNER (populated from sheet) -->
+  <div class="specials-banner" id="specialsBanner" style="display:none;">
+    <div class="container">
+      <div class="specials-inner" id="specialsContainer"></div>
+    </div>
+  </div>
+
+  <!-- MENU BODY -->
+  <div class="menu-body">
+    <div class="container">
+      <div id="menuContent">
+        <div class="loading">
+          <div class="loading-spinner"></div>
+          Loading menu...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-bg" id="modal">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-x" id="modalClose">&#x2715;</button>
+      <div class="modal-hero" id="modalHero">&#x1F525;</div>
+      <div class="modal-inner" id="modalInner"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--fire);">El Quincho</a>
+      <p style="margin-top:6px;">16/96 Oxford Terrace, Riverside Market, Christchurch &middot; <a href="tel:+64272891487">027 289 1487</a></p>
+      <p style="margin-top:4px;">Check with our staff for Gluten Free options</p>
+    </div>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════
+    // GOOGLE SHEETS CONFIG
+    // ═══════════════════════════════════════════
+    const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
+    const SHEETS = {
+      food: 'Food Menu',
+      drinks: 'Drinks Menu',
+      specials: 'Specials',
+      notes: 'Category Notes'
+    };
+
+    const ALLERGEN_ICONS = { gluten: '🌾', dairy: '🥛', egg: '🥚', nuts: '🥜', soy: '🫘', fish: '🐟', shellfish: '🦐' };
+    const FOOD_CAT_ORDER = ['Entrees', 'Mains', 'Quickest', 'Sides', 'Dessert', 'Extra'];
+    const DRINK_CAT_ORDER = ['Vino Tinto (Red Wine)', 'Vino Blanco (White Wine)', 'Cerveza (Beer)', 'Cocteles (Cocktails)', 'Soft Drinks'];
+
+    // ═══════════════════════════════════════════
+    // FETCH DATA FROM GOOGLE SHEETS
+    // ═══════════════════════════════════════════
+    async function fetchSheet(sheetName) {
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        // Strip the google wrapper
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const headers = json.table.cols.map(c => c.label || '');
+        const rows = json.table.rows.map(r => {
+          const obj = {};
+          r.c.forEach((cell, i) => {
+            obj[headers[i]] = cell ? (cell.v !== null ? String(cell.v) : '') : '';
+          });
+          return obj;
+        });
+        return rows;
+      } catch (e) {
+        console.error('Failed to fetch sheet:', sheetName, e);
+        return [];
+      }
+    }
+
+    // ═══════════════════════════════════════════
+    // PARSE AND CLEAN DATA
+    // ═══════════════════════════════════════════
+    function parsePrice(val) {
+      if (!val) return null;
+      const n = parseFloat(String(val).replace(/[^0-9.]/g, ''));
+      return isNaN(n) ? null : n;
+    }
+
+    function parseAllergens(val) {
+      if (!val) return [];
+      return val.split(',').map(a => a.trim().toLowerCase()).filter(Boolean);
+    }
+
+    // ═══════════════════════════════════════════
+    // RENDER FUNCTIONS
+    // ═══════════════════════════════════════════
+    function renderFoodMenu(items, notes) {
+      const grouped = {};
+      items.filter(i => i.active === 'Yes').forEach(item => {
+        const cat = item.category || 'Other';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(item);
+      });
+
+      const noteMap = {};
+      notes.forEach(n => {
+        if (!noteMap[n.category]) noteMap[n.category] = [];
+        noteMap[n.category].push(n);
+      });
+
+      let html = '';
+      FOOD_CAT_ORDER.forEach(cat => {
+        const catItems = grouped[cat];
+        if (!catItems || catItems.length === 0) return;
+        catItems.sort((a, b) => (parseInt(a.display_order) || 0) - (parseInt(b.display_order) || 0));
+
+        const topNotes = (noteMap[cat] || []).filter(n => n.display_position === 'top');
+        const bottomNotes = (noteMap[cat] || []).filter(n => n.display_position === 'bottom');
+
+        html += `<div class="cat-section">
+          <div class="cat-head"><h2 class="cat-title">${cat}</h2></div>
+          <div class="cat-line"></div>
+          ${topNotes.map(n => `<div class="cat-note">${n.note_text}</div>`).join('')}
+          <div class="items-grid">
+            ${catItems.map(item => renderFoodCard(item)).join('')}
+          </div>
+          ${bottomNotes.map(n => `<div class="cat-note" style="margin-top:10px;">${n.note_text}</div>`).join('')}
+        </div>`;
+      });
+      return html;
+    }
+
+    function renderFoodCard(item) {
+      const price = parsePrice(item.price);
+      const allergens = parseAllergens(item.allergens);
+      const isVeg = item.vegetarian === 'Yes';
+      const note = item.price_note || '';
+      const includes = item.includes || '';
+
+      return `<div class="item-card" onclick='showModal(${JSON.stringify(item).replace(/'/g, "&#39;")}, "food")'>
+        <div class="card-top">
+          <span class="card-name">${item.item_name}</span>
+          ${price !== null ? `<span class="card-price">$${price}</span>` : ''}
+        </div>
+        ${item.description ? `<div class="card-desc">${item.description}</div>` : ''}
+        <div class="card-tags">
+          ${isVeg ? '<span class="tag-v">Vegetarian</span>' : ''}
+          ${note ? `<span class="tag-note">${note}</span>` : ''}
+          ${includes ? `<span class="tag-note">Incl. ${includes}</span>` : ''}
+          ${allergens.map(a => `<span class="tag-a" title="${a}">${ALLERGEN_ICONS[a] || a}</span>`).join('')}
+        </div>
+      </div>`;
+    }
+
+    function renderDrinksMenu(items, notes) {
+      const grouped = {};
+      items.filter(i => i.active === 'Yes').forEach(item => {
+        const cat = item.category || 'Other';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(item);
+      });
+
+      const noteMap = {};
+      notes.forEach(n => {
+        if (!noteMap[n.category]) noteMap[n.category] = [];
+        noteMap[n.category].push(n);
+      });
+
+      let html = '';
+      DRINK_CAT_ORDER.forEach(cat => {
+        const catItems = grouped[cat];
+        if (!catItems || catItems.length === 0) return;
+        catItems.sort((a, b) => (parseInt(a.display_order) || 0) - (parseInt(b.display_order) || 0));
+
+        const topNotes = (noteMap[cat] || []).filter(n => n.display_position === 'top');
+
+        html += `<div class="cat-section">
+          <div class="cat-head"><h2 class="cat-title">${cat}</h2></div>
+          <div class="cat-line"></div>
+          ${topNotes.map(n => `<div class="cat-note">${n.note_text}</div>`).join('')}
+          <div class="items-grid">
+            ${catItems.map(item => renderDrinkCard(item)).join('')}
+          </div>
+        </div>`;
+      });
+      return html;
+    }
+
+    function renderDrinkCard(item) {
+      const prices = {};
+      if (parsePrice(item.price_150ml)) prices['150ml'] = parsePrice(item.price_150ml);
+      if (parsePrice(item.price_250ml)) prices['250ml'] = parsePrice(item.price_250ml);
+      if (parsePrice(item.price_bottle)) prices['Bottle'] = parsePrice(item.price_bottle);
+      if (parsePrice(item.price_single)) prices[item.volume || ''] = parsePrice(item.price_single);
+
+      const singlePrice = Object.keys(prices).length === 1 ? `$${Object.values(prices)[0]}` : null;
+
+      return `<div class="item-card" onclick='showModal(${JSON.stringify(item).replace(/'/g, "&#39;")}, "drink")'>
+        <div class="card-top">
+          <span class="card-name">${item.item_name}${item.abv ? ` <span class="tag-note">${item.abv}</span>` : ''}</span>
+          ${singlePrice ? `<span class="card-price">${singlePrice}</span>` : ''}
+        </div>
+        ${item.description ? `<div class="card-desc">${item.description}</div>` : ''}
+        ${!singlePrice && Object.keys(prices).length > 0 ? `
+          <div class="drink-prices">
+            ${Object.entries(prices).map(([sz, pr]) => `<span class="dp">${sz ? sz + ' ' : ''}<b>$${pr}</b></span>`).join('')}
+          </div>` : ''}
+      </div>`;
+    }
+
+    function renderSpecials(specials) {
+      const active = specials.filter(s => s.active === 'Yes' && s.item_name);
+      if (active.length === 0) return;
+
+      document.getElementById('specialsBanner').style.display = 'block';
+      const container = document.getElementById('specialsContainer');
+      container.innerHTML = active.map(s => `
+        <div class="special-chip" onclick='showModal(${JSON.stringify(s).replace(/'/g, "&#39;")}, "special")'>
+          <div class="special-chip-label">This Week's Special</div>
+          <div class="special-chip-row">
+            <span class="special-chip-name">${s.item_name}</span>
+            ${s.price ? `<span class="special-chip-price">$${parsePrice(s.price)}</span>` : ''}
+          </div>
+          ${s.description ? `<div class="special-chip-desc">${s.description}</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    // ═══════════════════════════════════════════
+    // MODAL
+    // ═══════════════════════════════════════════
+    function showModal(item, type) {
+      const modal = document.getElementById('modal');
+      const hero = document.getElementById('modalHero');
+      const inner = document.getElementById('modalInner');
+
+      hero.textContent = type === 'drink' ? '🍷' : '🔥';
+
+      let html = `<div class="modal-item-name">${item.item_name}</div>`;
+
+      if (type === 'drink') {
+        const prices = {};
+        if (parsePrice(item.price_150ml)) prices['150ml'] = parsePrice(item.price_150ml);
+        if (parsePrice(item.price_250ml)) prices['250ml'] = parsePrice(item.price_250ml);
+        if (parsePrice(item.price_bottle)) prices['Bottle'] = parsePrice(item.price_bottle);
+        if (parsePrice(item.price_single)) prices[item.volume || 'Glass'] = parsePrice(item.price_single);
+
+        if (Object.keys(prices).length > 0) {
+          html += `<div class="modal-drink-sizes">${Object.entries(prices).map(([sz, pr]) =>
+            `<div class="modal-size"><div class="modal-size-label">${sz}</div><div class="modal-size-price">$${pr}</div></div>`
+          ).join('')}</div>`;
+        }
+        if (item.abv) html += `<div class="modal-note">ABV: ${item.abv}</div>`;
+      } else {
+        const price = parsePrice(item.price);
+        if (price !== null) html += `<div class="modal-item-price">$${price}</div>`;
+      }
+
+      if (item.description) html += `<div class="modal-item-desc">${item.description}</div>`;
+      if (item.price_note) html += `<div class="modal-note">${item.price_note}</div>`;
+      if (item.includes) html += `<div class="modal-note">Includes ${item.includes}</div>`;
+
+      const allergens = parseAllergens(item.allergens);
+      if (allergens.length > 0) {
+        html += `<div class="modal-section-label">Allergens</div>
+          <div class="modal-allergens">${allergens.map(a =>
+            `<span class="modal-allergen">${ALLERGEN_ICONS[a] || ''} ${a}</span>`
+          ).join('')}</div>`;
+      }
+
+      if (item.vegetarian === 'Yes') {
+        html += `<div class="modal-veg">🌿 Vegetarian</div>`;
+      }
+
+      inner.innerHTML = html;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+
+    // ═══════════════════════════════════════════
+    // TAB SWITCHING
+    // ═══════════════════════════════════════════
+    let cachedData = {};
+
+    async function loadMenu(type) {
+      const content = document.getElementById('menuContent');
+
+      if (!cachedData.notes) {
+        cachedData.notes = await fetchSheet(SHEETS.notes);
+      }
+
+      if (type === 'food') {
+        if (!cachedData.food) {
+          content.innerHTML = '<div class="loading"><div class="loading-spinner"></div>Loading food menu...</div>';
+          cachedData.food = await fetchSheet(SHEETS.food);
+        }
+        content.innerHTML = renderFoodMenu(cachedData.food, cachedData.notes);
+      } else {
+        if (!cachedData.drinks) {
+          content.innerHTML = '<div class="loading"><div class="loading-spinner"></div>Loading drinks menu...</div>';
+          cachedData.drinks = await fetchSheet(SHEETS.drinks);
+        }
+        content.innerHTML = renderDrinksMenu(cachedData.drinks, cachedData.notes);
+      }
+    }
+
+    document.querySelectorAll('.mtab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.mtab').forEach(t => t.classList.remove('on'));
+        tab.classList.add('on');
+        loadMenu(tab.dataset.menu);
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // INIT
+    // ═══════════════════════════════════════════
+    async function init() {
+      // Load specials
+      const specials = await fetchSheet(SHEETS.specials);
+      renderSpecials(specials);
+
+      // Load food menu by default
+      await loadMenu('food');
+    }
+
+    init();
+  </script>
+</body>
+</html>
