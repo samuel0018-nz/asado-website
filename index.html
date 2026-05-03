@@ -131,7 +131,7 @@
       gap: 24px;
     }
     .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
-    .logo img { width: 120px; height: 48px; object-fit: contain; filter: brightness(0) invert(1); }
+    .logo img { width: 44px; height: 44px; object-fit: contain; filter: brightness(0) invert(1); }
     .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
     .nav-links a:hover { color: var(--white); }
@@ -139,7 +139,7 @@
 
     /* ─── HERO WITH VIDEO ─── */
     .hero {
-      min-height: 70vh;
+      min-height: 100vh;
       position: relative;
       display: grid;
       align-items: center;
@@ -431,7 +431,7 @@
     <div class="container">
       <a class="logo" href="#top" aria-label="El Quincho home">
         <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
-       
+        <span>El Quincho</span>
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
@@ -454,7 +454,7 @@
         2. Replace YOUR_VIDEO_URL_HERE.mp4 with the file URL
       -->
       <video class="hero-video" autoplay muted loop playsinline poster="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg">
-        <source src="hero.mp4" type="video/mp4">
+        <source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
       <div class="hero-overlay-glow"></div>
@@ -522,78 +522,12 @@
           <h2 class="section-title">What are you hungry for?</h2>
           <p class="section-intro">Fire-grilled perfection, house-made sauces, and everything crafted from scratch.</p>
         </div>
-        <a class="btn btn-outline-dark" href="https://elquincho.co.nz/menus/">Full Interactive Menu</a>
+        <a class="btn btn-outline-dark" href="menu.html">Full Interactive Menu</a>
       </div>
 
-      <div class="menu-grid">
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="El Quincho Parrillada Argentine BBQ platter">
-            <span class="menu-badge">Signature</span>
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>El Quincho Parrillada</h3><span class="price">$96</span></div>
-            <p>The full Argentine BBQ experience with wood-fire grilled meats, grilled bread, chimichurri, criolla and alioli.</p>
-            <div class="tags"><span class="tag">Good to share</span><span class="tag">Wood fire</span><span class="tag">~1.1kg</span></div>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Tomahawk steak cooked over wood fire">
-            <span class="menu-badge">Premium</span>
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>Tomahawk</h3><span class="price">$95</span></div>
-            <p>Big, smoky, juicy and made for the table that came hungry. 600g of wood-fired perfection.</p>
-            <div class="tags"><span class="tag">600g</span><span class="tag">Steak</span><span class="tag">Wood fire</span></div>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="House-made Argentine empanadas">
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>Empanadas</h3><span class="price">$10</span></div>
-            <p>House-made pastry with premium fillings. Carne a cuchillo, pulled pollo, verdura or clasica. Four flavours, one tradition.</p>
-            <div class="tags"><span class="tag">House-made</span><span class="tag">Great starter</span></div>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Ragu Pappardelle weekly special">
-            <span class="menu-badge">This week</span>
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>Ragu Pappardelle</h3><span class="price">$32</span></div>
-            <p>Slow-braised beef ragu in the tradition of Argentine domingo cooking, served over silky hand-cut pappardelle.</p>
-            <div class="tags"><span class="tag">Weekly special</span><span class="tag">Comfort food</span></div>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Argentine Malbec wine">
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>Argentine Malbec</h3><span class="price">From $14</span></div>
-            <p>Selected Argentine reds that sit beautifully next to grilled meats, smoky edges and chimichurri.</p>
-            <div class="tags"><span class="tag">Argentina</span><span class="tag">By glass</span><span class="tag">By bottle</span></div>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-img">
-            <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Choripan Argentine sausage sandwich">
-          </div>
-          <div class="menu-body">
-            <div class="menu-title-row"><h3>Choripan</h3><span class="price">$26</span></div>
-            <p>El Quincho's chorizo, lettuce, tomato, aioli and criolla in housemade sourdough baguette. Simple, proper, satisfying.</p>
-            <div class="tags"><span class="tag">Casual</span><span class="tag">Lunch favourite</span></div>
-          </div>
-        </article>
+      <div class="menu-grid" id="menuHighlights">
+        <!-- Loaded dynamically from Google Sheets -->
+        <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--ash);">Loading menu highlights...</div>
       </div>
     </div>
   </section>
@@ -761,6 +695,69 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // ═══════════════════════════════════════════
+    // LOAD FEATURED MENU ITEMS FROM GOOGLE SHEETS
+    // ═══════════════════════════════════════════
+    const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
+
+    async function fetchSheet(sheetName) {
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const headers = json.table.cols.map(c => c.label || '');
+        return json.table.rows.map(r => {
+          const obj = {};
+          r.c.forEach((cell, i) => { obj[headers[i]] = cell ? (cell.v !== null ? String(cell.v) : '') : ''; });
+          return obj;
+        });
+      } catch (e) { console.error('Sheet fetch error:', e); return []; }
+    }
+
+    async function loadMenuHighlights() {
+      const container = document.getElementById('menuHighlights');
+      try {
+        const items = await fetchSheet('Food Menu');
+        const featured = items.filter(i => i.active === 'Yes' && i.homepage_feature === 'Yes');
+
+        if (featured.length === 0) {
+          container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--ash);">No featured items set. Add homepage_feature = Yes in the spreadsheet.</div>';
+          return;
+        }
+
+        container.innerHTML = featured.map(item => {
+          const price = parseFloat(String(item.price || '').replace(/[^0-9.]/g, ''));
+          const imgUrl = item.image_url || '';
+          const hasImg = imgUrl.length > 5;
+          const allergens = (item.allergens || '').split(',').map(a => a.trim()).filter(Boolean);
+          const isVeg = item.vegetarian === 'Yes';
+
+          return `<article class="menu-item">
+            <div class="menu-img" style="${hasImg ? '' : 'background:linear-gradient(135deg, #412018, #a83a18);'}">
+              ${hasImg ? `<img src="${imgUrl}" alt="${item.item_name}" style="width:100%;height:100%;object-fit:cover;">` : '<span style="font-size:48px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.3;">🔥</span>'}
+            </div>
+            <div class="menu-body">
+              <div class="menu-title-row">
+                <h3>${item.item_name}</h3>
+                ${!isNaN(price) ? `<span class="price">$${price}</span>` : ''}
+              </div>
+              <p>${item.description || ''}</p>
+              <div class="tags">
+                ${item.category ? `<span class="tag">${item.category}</span>` : ''}
+                ${isVeg ? '<span class="tag" style="background:#e8f5e9;color:#2e7d32;">Vegetarian</span>' : ''}
+                ${allergens.slice(0, 2).map(a => `<span class="tag">${a}</span>`).join('')}
+              </div>
+            </div>
+          </article>`;
+        }).join('');
+      } catch (e) {
+        console.error('Failed to load menu highlights:', e);
+      }
+    }
+
+    loadMenuHighlights();
   </script>
 </body>
 </html>
