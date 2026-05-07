@@ -475,17 +475,10 @@
     </div>
   </header>
 
-  <!-- ═══ WEEKLY SPECIALS ═══ -->
-  <section class="live-special" id="specials">
+  <!-- ═══ WEEKLY SPECIALS (loaded from Google Sheet) ═══ -->
+  <section class="live-special" id="specials" style="display:none;">
     <div class="container">
-      <div class="special-card">
-        <div>
-          <span class="special-label">This Week</span>
-          <h2>Pasta Night at El Quincho</h2>
-          <p><strong>Ragu Pappardelle $32</strong> &middot; <strong>Red & White Sauce Pappardelle $30</strong>. Honouring the Italian roots woven into Argentina's culinary soul.</p>
-        </div>
-        <a class="btn btn-dark" href="#menu">See Menu</a>
-      </div>
+      <div class="special-card" id="homeSpecialsCard"></div>
     </div>
   </section>
 
@@ -757,6 +750,39 @@
     }
 
     loadMenuHighlights();
+    loadHomeSpecials();
+
+    async function loadHomeSpecials() {
+      try {
+        const specials = await fetchSheet('Specials');
+        const active = specials.filter(s => s.active === 'Yes' && s.item_name);
+        if (active.length === 0) return;
+
+        const section = document.getElementById('specials');
+        const card = document.getElementById('homeSpecialsCard');
+        if (!section || !card) return;
+        section.style.display = '';
+
+        const itemsText = active.map(s => {
+          const price = parseFloat(String(s.price || '').replace(/[^0-9.]/g, ''));
+          return `<strong>${s.item_name}${!isNaN(price) ? ' $' + price : ''}</strong>`;
+        }).join(' &middot; ');
+
+        const firstDesc = active[0].description || '';
+        const shortDesc = firstDesc.length > 120 ? firstDesc.substring(0, 120) + '...' : firstDesc;
+
+        card.innerHTML = `
+          <div>
+            <span class="special-label">This Week's Specials</span>
+            <h2 style="font-size:28px; margin-bottom:6px;">${itemsText}</h2>
+            ${shortDesc ? `<p>${shortDesc}</p>` : ''}
+          </div>
+          <a class="btn btn-dark" href="menu.html">See Menu</a>
+        `;
+      } catch (e) {
+        console.error('Failed to load specials:', e);
+      }
+    }
   </script>
 </body>
 </html>
