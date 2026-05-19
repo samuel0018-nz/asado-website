@@ -307,10 +307,11 @@
 
     /* ─── REVIEWS ─── */
     .reviews { padding: 96px 0; background: var(--oxblood); color: white; }
-    .reviews-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 34px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 34px; }
     .review { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 26px; }
     .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
     .review p { color: rgba(255,255,255,.78); font-style: italic; margin-bottom: 14px; }
+    .review-meta { font-size: 12px; color: rgba(255,255,255,.5); }
 
     /* ─── NEWSLETTER ─── */
     .newsletter { padding: 70px 0; background: var(--charcoal); color: white; }
@@ -596,14 +597,14 @@
   </section>
 
   <!-- ═══ REVIEWS ═══ -->
-  <section class="reviews">
+  <section class="reviews" id="reviews">
     <div class="container">
       <div class="eyebrow" style="color: var(--gold);">Guest proof</div>
       <h2 class="section-title">Real words from people who came hungry.</h2>
-      <div class="reviews-grid">
-        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The parrillada was superbly cooked and absolutely delicious. We'll be back for sure."</p><strong>Mike F.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
-        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Empanadas tasted like real Argentinian empanadas. Highly recommended."</p><strong>Agustin V.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
-        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Great for special occasions with family or friends. Food is delicious, service is excellent."</p><strong>Sacha B.</strong><br><span style="font-size:12px; color:rgba(255,255,255,.5);">Google Review</span></div>
+      <div class="reviews-grid" id="reviewsGrid" aria-live="polite">
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The parrillada was superbly cooked and absolutely delicious. We'll be back for sure."</p><strong>Mike F.</strong><br><span class="review-meta">Google Review</span></div>
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Empanadas tasted like real Argentinian empanadas. Highly recommended."</p><strong>Agustin V.</strong><br><span class="review-meta">Google Review</span></div>
+        <div class="review"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Great for special occasions with family or friends. Food is delicious, service is excellent."</p><strong>Sacha B.</strong><br><span class="review-meta">Google Review</span></div>
       </div>
     </div>
   </section>
@@ -780,6 +781,60 @@
       applyBackgroundAsset(assets, 'map_background', '[data-site-background="map_background"]');
     }
 
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
+
+    function formatReviewDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.valueOf())) return '';
+      return new Intl.DateTimeFormat('en-NZ', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(date);
+    }
+
+    function renderReviewCard(review) {
+      const authorName = escapeHtml(review.authorName || 'A Google user');
+      const text = escapeHtml(review.text || '');
+      const displayDate = escapeHtml(review.displayDate || formatReviewDate(review.reviewedAt));
+      const meta = displayDate ? `Google Review &middot; ${displayDate}` : 'Google Review';
+
+      return `<article class="review">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;${text}&rdquo;</p>
+        <strong>${authorName}</strong><br>
+        <span class="review-meta">${meta}</span>
+      </article>`;
+    }
+
+    async function loadLatestReviews() {
+      const container = document.getElementById('reviewsGrid');
+      if (!container) return;
+
+      try {
+        const res = await fetch('data/reviews.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Review data request failed: ${res.status}`);
+
+        const payload = await res.json();
+        const reviews = Array.isArray(payload.reviews)
+          ? payload.reviews.filter(review => Number(review.rating) === 5 && review.text).slice(0, 5)
+          : [];
+
+        if (reviews.length === 0) return;
+        container.innerHTML = reviews.map(renderReviewCard).join('');
+      } catch (e) {
+        console.warn('Using fallback reviews:', e);
+      }
+    }
+
     async function loadMenuHighlights() {
       const container = document.getElementById('menuHighlights');
       try {
@@ -824,6 +879,7 @@
     loadMenuHighlights();
     loadHomeSpecials();
     applySiteAssets();
+    loadLatestReviews();
 
     async function loadHomeSpecials() {
       try {
