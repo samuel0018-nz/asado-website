@@ -68,7 +68,7 @@
       gap: 16px;
     }
     .logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--white); }
-    .logo img { width: 100px; height: 100px; object-fit: contain; filter: brightness(0) invert(1); }
+    .logo img { width: 100px; height: 100px; object-fit: contain; }
     .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
     .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: rgba(255,255,255,.7); transition: color .2s; }
     .nav-links a:hover { color: var(--white); }
@@ -277,6 +277,7 @@
       color: rgba(255,255,255,.4);
     }
     .footer a { color: var(--fire); }
+    .footer-logo { display: block; width: min(140px, 100%); height: auto; margin: 0 auto 8px; }
 
     /* ─── LOADING ─── */
     .loading { text-align: center; padding: 80px 24px; color: var(--ash); }
@@ -306,7 +307,7 @@
   <nav class="nav">
     <div class="container">
       <a class="logo" href="index.html">
-        <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -355,7 +356,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <a href="index.html" style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--fire);">El Quincho</a>
+      <a href="index.html" aria-label="El Quincho home"><img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo"></a>
       <p style="margin-top:6px;">16/96 Oxford Terrace, Riverside Market, Christchurch &middot; <a href="tel:+64272891487">027 289 1487</a></p>
       <p style="margin-top:4px;">Check with our staff for Gluten Free options</p>
     </div>
@@ -370,7 +371,8 @@
       food: 'Food Menu',
       drinks: 'Drinks Menu',
       specials: 'Specials',
-      notes: 'Category Notes'
+      notes: 'Category Notes',
+      siteAssets: 'Site Assets'
     };
 
     const ALLERGEN_ICONS = { gluten: '🌾', dairy: '🥛', egg: '🥚', nuts: '🥜', soy: '🫘', fish: '🐟', shellfish: '🦐' };
@@ -380,8 +382,9 @@
     // ═══════════════════════════════════════════
     // FETCH DATA FROM GOOGLE SHEETS
     // ═══════════════════════════════════════════
-    async function fetchSheet(sheetName) {
-      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+    async function fetchSheet(sheetName, options = {}) {
+      const headersParam = options.headers ? `&headers=${encodeURIComponent(options.headers)}` : '';
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}${headersParam}`;
       try {
         const res = await fetch(url);
         const text = await res.text();
@@ -400,6 +403,56 @@
         console.error('Failed to fetch sheet:', sheetName, e);
         return [];
       }
+    }
+
+    function normalizeAssetUrl(value, type) {
+      const raw = String(value || '').trim();
+      if (!raw) return '';
+
+      const driveFileMatch = raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/);
+      const driveIdMatch = raw.match(/[?&]id=([^&]+)/);
+      const driveId = driveFileMatch?.[1] || driveIdMatch?.[1];
+
+      if (driveId && String(type || '').toLowerCase() === 'image') {
+        return `https://drive.google.com/thumbnail?id=${driveId}&sz=w1600`;
+      }
+
+      return raw;
+    }
+
+    async function loadSiteAssets() {
+      const rows = await fetchSheet(SHEETS.siteAssets, { headers: 1 });
+      return rows.reduce((assets, row) => {
+        const key = String(row.key || '').trim();
+        const type = String(row.type || '').trim();
+        const active = String(row.active || '').trim().toLowerCase();
+        const value = normalizeAssetUrl(row.value, type);
+
+        if (!key || active !== 'yes' || !value) return assets;
+        assets[key] = {
+          type,
+          value,
+          alt: String(row.alt || '').trim()
+        };
+        return assets;
+      }, {});
+    }
+
+    function applyImageAsset(assets, key, selector) {
+      const asset = assets[key];
+      if (!asset?.value) return;
+
+      document.querySelectorAll(selector).forEach(img => {
+        img.src = asset.value;
+        if (asset.alt) img.alt = asset.alt;
+      });
+    }
+
+    async function applySiteLogos() {
+      const assets = await loadSiteAssets();
+      applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
+      applyImageAsset(assets, 'logo_black', '[data-site-logo="black"]');
+      applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
     }
 
     // ═══════════════════════════════════════════
@@ -673,6 +726,8 @@
     // INIT
     // ═══════════════════════════════════════════
     async function init() {
+      applySiteLogos();
+
       // Load specials
       const specials = await fetchSheet(SHEETS.specials);
       renderSpecials(specials);

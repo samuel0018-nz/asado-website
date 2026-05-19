@@ -131,7 +131,7 @@
       gap: 24px;
     }
     .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
-    .logo img { width: 100px; height: 100px; object-fit: contain; filter: brightness(0) invert(1); }
+    .logo img { width: 100px; height: 100px; object-fit: contain; }
     .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
     .nav-links a:hover { color: var(--white); }
@@ -323,6 +323,7 @@
     .footer { background: var(--smoke); color: rgba(255,255,255,.65); padding: 58px 0 100px; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
     .footer h3, .footer h4 { color: white; margin-bottom: 14px; }
+    .footer-logo { width: min(170px, 100%); height: auto; margin-bottom: 10px; }
     .footer a:hover { color: var(--gold); }
     .footer ul { list-style: none; display: grid; gap: 9px; }
 
@@ -430,7 +431,7 @@
   <nav class="nav" id="nav">
     <div class="container">
       <a class="logo" href="#top" aria-label="El Quincho home">
-        <img src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
@@ -621,7 +622,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <h3 style="font-size: 32px; font-style: italic;">El Quincho</h3>
+        <img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
         <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
         <p style="margin-top:14px;">Argentine BBQ at Riverside Market, Christchurch. Wood fire, handmade food, Argentine wine, and a table worth sharing.</p>
       </div>
@@ -692,9 +693,11 @@
     // LOAD FEATURED MENU ITEMS FROM GOOGLE SHEETS
     // ═══════════════════════════════════════════
     const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
+    const SITE_ASSETS_SHEET = 'Site Assets';
 
-    async function fetchSheet(sheetName) {
-      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+    async function fetchSheet(sheetName, options = {}) {
+      const headersParam = options.headers ? `&headers=${encodeURIComponent(options.headers)}` : '';
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}${headersParam}`;
       try {
         const res = await fetch(url);
         const text = await res.text();
@@ -706,6 +709,56 @@
           return obj;
         });
       } catch (e) { console.error('Sheet fetch error:', e); return []; }
+    }
+
+    function normalizeAssetUrl(value, type) {
+      const raw = String(value || '').trim();
+      if (!raw) return '';
+
+      const driveFileMatch = raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/);
+      const driveIdMatch = raw.match(/[?&]id=([^&]+)/);
+      const driveId = driveFileMatch?.[1] || driveIdMatch?.[1];
+
+      if (driveId && String(type || '').toLowerCase() === 'image') {
+        return `https://drive.google.com/thumbnail?id=${driveId}&sz=w1600`;
+      }
+
+      return raw;
+    }
+
+    async function loadSiteAssets() {
+      const rows = await fetchSheet(SITE_ASSETS_SHEET, { headers: 1 });
+      return rows.reduce((assets, row) => {
+        const key = String(row.key || '').trim();
+        const type = String(row.type || '').trim();
+        const active = String(row.active || '').trim().toLowerCase();
+        const value = normalizeAssetUrl(row.value, type);
+
+        if (!key || active !== 'yes' || !value) return assets;
+        assets[key] = {
+          type,
+          value,
+          alt: String(row.alt || '').trim()
+        };
+        return assets;
+      }, {});
+    }
+
+    function applyImageAsset(assets, key, selector) {
+      const asset = assets[key];
+      if (!asset?.value) return;
+
+      document.querySelectorAll(selector).forEach(img => {
+        img.src = asset.value;
+        if (asset.alt) img.alt = asset.alt;
+      });
+    }
+
+    async function applySiteLogos() {
+      const assets = await loadSiteAssets();
+      applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
+      applyImageAsset(assets, 'logo_black', '[data-site-logo="black"]');
+      applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
     }
 
     async function loadMenuHighlights() {
@@ -751,6 +804,7 @@
 
     loadMenuHighlights();
     loadHomeSpecials();
+    applySiteLogos();
 
     async function loadHomeSpecials() {
       try {
