@@ -52,39 +52,85 @@
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
+    /* ─── TOP STRIP ─── */
+    .top-strip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: var(--charcoal);
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      transition: transform .3s ease;
+    }
+    .top-strip.hidden { transform: translateY(-100%); }
+    .top-strip .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    .top-strip a:hover { color: var(--gold); }
+    .top-actions { display: flex; gap: 18px; align-items: center; }
+
     /* ─── NAV ─── */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(22,20,18,.97);
+      position: fixed;
+      top: 34px;
+      left: 0;
+      right: 0;
+      z-index: 79;
+      transition: all .25s ease;
+      color: var(--white);
+      background: rgba(22,20,18,.95);
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
     }
+    .nav.is-scrolled { top: 0; background: rgba(22,20,18,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
     .nav .container {
-      min-height: 68px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 24px;
     }
-    .logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--white); }
-    .logo img { width: clamp(210px, 15vw, 260px); height: auto; object-fit: contain; margin-inline: -63px; }
-    .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
-    .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: rgba(255,255,255,.7); transition: color .2s; }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
+    .logo img { width: clamp(220px, 16vw, 280px); height: auto; object-fit: contain; margin-inline: -68px; }
+    .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
+    .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
     .nav-links a:hover { color: var(--white); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; padding: 11px 20px; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
+    .mobile-toggle { display: none; background: transparent; border: 0; color: white; font-size: 28px; cursor: pointer; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      min-height: 50px;
+    }
     .btn:hover { transform: translateY(-2px); }
-    .btn-fire { background: var(--fire); color: var(--white); }
+    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(212,69,26,.3); }
     .btn-fire:hover { background: var(--fire-dark); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
 
     /* ─── MENU TYPE TABS ─── */
     .menu-tabs-bar {
       background: var(--paper);
       border-bottom: 1px solid rgba(22,20,18,.06);
       position: sticky;
-      top: 68px;
-      z-index: 90;
+      top: 78px;
+      z-index: 70;
+      margin-top: 112px;
     }
     .menu-tabs-bar .container {
       display: flex;
@@ -270,15 +316,27 @@
     .modal-size-price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--fire); font-weight: 700; }
 
     /* ─── FOOTER ─── */
-    .footer {
-      background: var(--charcoal);
-      padding: 24px 0;
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255,255,255,.4);
+    .footer { background: var(--smoke); color: rgba(255,255,255,.65); padding: 58px 0 100px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+    .footer h3, .footer h4 { color: white; margin-bottom: 14px; }
+    .footer-logo { width: min(320px, 100%); height: auto; margin: 0 0 12px -78px; }
+    .footer a:hover { color: var(--gold); }
+    .footer ul { list-style: none; display: grid; gap: 9px; }
+
+    /* ─── MOBILE STICKY ─── */
+    .mobile-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(22,20,18,.96);
+      z-index: 90;
+      display: none;
+      gap: 8px;
+      padding: 10px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,.22);
     }
-    .footer a { color: var(--fire); }
-    .footer-logo { display: block; width: min(300px, 100%); height: auto; margin: 0 auto 8px; }
+    .mobile-sticky .btn { flex: 1; min-height: 46px; padding: 12px; font-size: 11px; }
 
     /* ─── LOADING ─── */
     .loading { text-align: center; padding: 80px 24px; color: var(--ash); }
@@ -293,28 +351,67 @@
     @keyframes spin { to { transform: rotate(360deg) } }
 
     /* ─── RESPONSIVE ─── */
+    @media (max-width: 940px) {
+      .top-actions { display: none; }
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(22,20,18,.98);
+        padding: 20px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .logo img { width: 210px; margin-inline: -51px; }
-      .footer-logo { width: min(260px, 100%); }
+      .container { width: min(100% - 28px, 1180px); }
+      .top-strip { display: none; }
+      .nav { top: 0; background: rgba(22,20,18,.92); }
+      .menu-tabs-bar { margin-top: 78px; top: 78px; }
+      .logo img { width: 220px; margin-inline: -54px; }
+      .footer-logo { width: min(280px, 100%); margin-left: -68px; }
+      .footer-grid { grid-template-columns: 1fr; }
       .items-grid { grid-template-columns: 1fr; }
       .modal-bg { padding: 12px; align-items: flex-end; }
       .modal-box { max-height: 90vh; border-radius: 20px 20px 0 0; }
       .special-chip { min-width: 240px; }
+      .mobile-sticky { display: flex; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
+  <!-- ADDRESS STRIP -->
+  <div class="top-strip" id="topStrip">
     <div class="container">
-      <a class="logo" href="index.html">
+      <a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">&#x1F4CD; 16/96 Oxford Terrace, Riverside Market, Christchurch</a>
+      <div class="top-actions">
+        <a href="tel:+64272891487">027 289 1487</a>
+        <a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a class="logo" href="index.html" aria-label="El Quincho home">
         <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
       </a>
+      <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">Find Us</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#visit">Visit</a></li>
+        <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
         <li><a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
       </ul>
     </div>
@@ -358,14 +455,72 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <a href="index.html" aria-label="El Quincho home"><img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo"></a>
-      <p style="margin-top:6px;">16/96 Oxford Terrace, Riverside Market, Christchurch &middot; <a href="tel:+64272891487">027 289 1487</a></p>
-      <p style="margin-top:4px;">Check with our staff for Gluten Free options</p>
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
+        <p style="margin-top:14px;">Argentine BBQ at Riverside Market, Christchurch. Wood fire, handmade food, Argentine wine, and a table worth sharing.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
+          <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <p><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">16/96 Oxford Terrace<br>Riverside Market<br>Christchurch 8013</a></p>
+        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Get Directions &rarr;</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
+        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ">Facebook</a></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,.3);">
+      <span>&copy; 2026 El Quincho. All rights reserved.</span>
+      <span>Riverside Market, Christchurch NZ</span>
     </div>
   </footer>
 
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-sticky" aria-label="Mobile quick actions">
+    <a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book</a>
+    <a class="btn btn-outline" href="menu.html">Menu</a>
+  </div>
+
   <script>
+    const nav = document.getElementById('nav');
+    const topStrip = document.getElementById('topStrip');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 40) {
+        nav.classList.add('is-scrolled');
+        topStrip.classList.add('hidden');
+        nav.style.top = '0';
+      } else {
+        nav.classList.remove('is-scrolled');
+        topStrip.classList.remove('hidden');
+        nav.style.top = window.matchMedia('(max-width: 640px)').matches ? '0' : '34px';
+      }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        document.querySelector('.nav-links')?.classList.remove('open');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
     // ═══════════════════════════════════════════
     // GOOGLE SHEETS CONFIG
     // ═══════════════════════════════════════════

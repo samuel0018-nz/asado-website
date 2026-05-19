@@ -433,14 +433,14 @@
   <!-- ═══ NAVIGATION ═══ -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a class="logo" href="#top" aria-label="El Quincho home">
+      <a class="logo" href="index.html" aria-label="El Quincho home">
         <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#visit">Visit</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#visit">Visit</a></li>
         <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
         <li><a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
       </ul>
@@ -632,9 +632,9 @@
       <div>
         <h4>Navigate</h4>
         <ul>
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="menu.html">Menu</a></li>
           <li><a href="https://elquincho.co.nz/book-a-table/">Book a Table</a></li>
-          <li><a href="#events">Events</a></li>
+          <li><a href="index.html#events">Events</a></li>
           <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
           <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
         </ul>
@@ -659,7 +659,7 @@
   <!-- ═══ MOBILE STICKY BAR ═══ -->
   <div class="mobile-sticky" aria-label="Mobile quick actions">
     <a class="btn btn-fire" href="https://elquincho.co.nz/book-a-table/">Book</a>
-    <a class="btn btn-outline" href="#menu">Menu</a>
+    <a class="btn btn-outline" href="menu.html">Menu</a>
   </div>
 
   <!-- ═══ SCRIPTS ═══ -->
@@ -677,7 +677,7 @@
       } else {
         nav.classList.remove('is-scrolled');
         topStrip.classList.remove('hidden');
-        nav.style.top = '34px';
+        nav.style.top = window.matchMedia('(max-width: 640px)').matches ? '0' : '34px';
       }
     });
 
