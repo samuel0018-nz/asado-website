@@ -501,8 +501,8 @@
           Upload photos to WordPress Media Library, then replace the src URLs below.
           Ideal: one photo of the fire/grill, one of a plated dish.
         -->
-        <img class="main-photo" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Wood-fired grill at El Quincho Christchurch">
-        <img class="small-photo" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Argentine BBQ served at El Quincho">
+        <img class="main-photo" data-site-image="story_main_image" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Wood-fired grill at El Quincho Christchurch">
+        <img class="small-photo" data-site-image="story_small_image" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Argentine BBQ served at El Quincho">
         <div class="stamp">Made from scratch</div>
       </div>
     </div>
@@ -560,7 +560,7 @@
           <a class="btn btn-outline-dark" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">Get Directions</a>
         </div>
       </div>
-      <a class="map-card" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" aria-label="Open in Google Maps">
+      <a class="map-card" data-site-background="map_background" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" aria-label="Open in Google Maps">
         <div class="map-overlay">
           <h3 style="font-size: 36px; margin-bottom: 8px;">Hungry already?</h3>
           <p style="color: rgba(255,255,255,.78);">Tap to open Google Maps and find your way to the fire.</p>
@@ -756,11 +756,25 @@
       });
     }
 
-    async function applySiteLogos() {
+    function applyBackgroundAsset(assets, key, selector) {
+      const asset = assets[key];
+      if (!asset?.value) return;
+
+      document.querySelectorAll(selector).forEach(element => {
+        const image = new Image();
+        image.onload = () => { element.style.backgroundImage = `url("${asset.value}")`; };
+        image.src = asset.value;
+      });
+    }
+
+    async function applySiteAssets() {
       const assets = await loadSiteAssets();
       applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
       applyImageAsset(assets, 'logo_black', '[data-site-logo="black"]');
       applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
+      applyImageAsset(assets, 'story_main_image', '[data-site-image="story_main_image"]');
+      applyImageAsset(assets, 'story_small_image', '[data-site-image="story_small_image"]');
+      applyBackgroundAsset(assets, 'map_background', '[data-site-background="map_background"]');
     }
 
     async function loadMenuHighlights() {
@@ -806,7 +820,7 @@
 
     loadMenuHighlights();
     loadHomeSpecials();
-    applySiteLogos();
+    applySiteAssets();
 
     async function loadHomeSpecials() {
       try {
