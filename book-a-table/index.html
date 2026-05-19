@@ -96,7 +96,7 @@
       gap: 24px;
     }
     .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
-    .logo img { width: clamp(220px, 16vw, 280px); height: auto; object-fit: contain; margin-inline: -68px; }
+    .logo img { width: clamp(180px, 14vw, 240px); height: auto; object-fit: contain; margin-inline: 0; }
     .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
     .nav-links a:hover { color: var(--white); }
@@ -165,7 +165,7 @@
     .footer { background: var(--smoke); color: rgba(255,255,255,.65); padding: 58px 0 100px; }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
     .footer h3, .footer h4 { color: white; margin-bottom: 14px; }
-    .footer-logo { width: min(320px, 100%); height: auto; margin: 0 0 12px -78px; }
+    .footer-logo { width: min(260px, 100%); height: auto; margin: 0 0 12px; }
     .footer a:hover { color: var(--gold); }
     .footer ul { list-style: none; display: grid; gap: 9px; }
 
@@ -211,8 +211,8 @@
       .booking-section { padding-bottom: 84px; }
       .booking-frame-wrap { border-radius: 0; width: calc(100% + 28px); margin-left: -14px; }
       .booking-frame { min-height: 760px; }
-      .logo img { width: 220px; margin-inline: -54px; }
-      .footer-logo { width: min(280px, 100%); margin-left: -68px; }
+      .logo img { width: 150px; margin-inline: 0; }
+      .footer-logo { width: 180px; margin-left: 0; }
       .footer-grid { grid-template-columns: 1fr; }
       .mobile-sticky { display: flex; }
     }
@@ -237,6 +237,7 @@
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
         <li><a href="../menu.html">Menu</a></li>
         <li><a href="../index.html#events">Events</a></li>
         <li><a href="../index.html#visit">Visit</a></li>
@@ -280,6 +281,7 @@
       <div>
         <h4>Navigate</h4>
         <ul>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="../menu.html">Menu</a></li>
           <li><a href="./">Book a Table</a></li>
           <li><a href="../index.html#events">Events</a></li>
