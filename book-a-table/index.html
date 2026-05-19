@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a table at El Quincho, Argentine BBQ at Riverside Market, Christchurch." />
+  <title>Book a Table | El Quincho</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --fire: #d4451a;
+      --fire-dark: #a83213;
+      --ember: #f06a2f;
+      --oxblood: #5c1714;
+      --charcoal: #161412;
+      --smoke: #2d2925;
+      --ash: #6d655d;
+      --cream: #fbf4ea;
+      --paper: #fffaf2;
+      --sand: #e8d8c4;
+      --gold: #c6a15b;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(22,20,18,.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .top-strip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: var(--charcoal);
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      transition: transform .3s ease;
+    }
+    .top-strip.hidden { transform: translateY(-100%); }
+    .top-strip .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    .top-strip a:hover { color: var(--gold); }
+    .top-actions { display: flex; gap: 18px; align-items: center; }
+
+    .nav {
+      position: fixed;
+      top: 34px;
+      left: 0;
+      right: 0;
+      z-index: 79;
+      transition: all .25s ease;
+      color: var(--white);
+      background: rgba(22,20,18,.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+    .nav.is-scrolled { top: 0; background: rgba(22,20,18,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+    .nav .container {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
+    .logo img { width: clamp(220px, 16vw, 280px); height: auto; object-fit: contain; margin-inline: -68px; }
+    .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
+    .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
+    .nav-links a:hover { color: var(--white); }
+    .mobile-toggle { display: none; background: transparent; border: 0; color: white; font-size: 28px; cursor: pointer; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      min-height: 50px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(212,69,26,.3); }
+    .btn-fire:hover { background: var(--fire-dark); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
+
+    .booking-hero {
+      padding: 170px 0 42px;
+      background: linear-gradient(90deg, rgba(22,20,18,.96), rgba(92,23,20,.86));
+      color: var(--white);
+    }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2.6px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .booking-hero h1 { font-size: clamp(42px, 6vw, 76px); margin-bottom: 16px; }
+    .booking-hero p { max-width: 680px; color: rgba(255,255,255,.78); font-size: 18px; }
+
+    .booking-section { padding: 42px 0 96px; background: var(--cream); }
+    .booking-frame-wrap {
+      background: var(--charcoal);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(22,20,18,.08);
+    }
+    .booking-frame {
+      display: block;
+      width: 100%;
+      min-height: 720px;
+      border: 0;
+      background: var(--charcoal);
+    }
+    .booking-note {
+      color: var(--ash);
+      font-size: 14px;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .booking-note a { color: var(--fire); font-weight: 700; }
+
+    .footer { background: var(--smoke); color: rgba(255,255,255,.65); padding: 58px 0 100px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+    .footer h3, .footer h4 { color: white; margin-bottom: 14px; }
+    .footer-logo { width: min(320px, 100%); height: auto; margin: 0 0 12px -78px; }
+    .footer a:hover { color: var(--gold); }
+    .footer ul { list-style: none; display: grid; gap: 9px; }
+
+    .mobile-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(22,20,18,.96);
+      z-index: 90;
+      display: none;
+      gap: 8px;
+      padding: 10px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,.22);
+    }
+    .mobile-sticky .btn { flex: 1; min-height: 46px; padding: 12px; font-size: 11px; }
+
+    @media (max-width: 940px) {
+      .top-actions { display: none; }
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(22,20,18,.98);
+        padding: 20px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .mobile-toggle { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .top-strip { display: none; }
+      .nav { top: 0; background: rgba(22,20,18,.92); }
+      .booking-hero { padding-top: 120px; }
+      .booking-section { padding-bottom: 84px; }
+      .booking-frame-wrap { border-radius: 0; width: calc(100% + 28px); margin-left: -14px; }
+      .booking-frame { min-height: 760px; }
+      .logo img { width: 220px; margin-inline: -54px; }
+      .footer-logo { width: min(280px, 100%); margin-left: -68px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .mobile-sticky { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-strip" id="topStrip">
+    <div class="container">
+      <a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">&#x1F4CD; 16/96 Oxford Terrace, Riverside Market, Christchurch</a>
+      <div class="top-actions">
+        <a href="tel:+64272891487">027 289 1487</a>
+        <a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a class="logo" href="../index.html" aria-label="El Quincho home">
+        <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+      </a>
+      <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../menu.html">Menu</a></li>
+        <li><a href="../index.html#events">Events</a></li>
+        <li><a href="../index.html#visit">Visit</a></li>
+        <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
+        <li><a class="btn btn-fire" href="./">Book a Table</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="booking-hero">
+      <div class="container">
+        <div class="eyebrow">Reserve your table</div>
+        <h1>Book a table at El Quincho.</h1>
+        <p>Choose your date, time and party size below. For larger groups or private events, contact us directly and we will help shape the evening.</p>
+      </div>
+    </section>
+
+    <section class="booking-section" aria-label="Booking widget">
+      <div class="container">
+        <div class="booking-frame-wrap">
+          <iframe
+            class="booking-frame"
+            title="Now Book It reservations for El Quincho"
+            src="https://bookings.nowbookit.com/layout-view?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;theme=dark&amp;colors=hex,000000,ffffff"
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="booking-note">If the booking widget does not load, <a href="https://bookings.nowbookit.com/layout-view?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;theme=dark&amp;colors=hex,000000,ffffff" target="_blank" rel="noopener">open bookings in a new tab</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
+        <p style="margin-top:14px;">Argentine BBQ at Riverside Market, Christchurch. Wood fire, handmade food, Argentine wine, and a table worth sharing.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="../menu.html">Menu</a></li>
+          <li><a href="./">Book a Table</a></li>
+          <li><a href="../index.html#events">Events</a></li>
+          <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
+          <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <p><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">16/96 Oxford Terrace<br>Riverside Market<br>Christchurch 8013</a></p>
+        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Get Directions &rarr;</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
+        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ">Facebook</a></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,.3);">
+      <span>&copy; 2026 El Quincho. All rights reserved.</span>
+      <span>Riverside Market, Christchurch NZ</span>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky" aria-label="Mobile quick actions">
+    <a class="btn btn-fire" href="./">Book</a>
+    <a class="btn btn-outline" href="../menu.html">Menu</a>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const topStrip = document.getElementById('topStrip');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 40) {
+        nav.classList.add('is-scrolled');
+        topStrip.classList.add('hidden');
+        nav.style.top = '0';
+      } else {
+        nav.classList.remove('is-scrolled');
+        topStrip.classList.remove('hidden');
+        nav.style.top = window.matchMedia('(max-width: 640px)').matches ? '0' : '34px';
+      }
+    });
+
+    const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
+    const SITE_ASSETS_SHEET = 'Site Assets';
+
+    async function fetchSheet(sheetName, options = {}) {
+      const headersParam = options.headers ? `&headers=${encodeURIComponent(options.headers)}` : '';
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}${headersParam}`;
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const headers = json.table.cols.map(c => c.label || '');
+        return json.table.rows.map(r => {
+          const obj = {};
+          r.c.forEach((cell, i) => { obj[headers[i]] = cell ? (cell.v !== null ? String(cell.v) : '') : ''; });
+          return obj;
+        });
+      } catch (e) { console.error('Sheet fetch error:', e); return []; }
+    }
+
+    function normalizeAssetUrl(value, type) {
+      const raw = String(value || '').trim();
+      if (!raw) return '';
+      const driveFileMatch = raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/);
+      const driveIdMatch = raw.match(/[?&]id=([^&]+)/);
+      const driveId = driveFileMatch?.[1] || driveIdMatch?.[1];
+      if (driveId && String(type || '').toLowerCase() === 'image') {
+        return `https://drive.google.com/thumbnail?id=${driveId}&sz=w1600`;
+      }
+      return raw;
+    }
+
+    async function loadSiteAssets() {
+      const rows = await fetchSheet(SITE_ASSETS_SHEET, { headers: 1 });
+      return rows.reduce((assets, row) => {
+        const key = String(row.key || '').trim();
+        const type = String(row.type || '').trim();
+        const active = String(row.active || '').trim().toLowerCase();
+        const value = normalizeAssetUrl(row.value, type);
+        if (!key || active !== 'yes' || !value) return assets;
+        assets[key] = { type, value, alt: String(row.alt || '').trim() };
+        return assets;
+      }, {});
+    }
+
+    function applyImageAsset(assets, key, selector) {
+      const asset = assets[key];
+      if (!asset?.value) return;
+      document.querySelectorAll(selector).forEach(img => {
+        img.src = asset.value;
+        if (asset.alt) img.alt = asset.alt;
+      });
+    }
+
+    async function applySiteAssets() {
+      const assets = await loadSiteAssets();
+      applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
+      applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
+    }
+
+    applySiteAssets();
+  </script>
+</body>
+</html>
