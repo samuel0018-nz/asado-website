@@ -3,25 +3,64 @@ name: Sync Google reviews
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 18 * * *'
+    # Runs daily at 18:23 UTC (06:23 NZST / 07:23 NZDT).
+    # GitHub schedules can be delayed or dropped around the top of the hour.
+    - cron: '23 18 * * *'
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: sync-google-reviews-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.0
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6.4.0
         with:
-          node-version: '20'
+          node-version: '24.18.0'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "No package-lock.json found; sync uses built-in Node.js APIs only."
+          fi
 
       - name: Test review transform
         run: node scripts/test-sync-google-reviews.mjs
+
+      - name: Validate required secrets
+        env:
+          HAS_GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID != '' }}
+          HAS_GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET != '' }}
+          HAS_GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN != '' }}
+          HAS_GBP_ACCOUNT_ID: ${{ secrets.GBP_ACCOUNT_ID != '' }}
+          HAS_GBP_LOCATION_ID: ${{ secrets.GBP_LOCATION_ID != '' }}
+        run: |
+          missing=()
+          [ "$HAS_GOOGLE_CLIENT_ID" = "true" ] || missing+=("GOOGLE_CLIENT_ID")
+          [ "$HAS_GOOGLE_CLIENT_SECRET" = "true" ] || missing+=("GOOGLE_CLIENT_SECRET")
+          [ "$HAS_GOOGLE_REFRESH_TOKEN" = "true" ] || missing+=("GOOGLE_REFRESH_TOKEN")
+          [ "$HAS_GBP_ACCOUNT_ID" = "true" ] || missing+=("GBP_ACCOUNT_ID")
+          [ "$HAS_GBP_LOCATION_ID" = "true" ] || missing+=("GBP_LOCATION_ID")
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            printf '::error title=Missing Google review sync secrets::Required GitHub Actions secret(s) are missing: %s. Add them in repository Settings > Secrets and variables > Actions.\n' "${missing[*]}"
+            exit 1
+          fi
+
+          echo "Required Google review sync secrets are configured."
 
       - name: Sync Google Business Profile reviews
         env:
@@ -41,5 +80,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/reviews.json
-          git commit -m "Update Google reviews"
+          git commit -m "Update Google reviews [skip ci]"
           git push
