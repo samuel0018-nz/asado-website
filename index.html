@@ -310,7 +310,7 @@
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 34px; }
     .review { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 26px; }
     .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
-    .review p { color: rgba(255,255,255,.78); font-style: italic; margin-bottom: 14px; }
+    .review p { color: rgba(255,255,255,.78); font-style: italic; margin-bottom: 14px; overflow-wrap: anywhere; }
     .review-meta { font-size: 12px; color: rgba(255,255,255,.5); }
 
     /* ─── NEWSLETTER ─── */
@@ -801,14 +801,49 @@
       }).format(date);
     }
 
-    function renderReviewCard(review) {
-      const authorName = escapeHtml(review.authorName || 'A Google user');
-      const text = escapeHtml(review.text || '');
-      const displayDate = escapeHtml(review.displayDate || formatReviewDate(review.reviewedAt));
+    function normalizeDisplayReview(review) {
+      const text = String(review?.text || '').replace(/\s+/g, ' ').trim();
+      if (!text) return null;
+
+      const rating = Number.isFinite(Number(review.rating))
+        ? Math.max(1, Math.min(5, Number(review.rating)))
+        : 5;
+
+      return {
+        id: String(review.id || `${review.authorName || 'google-user'}-${review.reviewedAt || text}`).trim(),
+        authorName: String(review.authorName || '').trim() || 'A Google user',
+        displayDate: String(review.displayDate || formatReviewDate(review.reviewedAt)).trim(),
+        rating,
+        text
+      };
+    }
+
+    function selectDisplayReviews(payload) {
+      if (!Array.isArray(payload?.reviews)) return [];
+      const seen = new Set();
+
+      return payload.reviews
+        .map(normalizeDisplayReview)
+        .filter(Boolean)
+        .filter(review => {
+          const key = review.id || `${review.authorName}|${review.displayDate}|${review.text}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .slice(0, 5);
+    }
+
+    function renderReviewCard(review, index) {
+      const reviewId = escapeHtml(review.id || `google-review-${index}`);
+      const authorName = escapeHtml(review.authorName);
+      const text = escapeHtml(review.text);
+      const displayDate = escapeHtml(review.displayDate);
+      const stars = '&#9733;'.repeat(review.rating);
       const meta = displayDate ? `Google Review &middot; ${displayDate}` : 'Google Review';
 
-      return `<article class="review">
-        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      return `<article class="review" data-review-id="${reviewId}">
+        <div class="stars" aria-label="${review.rating} out of 5 stars">${stars}</div>
         <p>&ldquo;${text}&rdquo;</p>
         <strong>${authorName}</strong><br>
         <span class="review-meta">${meta}</span>
@@ -824,9 +859,7 @@
         if (!res.ok) throw new Error(`Review data request failed: ${res.status}`);
 
         const payload = await res.json();
-        const reviews = Array.isArray(payload.reviews)
-          ? payload.reviews.filter(review => Number(review.rating) === 5 && review.text).slice(0, 5)
-          : [];
+        const reviews = selectDisplayReviews(payload);
 
         if (reviews.length === 0) return;
         container.innerHTML = reviews.map(renderReviewCard).join('');
