@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-08-25T07:09:25.103Z",
+  "updatedAt": "2026-08-25T19:06:16.007Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqnjsK2FqSKevDpicn-Z1CqqDa0FNlkRZtbH52qGLJ_Shbv9LB2KcGmRO1755mQ9BPI0rofsPg",
+      "authorName": "Coco A",
+      "rating": 5,
+      "text": "Me and my friends dined here and it was so good! Delicious food and very nice staff. Tried the chorizo with homemade baguette and the rib eye from my friends plate 😂 ( so good haha).Wide menu. They have an indoor or outdoor area.",
+      "reviewedAt": "2026-08-25T16:43:49.567Z",
+      "displayDate": "26 August 2026"
+    },
     {
       "id": "AbFvOqm6r87QErbI0ZlCnfoYg4m49-23xlsrnnItE_UCRcqgyUvXc2AkoLn3Z25Bjjins1-oEcA1-w",
       "authorName": "Paola Santiago",
@@ -33,14 +41,6 @@
       "text": "Have been a returning customer for many years. Food is always fantastic and have recently received a nice gesture from the team after an earlier mix up. Look forward to coming back in the near future.",
       "reviewedAt": "2026-08-24T04:04:23.346Z",
       "displayDate": "24 August 2026"
-    },
-    {
-      "id": "AbFvOqmZED6D07AgEg6hy2YX5XXD81ixnE0INBXSMi0f2-DWZVfLpDc2oXOZb_dxM_VH7_YhjYZW",
-      "authorName": "Cassandra Griffin",
-      "rating": 5,
-      "text": "Went to El Quincho for lunch today! The food was amazing! The Staff were great! We ended up getting the sharing platter, every meat type was amazing! The beef melted in your mouth, the pork belly was so soft, the chicken was seasoned beautifully, the sausage was so yummy. We will definitely be back.",
-      "reviewedAt": "2026-08-21T03:06:11.098Z",
-      "displayDate": "21 August 2026"
     }
   ]
 }
