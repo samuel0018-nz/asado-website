@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-08-25T19:06:16.007Z",
+  "updatedAt": "2026-08-28T02:13:18.118Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqkvpb3CEAOgSwmoaJuLja8TdH4jOXNSRFZO-z3BZD0ZCjVu-MXm0I7yog8kcrbzF5G7oIqC",
+      "authorName": "Julieta Godoy",
+      "rating": 5,
+      "text": "(Translated by Google) Excellent service and quality. Candelaria served us; she was very friendly and helpful. We had breaded cutlets with French fries—everything was delicious! (Original) Excelente servicio y calidad. Nos atendió Candelaria , muy amable y servicial. Comimos milanesas con papas fritas, delicioso todo!",
+      "reviewedAt": "2026-08-27T02:36:49.045Z",
+      "displayDate": "27 August 2026"
+    },
     {
       "id": "AbFvOqnjsK2FqSKevDpicn-Z1CqqDa0FNlkRZtbH52qGLJ_Shbv9LB2KcGmRO1755mQ9BPI0rofsPg",
       "authorName": "Coco A",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "We arrived ready for steak but accidentally brought the entire circus. Our kids were loud, chaotic and completely un-medium-rare, yet the staff handled us with incredible patience and never made us feel like a mis-steak. They were so kind and relaxed that we actually managed to eat our meals while they were still hot—which, as parents, is a rare achievement! The steak was beautifully cooked, the service was well done, and nobody had beef with our feral little dinner companions. We left full, grateful and only slightly embarrassed. We’ll definitely be back—possibly with leashes. 😂",
       "reviewedAt": "2026-08-24T07:54:36.048Z",
-      "displayDate": "24 August 2026"
-    },
-    {
-      "id": "AbFvOqlkUMww-HENY6kLh8s_6cPq1wW9IAbqfhKJ3UiACXXrA3it3HhQKYMUDObm4SwejP0tO_61ag",
-      "authorName": "Luke Smith",
-      "rating": 5,
-      "text": "Have been a returning customer for many years. Food is always fantastic and have recently received a nice gesture from the team after an earlier mix up. Look forward to coming back in the near future.",
-      "reviewedAt": "2026-08-24T04:04:23.346Z",
       "displayDate": "24 August 2026"
     }
   ]
