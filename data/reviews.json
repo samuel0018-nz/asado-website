@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-08-28T02:13:18.118Z",
+  "updatedAt": "2026-09-01T21:09:06.398Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqkzRncYxss5_PDjFlqxzatws5SfExL0Syd6n9r9PYccpThc7gcatjAzF3Lq6VX4QB2XAzEbAQ",
+      "authorName": "Mariel Fernandez",
+      "rating": 5,
+      "text": "One of the best empanadas I ever tried ! And the meat so tender !! Candelaria, such a good manager 😊",
+      "reviewedAt": "2026-09-01T01:53:33.713Z",
+      "displayDate": "1 September 2026"
+    },
     {
       "id": "AbFvOqkvpb3CEAOgSwmoaJuLja8TdH4jOXNSRFZO-z3BZD0ZCjVu-MXm0I7yog8kcrbzF5G7oIqC",
       "authorName": "Julieta Godoy",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "What to say about this place. Try it yourself and be the Judge. 10/10",
       "reviewedAt": "2026-08-24T10:42:20.275Z",
-      "displayDate": "24 August 2026"
-    },
-    {
-      "id": "AbFvOqnuixhBWUT_CHydObHUvjPwES1vbBAVeTb4n8snJkqj0qu47wNYC8jFrSUU3X91W69-0691",
-      "authorName": "Narnia Apiata Horrell",
-      "rating": 5,
-      "text": "We arrived ready for steak but accidentally brought the entire circus. Our kids were loud, chaotic and completely un-medium-rare, yet the staff handled us with incredible patience and never made us feel like a mis-steak. They were so kind and relaxed that we actually managed to eat our meals while they were still hot—which, as parents, is a rare achievement! The steak was beautifully cooked, the service was well done, and nobody had beef with our feral little dinner companions. We left full, grateful and only slightly embarrassed. We’ll definitely be back—possibly with leashes. 😂",
-      "reviewedAt": "2026-08-24T07:54:36.048Z",
       "displayDate": "24 August 2026"
     }
   ]
