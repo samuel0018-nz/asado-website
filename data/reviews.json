@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-01T21:09:06.398Z",
+  "updatedAt": "2026-09-04T20:51:48.608Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlEp2pSMrmHfU3lQwLV2vrUl6TcsHKwae8elBET4OgoV1Vp5SwXjnYzNyUmGPmear909z0CHA",
+      "authorName": "Facundo Giampietro",
+      "rating": 5,
+      "text": "The experience was 10/10, we where received by Cande the manager, the food was delicious, it transport me back to Argentina. Highly recommended!! ⭐️⭐️⭐️⭐️⭐️",
+      "reviewedAt": "2026-09-04T02:00:02.484Z",
+      "displayDate": "4 September 2026"
+    },
     {
       "id": "AbFvOqkzRncYxss5_PDjFlqxzatws5SfExL0Syd6n9r9PYccpThc7gcatjAzF3Lq6VX4QB2XAzEbAQ",
       "authorName": "Mariel Fernandez",
@@ -33,14 +41,6 @@
       "text": "The most delicious meats in all of riverside!",
       "reviewedAt": "2026-08-25T02:45:40.695Z",
       "displayDate": "25 August 2026"
-    },
-    {
-      "id": "AbFvOqkjk7PsirL1bNBYA62GPtGrgI1Islub4HCOKDI1cTB6yY-rTvKH2GiKHPvEDCNnEuNjfKosvw",
-      "authorName": "Shameel Reddy",
-      "rating": 5,
-      "text": "What to say about this place. Try it yourself and be the Judge. 10/10",
-      "reviewedAt": "2026-08-24T10:42:20.275Z",
-      "displayDate": "24 August 2026"
     }
   ]
 }
