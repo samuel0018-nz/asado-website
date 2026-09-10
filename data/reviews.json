@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-04T20:51:48.608Z",
+  "updatedAt": "2026-09-10T20:59:28.098Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqnmBXphXwOyiH0NoRCaPoZFh8Dd_bJv1m47yyLYm83zF42ZJqgQSGxVV28kUK4OmJG7Jt2ySQ",
+      "authorName": "Johnny Melville",
+      "rating": 5,
+      "text": "Legend service and amazing food!",
+      "reviewedAt": "2026-09-10T01:29:01.692Z",
+      "displayDate": "10 September 2026"
+    },
     {
       "id": "AbFvOqlEp2pSMrmHfU3lQwLV2vrUl6TcsHKwae8elBET4OgoV1Vp5SwXjnYzNyUmGPmear909z0CHA",
       "authorName": "Facundo Giampietro",
@@ -33,14 +41,6 @@
       "text": "Me and my friends dined here and it was so good! Delicious food and very nice staff. Tried the chorizo with homemade baguette and the rib eye from my friends plate 😂 ( so good haha).Wide menu. They have an indoor or outdoor area.",
       "reviewedAt": "2026-08-25T16:43:49.567Z",
       "displayDate": "26 August 2026"
-    },
-    {
-      "id": "AbFvOqm6r87QErbI0ZlCnfoYg4m49-23xlsrnnItE_UCRcqgyUvXc2AkoLn3Z25Bjjins1-oEcA1-w",
-      "authorName": "Paola Santiago",
-      "rating": 5,
-      "text": "The most delicious meats in all of riverside!",
-      "reviewedAt": "2026-08-25T02:45:40.695Z",
-      "displayDate": "25 August 2026"
     }
   ]
 }
