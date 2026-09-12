@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-10T20:59:28.098Z",
+  "updatedAt": "2026-09-12T20:41:03.373Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOql4cqhrR5HN4Xkv7AAyEI9ZBuoqndHg-Syzu_N-dLk2XjNOTrt6a94U8iikAY7Qv47S2XFsqg",
+      "authorName": "yongmi kim",
+      "rating": 5,
+      "text": "I've never eaten such a nice and tender lamb stake before. The cooking was perfect.",
+      "reviewedAt": "2026-09-12T09:22:47.630Z",
+      "displayDate": "12 September 2026"
+    },
     {
       "id": "AbFvOqnmBXphXwOyiH0NoRCaPoZFh8Dd_bJv1m47yyLYm83zF42ZJqgQSGxVV28kUK4OmJG7Jt2ySQ",
       "authorName": "Johnny Melville",
@@ -33,14 +41,6 @@
       "text": "(Translated by Google) Excellent service and quality. Candelaria served us; she was very friendly and helpful. We had breaded cutlets with French fries—everything was delicious! (Original) Excelente servicio y calidad. Nos atendió Candelaria , muy amable y servicial. Comimos milanesas con papas fritas, delicioso todo!",
       "reviewedAt": "2026-08-27T02:36:49.045Z",
       "displayDate": "27 August 2026"
-    },
-    {
-      "id": "AbFvOqnjsK2FqSKevDpicn-Z1CqqDa0FNlkRZtbH52qGLJ_Shbv9LB2KcGmRO1755mQ9BPI0rofsPg",
-      "authorName": "Coco A",
-      "rating": 5,
-      "text": "Me and my friends dined here and it was so good! Delicious food and very nice staff. Tried the chorizo with homemade baguette and the rib eye from my friends plate 😂 ( so good haha).Wide menu. They have an indoor or outdoor area.",
-      "reviewedAt": "2026-08-25T16:43:49.567Z",
-      "displayDate": "26 August 2026"
     }
   ]
 }
