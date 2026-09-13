@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-09-12T20:41:03.373Z",
+  "updatedAt": "2026-09-13T20:57:40.585Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqmXAVAYYQXIl1JEF7hbgnW4Aw-O3zn2-zbbgN7l3st5RSgeLRBRnAb6z9XL0tzNoTZmblBM",
+      "authorName": "Danny Mastroianni",
+      "rating": 5,
+      "text": "Excellent service and amazing food. Feeling the real \"Rio de la Plata\" flavour. Thanks Catalina and rest of the team.",
+      "reviewedAt": "2026-09-13T08:25:24.256Z",
+      "displayDate": "13 September 2026"
+    },
+    {
+      "id": "AbFvOqkW26Tu1QJJ2EEwZ86rSrLhsbyXqndrY0DMWDxjX7FkRFxL0tKqu9uNlRptFiGpuBl0hZM3SA",
+      "authorName": "Nicolas Fredes",
+      "rating": 5,
+      "text": "(Translated by Google) We ordered the Neapolitan-style breaded cutlets and they were incredible. The staff was very friendly. Next time we'll go for the barbecue. (Original) Pedimos milanesas napolitanas y estuvieron increibles. El personal muy amable. La proxima iremos por el asado.",
+      "reviewedAt": "2026-09-13T02:12:15.941Z",
+      "displayDate": "13 September 2026"
+    },
     {
       "id": "AbFvOql4cqhrR5HN4Xkv7AAyEI9ZBuoqndHg-Syzu_N-dLk2XjNOTrt6a94U8iikAY7Qv47S2XFsqg",
       "authorName": "yongmi kim",
@@ -25,22 +41,6 @@
       "text": "The experience was 10/10, we where received by Cande the manager, the food was delicious, it transport me back to Argentina. Highly recommended!! ⭐️⭐️⭐️⭐️⭐️",
       "reviewedAt": "2026-09-04T02:00:02.484Z",
       "displayDate": "4 September 2026"
-    },
-    {
-      "id": "AbFvOqkzRncYxss5_PDjFlqxzatws5SfExL0Syd6n9r9PYccpThc7gcatjAzF3Lq6VX4QB2XAzEbAQ",
-      "authorName": "Mariel Fernandez",
-      "rating": 5,
-      "text": "One of the best empanadas I ever tried ! And the meat so tender !! Candelaria, such a good manager 😊",
-      "reviewedAt": "2026-09-01T01:53:33.713Z",
-      "displayDate": "1 September 2026"
-    },
-    {
-      "id": "AbFvOqkvpb3CEAOgSwmoaJuLja8TdH4jOXNSRFZO-z3BZD0ZCjVu-MXm0I7yog8kcrbzF5G7oIqC",
-      "authorName": "Julieta Godoy",
-      "rating": 5,
-      "text": "(Translated by Google) Excellent service and quality. Candelaria served us; she was very friendly and helpful. We had breaded cutlets with French fries—everything was delicious! (Original) Excelente servicio y calidad. Nos atendió Candelaria , muy amable y servicial. Comimos milanesas con papas fritas, delicioso todo!",
-      "reviewedAt": "2026-08-27T02:36:49.045Z",
-      "displayDate": "27 August 2026"
     }
   ]
 }
