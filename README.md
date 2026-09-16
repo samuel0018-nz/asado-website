@@ -1,5 +1,9 @@
 # asado-website
 
+## Handover
+
+Agency handover notes for the interactive menu, homepage menu preview, Google reviews flow, and WordPress integration options are in `HANDOVER.md`.
+
 ## Google review sync
 
 The home page review cards are updated from `data/reviews.json`. The static review cards in `index.html` remain as the fallback if the generated file is empty, unavailable, or invalid in the browser.

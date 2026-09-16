@@ -22,6 +22,11 @@
       --paper: #fffaf2;
       --sand: #e8d8c4;
       --gold: #c6a15b;
+      --menu-panel: #eadfce;
+      --veg: #4f8a3a;
+      --teal: #0f8b70;
+      --blue: #1587a8;
+      --purple: #6b3d83;
       --white: #ffffff;
       --shadow: 0 18px 50px rgba(22,20,18,.14);
       --radius: 18px;
@@ -51,6 +56,10 @@
     a { color: inherit; text-decoration: none; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .menu-color-strip {
+      height: 7px;
+      background: linear-gradient(90deg, var(--fire) 0 14%, var(--ember) 14% 28%, #edae26 28% 42%, var(--veg) 42% 56%, var(--teal) 56% 70%, var(--blue) 70% 84%, var(--purple) 84% 100%);
+    }
 
     /* ─── TOP STRIP ─── */
     .top-strip {
@@ -123,6 +132,41 @@
     .btn-fire:hover { background: var(--fire-dark); }
     .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
 
+    /* ─── MENU MASTHEAD ─── */
+    .menu-cover {
+      margin-top: 112px;
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .menu-cover-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 34px 0 36px;
+      min-height: 170px;
+    }
+    .menu-cover-logo {
+      width: min(360px, 62vw);
+      height: auto;
+      margin-bottom: 16px;
+    }
+    .menu-cover-kicker {
+      color: rgba(255,255,255,.76);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(16px, 2vw, 22px);
+      font-style: italic;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+    }
+    .menu-cover-contact {
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: right;
+      letter-spacing: .3px;
+    }
+
     /* ─── MENU TYPE TABS ─── */
     .menu-tabs-bar {
       background: var(--paper);
@@ -130,7 +174,7 @@
       position: sticky;
       top: 78px;
       z-index: 70;
-      margin-top: 112px;
+      box-shadow: 0 8px 26px rgba(22,20,18,.06);
     }
     .menu-tabs-bar .container {
       display: flex;
@@ -161,8 +205,9 @@
 
     /* ─── SPECIALS BANNER ─── */
     .specials-banner {
-      background: linear-gradient(135deg, var(--fire), var(--fire-dark));
-      padding: 18px 0;
+      background: var(--paper);
+      border-bottom: 1px solid rgba(22,20,18,.08);
+      padding: 18px 0 0;
     }
     .specials-inner {
       display: flex;
@@ -173,45 +218,60 @@
     .specials-inner::-webkit-scrollbar { display: none; }
 
     .special-chip {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 14px;
+      background: var(--menu-panel);
+      border: 1px solid rgba(22,20,18,.08);
+      border-left: 4px solid var(--fire);
+      border-radius: 4px;
       padding: 16px 22px;
       cursor: pointer;
       transition: all .2s;
       flex: 1;
       min-width: 260px;
     }
-    .special-chip:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
-    .special-chip-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,.5); font-weight: 700; margin-bottom: 6px; }
+    .special-chip:hover { background: #efe4d4; transform: translateY(-2px); }
+    .special-chip-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--fire); font-weight: 800; margin-bottom: 6px; }
     .special-chip-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    .special-chip-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
-    .special-chip-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); font-weight: 700; }
-    .special-chip-desc { font-size: 12px; color: rgba(255,255,255,.65); margin-top: 6px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .special-chip-name { font-family: 'DM Sans', system-ui, sans-serif; font-size: 18px; font-weight: 800; color: var(--charcoal); }
+    .special-chip-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--fire); font-weight: 700; }
+    .special-chip-desc { font-size: 12px; color: var(--ash); margin-top: 6px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
     /* ─── MENU BODY ─── */
-    .menu-body { padding: 32px 0 100px; }
+    .menu-body { padding: 34px 0 100px; background: var(--paper); }
 
-    .cat-section { margin-bottom: 40px; }
-    .cat-head { margin-bottom: 6px; }
-    .cat-title { font-size: clamp(26px, 3.5vw, 36px); font-weight: 700; }
-    .cat-line { width: 36px; height: 3px; background: var(--fire); margin-bottom: 8px; border-radius: 2px; }
+    .cat-section { margin-bottom: 38px; --cat-color: var(--fire); }
+    .cat-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .cat-head::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      flex: 0 0 12px;
+      background: var(--cat-color);
+    }
+    .cat-title {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    .cat-line { height: 1px; background: rgba(22,20,18,.18); margin-bottom: 12px; }
     .cat-note { font-size: 13px; color: var(--ash); font-style: italic; margin-bottom: 14px; line-height: 1.6; max-width: 700px; }
 
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 10px 28px;
     }
 
     /* ─── ITEM CARD ─── */
     .item-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 18px 20px;
+      background: rgba(255,250,242,.72);
+      border-radius: 4px;
+      padding: 13px 14px 14px;
       cursor: pointer;
       transition: all .2s;
-      border: 1px solid rgba(22,20,18,.05);
+      border: 1px solid rgba(22,20,18,.07);
+      border-left: 3px solid var(--cat-color);
       position: relative;
       overflow: hidden;
     }
@@ -220,27 +280,27 @@
       position: absolute;
       left: 0; top: 0; bottom: 0;
       width: 3px;
-      background: var(--fire);
+      background: var(--cat-color);
       opacity: 0;
       transition: opacity .2s;
     }
-    .item-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(22,20,18,.08); }
+    .item-card:hover { background: #fffdf8; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22,20,18,.07); }
     .item-card:hover::before { opacity: 1; }
 
-    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; }
-    .card-name { font-weight: 600; font-size: 15px; color: var(--charcoal); line-height: 1.3; flex: 1; }
-    .card-price { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--fire); white-space: nowrap; }
+    .card-top { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px; margin-bottom: 5px; }
+    .card-name { font-weight: 800; font-size: 16px; color: var(--charcoal); line-height: 1.22; flex: 1; }
+    .card-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--fire); white-space: nowrap; }
 
-    .card-desc { font-size: 12.5px; color: var(--ash); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-desc { font-size: 13px; color: #4b4540; line-height: 1.45; }
 
     .card-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
-    .tag-v { font-size: 10px; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
-    .tag-note { font-size: 10px; background: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .tag-v { font-size: 10px; background: transparent; color: var(--veg); padding: 0; border-radius: 0; font-weight: 800; }
+    .tag-note { font-size: 10px; background: transparent; color: var(--fire); padding: 0; border-radius: 0; font-weight: 800; }
     .tag-a { font-size: 11px; }
 
     /* ─── DRINK CARD ─── */
     .drink-prices { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
-    .dp { font-size: 11px; background: var(--cream); padding: 3px 9px; border-radius: 10px; color: var(--ash); font-weight: 500; }
+    .dp { font-size: 11px; background: rgba(232,216,196,.55); padding: 3px 9px; border-radius: 2px; color: var(--ash); font-weight: 500; }
     .dp b { color: var(--fire); font-weight: 700; }
 
     /* ─── MODAL ─── */
@@ -353,6 +413,11 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 940px) {
       .top-actions { display: none; }
+      .menu-cover-inner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .menu-cover-contact { text-align: left; }
       .nav-links {
         position: absolute;
         top: 78px;
@@ -375,7 +440,11 @@
       .container { width: min(100% - 28px, 1180px); }
       .top-strip { display: none; }
       .nav { top: 0; background: rgba(22,20,18,.92); }
-      .menu-tabs-bar { margin-top: 78px; top: 78px; }
+      .menu-cover { margin-top: 78px; }
+      .menu-cover-inner { min-height: 150px; padding: 28px 0; }
+      .menu-cover-logo { width: min(260px, 72vw); }
+      .menu-cover-kicker { font-size: 14px; letter-spacing: 2px; }
+      .menu-tabs-bar { top: 78px; }
       .logo img { width: 150px; margin-inline: 0; }
       .footer-logo { width: 180px; margin-left: 0; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -417,6 +486,22 @@
       </ul>
     </div>
   </nav>
+
+  <!-- MENU MASTHEAD -->
+  <section class="menu-cover" aria-label="El Quincho menu">
+    <div class="menu-color-strip"></div>
+    <div class="container menu-cover-inner">
+      <div>
+        <img class="menu-cover-logo" data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <div class="menu-cover-kicker">The Ritual of Fire, Meat and Wine</div>
+      </div>
+      <div class="menu-cover-contact">
+        <strong>16/96 Oxford Terrace, Riverside Market</strong><br>
+        +64 27 2891487<br>
+        www.elquincho.co.nz
+      </div>
+    </div>
+  </section>
 
   <!-- MENU TYPE TABS -->
   <div class="menu-tabs-bar">
@@ -536,8 +621,24 @@
     };
 
     const ALLERGEN_ICONS = { gluten: '🌾', dairy: '🥛', egg: '🥚', nuts: '🥜', soy: '🫘', fish: '🐟', shellfish: '🦐' };
-    const FOOD_CAT_ORDER = ['Entrees', 'Mains', 'Quickest', 'Sides', 'Dessert', 'Extra'];
+    const FOOD_CAT_ORDER = ['Entrees', 'Sides', 'Buns & Breads', 'Signature for Sharing', 'Mains', 'Quickest', 'Lunch Special', 'Dessert', 'Extra'];
     const DRINK_CAT_ORDER = ['Vino Tinto (Red Wine)', 'Vino Blanco (White Wine)', 'Cerveza (Beer)', 'Cocteles (Cocktails)', 'Soft Drinks'];
+    const CATEGORY_ACCENTS = {
+      entrees: '#c73a1c',
+      mains: '#0f8b70',
+      quickest: '#6b3d83',
+      sides: '#edae26',
+      dessert: '#1587a8',
+      extra: '#6b3d83',
+      'buns & breads': '#4f8a3a',
+      'signature for sharing': '#0f8b70',
+      'lunch special': '#6b3d83',
+      'vino tinto (red wine)': '#9d261e',
+      'vino blanco (white wine)': '#d58f34',
+      'cerveza (beer)': '#edae26',
+      'cocteles (cocktails)': '#0f8b70',
+      'soft drinks': '#1587a8'
+    };
 
     // ═══════════════════════════════════════════
     // FETCH DATA FROM GOOGLE SHEETS
@@ -629,6 +730,17 @@
       return val.split(',').map(a => a.trim().toLowerCase()).filter(Boolean);
     }
 
+    function getCategoryAccent(category) {
+      return CATEGORY_ACCENTS[String(category || '').trim().toLowerCase()] || '#d4451a';
+    }
+
+    function getOrderedCategories(grouped, preferredOrder) {
+      const existing = Object.keys(grouped);
+      const known = preferredOrder.filter(cat => grouped[cat]);
+      const extra = existing.filter(cat => !preferredOrder.includes(cat)).sort((a, b) => a.localeCompare(b));
+      return [...known, ...extra];
+    }
+
     // ═══════════════════════════════════════════
     // RENDER FUNCTIONS
     // ═══════════════════════════════════════════
@@ -647,7 +759,7 @@
       });
 
       let html = '';
-      FOOD_CAT_ORDER.forEach(cat => {
+      getOrderedCategories(grouped, FOOD_CAT_ORDER).forEach(cat => {
         const catItems = grouped[cat];
         if (!catItems || catItems.length === 0) return;
         catItems.sort((a, b) => (parseInt(a.display_order) || 0) - (parseInt(b.display_order) || 0));
@@ -655,7 +767,7 @@
         const topNotes = (noteMap[cat] || []).filter(n => n.display_position === 'top');
         const bottomNotes = (noteMap[cat] || []).filter(n => n.display_position === 'bottom');
 
-        html += `<div class="cat-section">
+        html += `<div class="cat-section" style="--cat-color:${getCategoryAccent(cat)}">
           <div class="cat-head"><h2 class="cat-title">${cat}</h2></div>
           <div class="cat-line"></div>
           ${topNotes.map(n => `<div class="cat-note">${n.note_text}</div>`).join('')}
@@ -705,14 +817,14 @@
       });
 
       let html = '';
-      DRINK_CAT_ORDER.forEach(cat => {
+      getOrderedCategories(grouped, DRINK_CAT_ORDER).forEach(cat => {
         const catItems = grouped[cat];
         if (!catItems || catItems.length === 0) return;
         catItems.sort((a, b) => (parseInt(a.display_order) || 0) - (parseInt(b.display_order) || 0));
 
         const topNotes = (noteMap[cat] || []).filter(n => n.display_position === 'top');
 
-        html += `<div class="cat-section">
+        html += `<div class="cat-section" style="--cat-color:${getCategoryAccent(cat)}">
           <div class="cat-head"><h2 class="cat-title">${cat}</h2></div>
           <div class="cat-line"></div>
           ${topNotes.map(n => `<div class="cat-note">${n.note_text}</div>`).join('')}

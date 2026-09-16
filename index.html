@@ -24,6 +24,11 @@
       --paper: #fffaf2;
       --sand: #e8d8c4;
       --gold: #c6a15b;
+      --menu-panel: #eadfce;
+      --veg: #4f8a3a;
+      --teal: #0f8b70;
+      --blue: #1587a8;
+      --purple: #6b3d83;
       --white: #ffffff;
       --shadow: 0 18px 50px rgba(22, 20, 18, 0.14);
       --radius: 18px;
@@ -256,29 +261,31 @@
     /* ─── MENU PREVIEW ─── */
     .menu-section { padding: 96px 0; background: var(--paper); }
     .menu-head { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 34px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 22px; }
     .menu-item {
-      background: var(--white);
-      border: 1px solid rgba(22,20,18,.07);
-      border-radius: var(--radius);
+      --cat-color: var(--fire);
+      background: rgba(255,250,242,.78);
+      border: 1px solid rgba(22,20,18,.08);
+      border-left: 4px solid var(--cat-color);
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(22,20,18,.06);
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      min-height: 142px;
       cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .menu-item:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(22,20,18,.1); }
-    .menu-img { height: 210px; background: linear-gradient(135deg, #412018, #a83a18); position: relative; overflow: hidden; }
-    .menu-img img { width: 100%; height: 100%; object-fit: cover; opacity: .88; }
-    .menu-badge { position: absolute; top: 14px; left: 14px; background: var(--fire); color: var(--white); font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 800; padding: 6px 10px; border-radius: 999px; }
-    .menu-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-    .menu-title-row { display: flex; justify-content: space-between; gap: 14px; align-items: start; margin-bottom: 10px; }
-    .menu-title-row h3 { font-size: 24px; }
-    .price { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--fire); font-weight: 700; white-space: nowrap; }
-    .menu-body p { color: var(--ash); font-size: 14px; margin-bottom: 16px; }
+    .menu-item:hover { background: #fffdf8; transform: translateY(-3px); box-shadow: 0 16px 34px rgba(22,20,18,.09); }
+    .menu-img { background: var(--menu-panel); position: relative; overflow: hidden; min-height: 100%; }
+    .menu-img img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+    .menu-badge { position: absolute; top: 10px; left: 10px; background: var(--cat-color); color: var(--white); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 800; padding: 5px 7px; border-radius: 2px; }
+    .menu-body { padding: 16px 18px; display: flex; flex-direction: column; }
+    .menu-title-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; margin-bottom: 7px; }
+    .menu-title-row h3 { font-family: 'DM Sans', system-ui, sans-serif; font-size: 17px; font-weight: 800; line-height: 1.2; }
+    .price { font-family: 'Playfair Display', serif; font-size: 21px; color: var(--fire); font-weight: 700; white-space: nowrap; }
+    .menu-body p { color: #4b4540; font-size: 13px; line-height: 1.45; margin-bottom: 12px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-    .tag { font-size: 11px; padding: 5px 8px; border-radius: 999px; background: var(--cream); color: var(--ash); font-weight: 700; }
+    .tag { font-size: 10px; padding: 0; border-radius: 0; background: transparent; color: var(--ash); font-weight: 800; }
 
     /* ─── WHY ─── */
     .why { padding: 90px 0; background: var(--charcoal); color: var(--white); }
@@ -783,6 +790,17 @@
     // ═══════════════════════════════════════════
     const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
     const SITE_ASSETS_SHEET = 'Site Assets';
+    const CATEGORY_ACCENTS = {
+      entrees: '#c73a1c',
+      mains: '#0f8b70',
+      quickest: '#6b3d83',
+      sides: '#edae26',
+      dessert: '#1587a8',
+      extra: '#6b3d83',
+      'buns & breads': '#4f8a3a',
+      'signature for sharing': '#0f8b70',
+      'lunch special': '#6b3d83'
+    };
 
     async function fetchSheet(sheetName, options = {}) {
       const headersParam = options.headers ? `&headers=${encodeURIComponent(options.headers)}` : '';
@@ -955,6 +973,10 @@
       });
     }
 
+    function getCategoryAccent(category) {
+      return CATEGORY_ACCENTS[String(category || '').trim().toLowerCase()] || '#d4451a';
+    }
+
     async function loadLatestReviews() {
       const container = document.getElementById('reviewsGrid');
       if (!container) return;
@@ -991,10 +1013,12 @@
           const hasImg = imgUrl.length > 5;
           const allergens = (item.allergens || '').split(',').map(a => a.trim()).filter(Boolean);
           const isVeg = item.vegetarian === 'Yes';
+          const accent = getCategoryAccent(item.category);
 
-          return `<article class="menu-item">
-            <div class="menu-img" style="${hasImg ? '' : 'background:linear-gradient(135deg, #412018, #a83a18);'}">
+          return `<article class="menu-item" style="--cat-color:${accent}">
+            <div class="menu-img" style="${hasImg ? '' : 'background:linear-gradient(135deg, #eadfce, #d4451a);'}">
               ${hasImg ? `<img src="${imgUrl}" alt="${item.item_name}" style="width:100%;height:100%;object-fit:cover;">` : '<span style="font-size:48px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.3;">🔥</span>'}
+              ${item.category ? `<span class="menu-badge">${item.category}</span>` : ''}
             </div>
             <div class="menu-body">
               <div class="menu-title-row">
@@ -1003,8 +1027,7 @@
               </div>
               <p>${item.description || ''}</p>
               <div class="tags">
-                ${item.category ? `<span class="tag">${item.category}</span>` : ''}
-                ${isVeg ? '<span class="tag" style="background:#e8f5e9;color:#2e7d32;">Vegetarian</span>' : ''}
+                ${isVeg ? '<span class="tag" style="color:#4f8a3a;">Vegetarian</span>' : ''}
                 ${allergens.slice(0, 2).map(a => `<span class="tag">${a}</span>`).join('')}
               </div>
             </div>
