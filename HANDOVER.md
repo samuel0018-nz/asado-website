@@ -260,8 +260,7 @@ Google Drive file links are normalized to thumbnail URLs for images.
 
 The menu styling has been adjusted toward the supplied printed menu reference:
 
-- dark menu masthead with logo and contact details
-- thin multi-color strip inspired by the printed menu
+- shared site header, then the Food/Drinks tabs without an extra menu masthead
 - compact category sections
 - colored category markers
 - tighter item rows with price-led layout
