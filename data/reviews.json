@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-13T20:57:40.585Z",
+  "updatedAt": "2026-09-20T20:56:16.926Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqnSWZQ6SsnChZqje0MhPGHAN7hfYQID9nWUhv3WNF8Tew17bib0ig3PUdM8PdP8krBgBlMTfw",
+      "authorName": "Richard",
+      "rating": 5,
+      "text": "Amazing! Should be in the Michelin guide.",
+      "reviewedAt": "2026-09-20T01:39:48.839Z",
+      "displayDate": "20 September 2026"
+    },
     {
       "id": "AbFvOqmXAVAYYQXIl1JEF7hbgnW4Aw-O3zn2-zbbgN7l3st5RSgeLRBRnAb6z9XL0tzNoTZmblBM",
       "authorName": "Danny Mastroianni",
@@ -33,14 +41,6 @@
       "text": "Legend service and amazing food!",
       "reviewedAt": "2026-09-10T01:29:01.692Z",
       "displayDate": "10 September 2026"
-    },
-    {
-      "id": "AbFvOqlEp2pSMrmHfU3lQwLV2vrUl6TcsHKwae8elBET4OgoV1Vp5SwXjnYzNyUmGPmear909z0CHA",
-      "authorName": "Facundo Giampietro",
-      "rating": 5,
-      "text": "The experience was 10/10, we where received by Cande the manager, the food was delicious, it transport me back to Argentina. Highly recommended!! ⭐️⭐️⭐️⭐️⭐️",
-      "reviewedAt": "2026-09-04T02:00:02.484Z",
-      "displayDate": "4 September 2026"
     }
   ]
 }
