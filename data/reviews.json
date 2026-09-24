@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-22T21:29:53.867Z",
+  "updatedAt": "2026-09-24T21:37:28.632Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlfUhhQRB_D7m93PKxGK-Ayz5cM4oJmR8_WPXTZG85KR6n2syyAuJgkI3IXItu8D63dirugUg",
+      "authorName": "FELIPE OZORIO",
+      "rating": 5,
+      "text": "Very good food and service",
+      "reviewedAt": "2026-09-24T03:07:36.695Z",
+      "displayDate": "24 September 2026"
+    },
     {
       "id": "AbFvOqlvFWeGbryY0kiWmAGbzZc3LzrXQqeH_zp9sBZ1K7J3t6WHn0xo7vlEpQ6tbHzVqjcswy0SvQ",
       "authorName": "David Kibblewhite",
@@ -33,14 +41,6 @@
       "text": "(Translated by Google) We ordered the Neapolitan-style breaded cutlets and they were incredible. The staff was very friendly. Next time we'll go for the barbecue. (Original) Pedimos milanesas napolitanas y estuvieron increibles. El personal muy amable. La proxima iremos por el asado.",
       "reviewedAt": "2026-09-13T02:12:15.941Z",
       "displayDate": "13 September 2026"
-    },
-    {
-      "id": "AbFvOql4cqhrR5HN4Xkv7AAyEI9ZBuoqndHg-Syzu_N-dLk2XjNOTrt6a94U8iikAY7Qv47S2XFsqg",
-      "authorName": "yongmi kim",
-      "rating": 5,
-      "text": "I've never eaten such a nice and tender lamb stake before. The cooking was perfect.",
-      "reviewedAt": "2026-09-12T09:22:47.630Z",
-      "displayDate": "12 September 2026"
     }
   ]
 }
