@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-09-24T21:37:28.632Z",
+  "updatedAt": "2026-09-25T21:41:32.339Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqmqqLHGdUmDrdmuUJyybWmSqvb4Qqixl353E2IrSNFgUShnFYktSykCFnOo11PgRqQ8Hq2e",
+      "authorName": "onestopbuyer",
+      "rating": 5,
+      "text": "After mucking the staff around Rose Abril were so accommodating when we asked for a table again.They were very kind and treated us so well.With a note and smiley face on our take away box .Hayden cooked all the food superbly.He was on his own.The haloumi salad was presented fabulously and tasted the same.Thank you",
+      "reviewedAt": "2026-09-25T06:56:54.028Z",
+      "displayDate": "25 September 2026"
+    },
+    {
+      "id": "AbFvOqn2MhQkie5Bojyz7gw3iYiWSLMAn_kmYvRGupM-hzeHLSUKCD2-5pzo09Jm9KdEonT-w1uppg",
+      "authorName": "Katherine Hartley",
+      "rating": 5,
+      "text": "Amazing food! Amazing margarita and the service was friendly and attentive. Highly recommend! A++++",
+      "reviewedAt": "2026-09-25T01:17:07.882Z",
+      "displayDate": "25 September 2026"
+    },
     {
       "id": "AbFvOqlfUhhQRB_D7m93PKxGK-Ayz5cM4oJmR8_WPXTZG85KR6n2syyAuJgkI3IXItu8D63dirugUg",
       "authorName": "FELIPE OZORIO",
@@ -25,22 +41,6 @@
       "text": "Amazing! Should be in the Michelin guide.",
       "reviewedAt": "2026-09-20T01:39:48.839Z",
       "displayDate": "20 September 2026"
-    },
-    {
-      "id": "AbFvOqmXAVAYYQXIl1JEF7hbgnW4Aw-O3zn2-zbbgN7l3st5RSgeLRBRnAb6z9XL0tzNoTZmblBM",
-      "authorName": "Danny Mastroianni",
-      "rating": 5,
-      "text": "Excellent service and amazing food. Feeling the real \"Rio de la Plata\" flavour. Thanks Catalina and rest of the team.",
-      "reviewedAt": "2026-09-13T08:25:24.256Z",
-      "displayDate": "13 September 2026"
-    },
-    {
-      "id": "AbFvOqkW26Tu1QJJ2EEwZ86rSrLhsbyXqndrY0DMWDxjX7FkRFxL0tKqu9uNlRptFiGpuBl0hZM3SA",
-      "authorName": "Nicolas Fredes",
-      "rating": 5,
-      "text": "(Translated by Google) We ordered the Neapolitan-style breaded cutlets and they were incredible. The staff was very friendly. Next time we'll go for the barbecue. (Original) Pedimos milanesas napolitanas y estuvieron increibles. El personal muy amable. La proxima iremos por el asado.",
-      "reviewedAt": "2026-09-13T02:12:15.941Z",
-      "displayDate": "13 September 2026"
     }
   ]
 }
