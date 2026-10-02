@@ -1,7 +1,39 @@
 {
-  "updatedAt": "2026-09-29T22:25:22.514Z",
+  "updatedAt": "2026-10-02T22:22:31.934Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlf1fWAsClFqisql1xi-f0t3isiOi7I0_IZ9FK7oRso0_rtJa2HUr34sI5bdHtkcfALQBHYCg",
+      "authorName": "Grant Dykes",
+      "rating": 5,
+      "text": "What looks like a hole in the wall type restaurant.....wow. Might not look fancy but the best lamb I have ever eaten with a fantastic homemade relish type sauce. Wife had pork belly...beautifully cooked, moist. This is food made with love. Thank you.",
+      "reviewedAt": "2026-10-02T20:10:18.492Z",
+      "displayDate": "3 October 2026"
+    },
+    {
+      "id": "AbFvOqnI1yoUZREmixqMRMhFjHXnBRguyt5hMlC_-RyUlubsSlwtgOmdva4OGN9Ilb7ggqN9o-sL-A",
+      "authorName": "Raul gatica",
+      "rating": 5,
+      "text": "We had a really lovely experience here. The food was delicious, the atmosphere was warm and welcoming, and the service made the evening even better. A special mention to Miss Candelaria, who looked after us incredibly well. She was friendly, attentive, professional, and made us feel very welcome. It was also a lovely surprise to meet a fellow Argentinian so far from home! Thank you, Candelaria, for the great service and for making our dinner such an enjoyable experience. Highly recommended!",
+      "reviewedAt": "2026-10-02T08:30:13.584Z",
+      "displayDate": "2 October 2026"
+    },
+    {
+      "id": "AbFvOqmmWNRhmHwiJ0hISpzF7sLATApW69ulqSHSLQAlga0AXPlH6joSioKhfvovbEwvlUB6I3IudQ",
+      "authorName": "Victor Nguyen",
+      "rating": 5,
+      "text": "Amazing little spot in Riverside Markets, for such a satisfying and filling feed. We ordered the beef and chicken empanadas which were both delicious and fresh, and the share platter with such a great range of meats. Everything was perfectly cooked and so flavourful, especially with the great sauces. The portion we ordered was for one, so I can imagine the full platter would be very a good feed for two. Personally, I loved the rump cap and the pork belly.",
+      "reviewedAt": "2026-10-02T07:31:20.590Z",
+      "displayDate": "2 October 2026"
+    },
+    {
+      "id": "AbFvOqlH-jrEnpOb4XuAIkYPthYx68CkLpJyvNZ-7CPVFzEXaoG8XQ-bd_QEGnA5UQbEyWE9ElfBlA",
+      "authorName": "Gregory Mitchell",
+      "rating": 5,
+      "text": "Great atmosphere, service and staff. And the food…well, you’ll have to go check it out. Everything is made in house including the sauces and bread- yum!",
+      "reviewedAt": "2026-10-02T07:18:12.458Z",
+      "displayDate": "2 October 2026"
+    },
     {
       "id": "AbFvOqkiqALlDhKznMKRLZ5vE-QsQh2jGOcZYqDQDZMhDc2jvFIH7L4uWKVKGiB3Z7zuSqfta2-4",
       "authorName": "Leon Hemara",
@@ -9,38 +41,6 @@
       "text": "Excellent food and service!!!👏🏽👏🏽👏🏽 great experience",
       "reviewedAt": "2026-09-29T00:57:42.200Z",
       "displayDate": "29 September 2026"
-    },
-    {
-      "id": "AbFvOqmqqLHGdUmDrdmuUJyybWmSqvb4Qqixl353E2IrSNFgUShnFYktSykCFnOo11PgRqQ8Hq2e",
-      "authorName": "onestopbuyer",
-      "rating": 5,
-      "text": "After mucking the staff around Rose Abril were so accommodating when we asked for a table again.They were very kind and treated us so well.With a note and smiley face on our take away box .Hayden cooked all the food superbly.He was on his own.The haloumi salad was presented fabulously and tasted the same.Thank you",
-      "reviewedAt": "2026-09-25T06:56:54.028Z",
-      "displayDate": "25 September 2026"
-    },
-    {
-      "id": "AbFvOqn2MhQkie5Bojyz7gw3iYiWSLMAn_kmYvRGupM-hzeHLSUKCD2-5pzo09Jm9KdEonT-w1uppg",
-      "authorName": "Katherine Hartley",
-      "rating": 5,
-      "text": "Amazing food! Amazing margarita and the service was friendly and attentive. Highly recommend! A++++",
-      "reviewedAt": "2026-09-25T01:17:07.882Z",
-      "displayDate": "25 September 2026"
-    },
-    {
-      "id": "AbFvOqlfUhhQRB_D7m93PKxGK-Ayz5cM4oJmR8_WPXTZG85KR6n2syyAuJgkI3IXItu8D63dirugUg",
-      "authorName": "FELIPE OZORIO",
-      "rating": 5,
-      "text": "Very good food and service",
-      "reviewedAt": "2026-09-24T03:07:36.695Z",
-      "displayDate": "24 September 2026"
-    },
-    {
-      "id": "AbFvOqlvFWeGbryY0kiWmAGbzZc3LzrXQqeH_zp9sBZ1K7J3t6WHn0xo7vlEpQ6tbHzVqjcswy0SvQ",
-      "authorName": "David Kibblewhite",
-      "rating": 5,
-      "text": "Epic steak",
-      "reviewedAt": "2026-09-22T01:47:52.550Z",
-      "displayDate": "22 September 2026"
     }
   ]
 }
