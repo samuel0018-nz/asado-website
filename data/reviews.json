@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-02T22:22:31.934Z",
+  "updatedAt": "2026-10-04T21:40:14.991Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlSqfX32EKGD4hjvFmy6XvovUOStxZVpxgK_tRgjprGwDcYNyZKzThD0iHoFuR5PDc-duyi",
+      "authorName": "Mario Riffo",
+      "rating": 5,
+      "text": "(Translated by Google) Nice place to eat. Delicious lamb and breaded cutlet. Very good mayonnaise. Best descent Melbourne Australia (Original) Bonito lugar para comer Rico el Cordero y la Milanesa muy buena la mayonesa mejor descent Melbourne Australia",
+      "reviewedAt": "2026-10-04T00:57:14.232Z",
+      "displayDate": "4 October 2026"
+    },
     {
       "id": "AbFvOqlf1fWAsClFqisql1xi-f0t3isiOi7I0_IZ9FK7oRso0_rtJa2HUr34sI5bdHtkcfALQBHYCg",
       "authorName": "Grant Dykes",
@@ -33,14 +41,6 @@
       "text": "Great atmosphere, service and staff. And the food…well, you’ll have to go check it out. Everything is made in house including the sauces and bread- yum!",
       "reviewedAt": "2026-10-02T07:18:12.458Z",
       "displayDate": "2 October 2026"
-    },
-    {
-      "id": "AbFvOqkiqALlDhKznMKRLZ5vE-QsQh2jGOcZYqDQDZMhDc2jvFIH7L4uWKVKGiB3Z7zuSqfta2-4",
-      "authorName": "Leon Hemara",
-      "rating": 5,
-      "text": "Excellent food and service!!!👏🏽👏🏽👏🏽 great experience",
-      "reviewedAt": "2026-09-29T00:57:42.200Z",
-      "displayDate": "29 September 2026"
     }
   ]
 }
