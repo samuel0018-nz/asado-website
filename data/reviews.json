@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-04T21:40:14.991Z",
+  "updatedAt": "2026-10-09T22:45:43.127Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlxHvvj5lEGe4ns53WpTPxHy61DbT1QFC5WDFF4THQAofa3TJ-Dxuje8kMOR3vULInK4398aQ",
+      "authorName": "Rocio Salgado",
+      "rating": 5,
+      "text": "We’re from Argentina and used to come here quite regularly, but we stopped coming because something just didn’t feel quite right. Today, after a year away, we decided to give it another chance, and it was absolutely worth it! The food was even better, the service has improved by 100%, and the whole atmosphere feels different. You can genuinely see and feel that positive changes have been made. Coming back was definitely the right decision. Congratulations to whoever is responsible for these noticeable improvements — you’ve done a fantastic job! We’ll definitely be back! Rocio & Emmanuel 🇦🇷",
+      "reviewedAt": "2026-10-09T08:29:05.575Z",
+      "displayDate": "9 October 2026"
+    },
     {
       "id": "AbFvOqlSqfX32EKGD4hjvFmy6XvovUOStxZVpxgK_tRgjprGwDcYNyZKzThD0iHoFuR5PDc-duyi",
       "authorName": "Mario Riffo",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "Amazing little spot in Riverside Markets, for such a satisfying and filling feed. We ordered the beef and chicken empanadas which were both delicious and fresh, and the share platter with such a great range of meats. Everything was perfectly cooked and so flavourful, especially with the great sauces. The portion we ordered was for one, so I can imagine the full platter would be very a good feed for two. Personally, I loved the rump cap and the pork belly.",
       "reviewedAt": "2026-10-02T07:31:20.590Z",
-      "displayDate": "2 October 2026"
-    },
-    {
-      "id": "AbFvOqlH-jrEnpOb4XuAIkYPthYx68CkLpJyvNZ-7CPVFzEXaoG8XQ-bd_QEGnA5UQbEyWE9ElfBlA",
-      "authorName": "Gregory Mitchell",
-      "rating": 5,
-      "text": "Great atmosphere, service and staff. And the food…well, you’ll have to go check it out. Everything is made in house including the sauces and bread- yum!",
-      "reviewedAt": "2026-10-02T07:18:12.458Z",
       "displayDate": "2 October 2026"
     }
   ]
