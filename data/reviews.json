@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-10-09T22:45:43.127Z",
+  "updatedAt": "2026-10-14T21:49:23.697Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqkEuDH0mFF2QBMcvKCyRwZZU0_8bu-90ZLWqzmJpcMlh30wU0RIuifEwBlZoVJWeHfddz3Log",
+      "authorName": "Nicholas McTurk",
+      "rating": 5,
+      "text": "Simply lovely in every way.",
+      "reviewedAt": "2026-10-14T02:09:35.911Z",
+      "displayDate": "14 October 2026"
+    },
+    {
+      "id": "AbFvOqnLoAzLlToJHwly70jRxRgoUXn4fQRjN2kK_mYq6eN9Ed9blbPIC-qcaYsE8zXeaDPdvnRXyA",
+      "authorName": "Matthew Maslin",
+      "rating": 5,
+      "text": "Have been several times first in a small group where we split a platter and the lamb thr second time there were 16 of us and it has exceeded expectations every time the food is stellar and the service is impeccable would 100% reccomend",
+      "reviewedAt": "2026-10-14T00:01:15.559Z",
+      "displayDate": "14 October 2026"
+    },
     {
       "id": "AbFvOqlxHvvj5lEGe4ns53WpTPxHy61DbT1QFC5WDFF4THQAofa3TJ-Dxuje8kMOR3vULInK4398aQ",
       "authorName": "Rocio Salgado",
@@ -25,22 +41,6 @@
       "text": "What looks like a hole in the wall type restaurant.....wow. Might not look fancy but the best lamb I have ever eaten with a fantastic homemade relish type sauce. Wife had pork belly...beautifully cooked, moist. This is food made with love. Thank you.",
       "reviewedAt": "2026-10-02T20:10:18.492Z",
       "displayDate": "3 October 2026"
-    },
-    {
-      "id": "AbFvOqnI1yoUZREmixqMRMhFjHXnBRguyt5hMlC_-RyUlubsSlwtgOmdva4OGN9Ilb7ggqN9o-sL-A",
-      "authorName": "Raul gatica",
-      "rating": 5,
-      "text": "We had a really lovely experience here. The food was delicious, the atmosphere was warm and welcoming, and the service made the evening even better. A special mention to Miss Candelaria, who looked after us incredibly well. She was friendly, attentive, professional, and made us feel very welcome. It was also a lovely surprise to meet a fellow Argentinian so far from home! Thank you, Candelaria, for the great service and for making our dinner such an enjoyable experience. Highly recommended!",
-      "reviewedAt": "2026-10-02T08:30:13.584Z",
-      "displayDate": "2 October 2026"
-    },
-    {
-      "id": "AbFvOqmmWNRhmHwiJ0hISpzF7sLATApW69ulqSHSLQAlga0AXPlH6joSioKhfvovbEwvlUB6I3IudQ",
-      "authorName": "Victor Nguyen",
-      "rating": 5,
-      "text": "Amazing little spot in Riverside Markets, for such a satisfying and filling feed. We ordered the beef and chicken empanadas which were both delicious and fresh, and the share platter with such a great range of meats. Everything was perfectly cooked and so flavourful, especially with the great sauces. The portion we ordered was for one, so I can imagine the full platter would be very a good feed for two. Personally, I loved the rump cap and the pork belly.",
-      "reviewedAt": "2026-10-02T07:31:20.590Z",
-      "displayDate": "2 October 2026"
     }
   ]
 }
