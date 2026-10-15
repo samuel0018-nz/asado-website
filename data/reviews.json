@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-10-14T21:49:23.697Z",
+  "updatedAt": "2026-10-15T21:32:39.154Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqmIXYzERaCm5_3ioas77LVfUJUtwYRPvdr9v8K_kjFeMp_YSPzCKi-2k3-PvJKmyryYbEM5vQ",
+      "authorName": "Jeanna Waho",
+      "rating": 5,
+      "text": "We regularly visit for either lunch or dinner. Such good value, amazing tasting food. Service is always top notch.",
+      "reviewedAt": "2026-10-15T17:17:51.584Z",
+      "displayDate": "16 October 2026"
+    },
+    {
+      "id": "AbFvOql2r7wK8pYvtsUQCqhz6kjdHls7aJzhuy-AGxrPp-TMBTX3rQUchQFoTT0QdSQj1T_baaTphA",
+      "authorName": "Juana Markiewicz",
+      "rating": 5,
+      "text": "(Translated by Google) Candelaria, you are the best human being on the planet (Original) Candelaria sos el mejor ser humano del planeta",
+      "reviewedAt": "2026-10-15T05:55:15.466Z",
+      "displayDate": "15 October 2026"
+    },
     {
       "id": "AbFvOqkEuDH0mFF2QBMcvKCyRwZZU0_8bu-90ZLWqzmJpcMlh30wU0RIuifEwBlZoVJWeHfddz3Log",
       "authorName": "Nicholas McTurk",
@@ -25,22 +41,6 @@
       "text": "We’re from Argentina and used to come here quite regularly, but we stopped coming because something just didn’t feel quite right. Today, after a year away, we decided to give it another chance, and it was absolutely worth it! The food was even better, the service has improved by 100%, and the whole atmosphere feels different. You can genuinely see and feel that positive changes have been made. Coming back was definitely the right decision. Congratulations to whoever is responsible for these noticeable improvements — you’ve done a fantastic job! We’ll definitely be back! Rocio & Emmanuel 🇦🇷",
       "reviewedAt": "2026-10-09T08:29:05.575Z",
       "displayDate": "9 October 2026"
-    },
-    {
-      "id": "AbFvOqlSqfX32EKGD4hjvFmy6XvovUOStxZVpxgK_tRgjprGwDcYNyZKzThD0iHoFuR5PDc-duyi",
-      "authorName": "Mario Riffo",
-      "rating": 5,
-      "text": "(Translated by Google) Nice place to eat. Delicious lamb and breaded cutlet. Very good mayonnaise. Best descent Melbourne Australia (Original) Bonito lugar para comer Rico el Cordero y la Milanesa muy buena la mayonesa mejor descent Melbourne Australia",
-      "reviewedAt": "2026-10-04T00:57:14.232Z",
-      "displayDate": "4 October 2026"
-    },
-    {
-      "id": "AbFvOqlf1fWAsClFqisql1xi-f0t3isiOi7I0_IZ9FK7oRso0_rtJa2HUr34sI5bdHtkcfALQBHYCg",
-      "authorName": "Grant Dykes",
-      "rating": 5,
-      "text": "What looks like a hole in the wall type restaurant.....wow. Might not look fancy but the best lamb I have ever eaten with a fantastic homemade relish type sauce. Wife had pork belly...beautifully cooked, moist. This is food made with love. Thank you.",
-      "reviewedAt": "2026-10-02T20:10:18.492Z",
-      "displayDate": "3 October 2026"
     }
   ]
 }
