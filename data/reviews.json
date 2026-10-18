@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-15T21:32:39.154Z",
+  "updatedAt": "2026-10-18T20:54:49.334Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqn61LM9nM0WFQaSBkV4L4kV_KzUiAI7FBMg5LfElbAjrPENsjOLR2pN2x1j96E_da_m_gbS5Q",
+      "authorName": "Martin Bonpland",
+      "rating": 5,
+      "text": "Amazing service and food",
+      "reviewedAt": "2026-10-18T01:57:59.494Z",
+      "displayDate": "18 October 2026"
+    },
     {
       "id": "AbFvOqmIXYzERaCm5_3ioas77LVfUJUtwYRPvdr9v8K_kjFeMp_YSPzCKi-2k3-PvJKmyryYbEM5vQ",
       "authorName": "Jeanna Waho",
@@ -33,14 +41,6 @@
       "text": "Have been several times first in a small group where we split a platter and the lamb thr second time there were 16 of us and it has exceeded expectations every time the food is stellar and the service is impeccable would 100% reccomend",
       "reviewedAt": "2026-10-14T00:01:15.559Z",
       "displayDate": "14 October 2026"
-    },
-    {
-      "id": "AbFvOqlxHvvj5lEGe4ns53WpTPxHy61DbT1QFC5WDFF4THQAofa3TJ-Dxuje8kMOR3vULInK4398aQ",
-      "authorName": "Rocio Salgado",
-      "rating": 5,
-      "text": "We’re from Argentina and used to come here quite regularly, but we stopped coming because something just didn’t feel quite right. Today, after a year away, we decided to give it another chance, and it was absolutely worth it! The food was even better, the service has improved by 100%, and the whole atmosphere feels different. You can genuinely see and feel that positive changes have been made. Coming back was definitely the right decision. Congratulations to whoever is responsible for these noticeable improvements — you’ve done a fantastic job! We’ll definitely be back! Rocio & Emmanuel 🇦🇷",
-      "reviewedAt": "2026-10-09T08:29:05.575Z",
-      "displayDate": "9 October 2026"
     }
   ]
 }
