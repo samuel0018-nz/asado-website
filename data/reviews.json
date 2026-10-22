@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-18T20:54:49.334Z",
+  "updatedAt": "2026-10-22T21:46:09.385Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqmvV-HDMnayDFXDoDMvJj_3WkiLFMQKTs8wUCthXWstgr0EhS_2ZTTI7UXDYiPLaIn8y8S8uQ",
+      "authorName": "Tomas Dreller",
+      "rating": 5,
+      "text": "Everytime I go to Christchurch for work, I make my official stop here to have lunch. As an Argentinian, I can confirm that the quality and taste of many items in the menu are very good. Also, special mention to the manager: Candelaria Cursa",
+      "reviewedAt": "2026-10-22T21:43:07.410Z",
+      "displayDate": "23 October 2026"
+    },
     {
       "id": "AbFvOqn61LM9nM0WFQaSBkV4L4kV_KzUiAI7FBMg5LfElbAjrPENsjOLR2pN2x1j96E_da_m_gbS5Q",
       "authorName": "Martin Bonpland",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "Simply lovely in every way.",
       "reviewedAt": "2026-10-14T02:09:35.911Z",
-      "displayDate": "14 October 2026"
-    },
-    {
-      "id": "AbFvOqnLoAzLlToJHwly70jRxRgoUXn4fQRjN2kK_mYq6eN9Ed9blbPIC-qcaYsE8zXeaDPdvnRXyA",
-      "authorName": "Matthew Maslin",
-      "rating": 5,
-      "text": "Have been several times first in a small group where we split a platter and the lamb thr second time there were 16 of us and it has exceeded expectations every time the food is stellar and the service is impeccable would 100% reccomend",
-      "reviewedAt": "2026-10-14T00:01:15.559Z",
       "displayDate": "14 October 2026"
     }
   ]
