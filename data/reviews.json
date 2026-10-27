@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-22T21:46:09.385Z",
+  "updatedAt": "2026-10-27T22:26:28.524Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlYWWCPRI4fE0uyTXsfHv2H0-9UEfB8kY4RyU1DKf8pd6hGKG_xMOuMQ2HuzReiiqkWULkrNw",
+      "authorName": "Natalia Iacono",
+      "rating": 5,
+      "text": "I celebrate my birthday at El quincho every year. They have never failed to provide the best experience for me and my friends and family. The people always go above and beyond to accommodate to unexpected changes and to make sure the evening goes smoothly. The food has always been the most authentic and it makes me feel like at home. I will forever celebrate my birthday here and I cannot wait to see what the future holds for this special place 🦋🤍🦋",
+      "reviewedAt": "2026-10-27T19:37:17.850Z",
+      "displayDate": "28 October 2026"
+    },
     {
       "id": "AbFvOqmvV-HDMnayDFXDoDMvJj_3WkiLFMQKTs8wUCthXWstgr0EhS_2ZTTI7UXDYiPLaIn8y8S8uQ",
       "authorName": "Tomas Dreller",
@@ -33,14 +41,6 @@
       "text": "(Translated by Google) Candelaria, you are the best human being on the planet (Original) Candelaria sos el mejor ser humano del planeta",
       "reviewedAt": "2026-10-15T05:55:15.466Z",
       "displayDate": "15 October 2026"
-    },
-    {
-      "id": "AbFvOqkEuDH0mFF2QBMcvKCyRwZZU0_8bu-90ZLWqzmJpcMlh30wU0RIuifEwBlZoVJWeHfddz3Log",
-      "authorName": "Nicholas McTurk",
-      "rating": 5,
-      "text": "Simply lovely in every way.",
-      "reviewedAt": "2026-10-14T02:09:35.911Z",
-      "displayDate": "14 October 2026"
     }
   ]
 }
