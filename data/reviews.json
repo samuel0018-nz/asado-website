@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-10-27T22:26:28.524Z",
+  "updatedAt": "2026-10-30T22:30:05.761Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
+      "authorName": "Benjamin Fleming",
+      "rating": 5,
+      "text": "Amazing food and great service. Will definitely be returning",
+      "reviewedAt": "2026-10-30T07:41:26.348Z",
+      "displayDate": "30 October 2026"
+    },
+    {
+      "id": "AbFvOqmdduuPp_wiKho606bK1WsfrL-cdAeT24AKF_BWLIsCIiGVSEmFCricr4qE6diVQf24v_4h",
+      "authorName": "Nico de Groot",
+      "rating": 5,
+      "text": "(Translated by Google) Nice people, delicious food (Original) Aardige mensen heerlijk eten",
+      "reviewedAt": "2026-10-30T05:17:06.054Z",
+      "displayDate": "30 October 2026"
+    },
     {
       "id": "AbFvOqlYWWCPRI4fE0uyTXsfHv2H0-9UEfB8kY4RyU1DKf8pd6hGKG_xMOuMQ2HuzReiiqkWULkrNw",
       "authorName": "Natalia Iacono",
@@ -25,22 +41,6 @@
       "text": "Amazing service and food",
       "reviewedAt": "2026-10-18T01:57:59.494Z",
       "displayDate": "18 October 2026"
-    },
-    {
-      "id": "AbFvOqmIXYzERaCm5_3ioas77LVfUJUtwYRPvdr9v8K_kjFeMp_YSPzCKi-2k3-PvJKmyryYbEM5vQ",
-      "authorName": "Jeanna Waho",
-      "rating": 5,
-      "text": "We regularly visit for either lunch or dinner. Such good value, amazing tasting food. Service is always top notch.",
-      "reviewedAt": "2026-10-15T17:17:51.584Z",
-      "displayDate": "16 October 2026"
-    },
-    {
-      "id": "AbFvOql2r7wK8pYvtsUQCqhz6kjdHls7aJzhuy-AGxrPp-TMBTX3rQUchQFoTT0QdSQj1T_baaTphA",
-      "authorName": "Juana Markiewicz",
-      "rating": 5,
-      "text": "(Translated by Google) Candelaria, you are the best human being on the planet (Original) Candelaria sos el mejor ser humano del planeta",
-      "reviewedAt": "2026-10-15T05:55:15.466Z",
-      "displayDate": "15 October 2026"
     }
   ]
 }
