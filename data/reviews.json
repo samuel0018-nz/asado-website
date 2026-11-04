@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-10-30T22:30:05.761Z",
+  "updatedAt": "2026-11-04T23:47:38.317Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlXolHtguhjfJ6mq1U81d7MYEeytKjbhCP1UFPsc84QM1cLqpLd4EVPObybuH3DUV7R2MFqJQ",
+      "authorName": "L. A Chevez",
+      "rating": 5,
+      "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
+      "reviewedAt": "2026-11-04T01:33:59.854Z",
+      "displayDate": "4 November 2026"
+    },
     {
       "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
       "authorName": "Benjamin Fleming",
@@ -33,14 +41,6 @@
       "text": "Everytime I go to Christchurch for work, I make my official stop here to have lunch. As an Argentinian, I can confirm that the quality and taste of many items in the menu are very good. Also, special mention to the manager: Candelaria Cursa",
       "reviewedAt": "2026-10-22T21:43:07.410Z",
       "displayDate": "23 October 2026"
-    },
-    {
-      "id": "AbFvOqn61LM9nM0WFQaSBkV4L4kV_KzUiAI7FBMg5LfElbAjrPENsjOLR2pN2x1j96E_da_m_gbS5Q",
-      "authorName": "Martin Bonpland",
-      "rating": 5,
-      "text": "Amazing service and food",
-      "reviewedAt": "2026-10-18T01:57:59.494Z",
-      "displayDate": "18 October 2026"
     }
   ]
 }
