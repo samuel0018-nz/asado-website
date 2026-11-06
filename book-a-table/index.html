@@ -6,32 +6,29 @@
   <meta name="description" content="Book a table at El Quincho, Argentine BBQ at Riverside Market, Christchurch." />
   <title>Book a Table | El Quincho</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --fire: #d4451a;
-      --fire-dark: #a83213;
-      --ember: #f06a2f;
-      --oxblood: #5c1714;
-      --charcoal: #161412;
-      --smoke: #2d2925;
-      --ash: #6d655d;
-      --cream: #fbf4ea;
-      --paper: #fffaf2;
-      --sand: #e8d8c4;
-      --gold: #c6a15b;
+      --fire: #EE4E26;
+      --fire-dark: #F48142;
+      --ember: #F48142;
+      --oxblood: #0D0D0D;
+      --charcoal: #0D0D0D;
+      --smoke: #0D0D0D;
+      --ash: #45413E;
+      --cream: #DBD4CD;
+      --paper: #FFFFFF;
+      --sand: #CAB89C;
+      --gold: #F8AC23;
       --white: #ffffff;
-      --shadow: 0 18px 50px rgba(22,20,18,.14);
+      --shadow: 0 18px 50px rgba(13,13,13,.14);
       --radius: 18px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: 'Cormorant Garamond', system-ui, sans-serif;
       color: var(--charcoal);
       background: var(--cream);
       line-height: 1.55;
@@ -50,7 +47,7 @@
 
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; line-height: 1.05; }
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
     .top-strip {
@@ -83,11 +80,11 @@
       z-index: 79;
       transition: all .25s ease;
       color: var(--white);
-      background: rgba(22,20,18,.95);
+      background: rgba(13,13,13,.95);
       backdrop-filter: blur(12px);
       box-shadow: 0 10px 40px rgba(0,0,0,.25);
     }
-    .nav.is-scrolled { top: 0; background: rgba(22,20,18,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+    .nav.is-scrolled { top: 0; background: rgba(13,13,13,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
     .nav .container {
       min-height: 78px;
       display: flex;
@@ -95,7 +92,7 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 25px; color: var(--white); }
     .logo img { width: clamp(180px, 14vw, 240px); height: auto; object-fit: contain; margin-inline: 0; }
     .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
@@ -119,13 +116,13 @@
       min-height: 50px;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(212,69,26,.3); }
+    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(238,78,38,.3); }
     .btn-fire:hover { background: var(--fire-dark); }
     .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
 
     .booking-hero {
       padding: 170px 0 42px;
-      background: linear-gradient(90deg, rgba(22,20,18,.96), rgba(92,23,20,.86));
+      background: linear-gradient(90deg, rgba(13,13,13,.96), rgba(13,13,13,.86));
       color: var(--white);
     }
     .eyebrow {
@@ -145,7 +142,7 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid rgba(22,20,18,.08);
+      border: 1px solid rgba(13,13,13,.08);
     }
     .booking-frame {
       display: block;
@@ -174,7 +171,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(22,20,18,.96);
+      background: rgba(13,13,13,.96);
       z-index: 90;
       display: none;
       gap: 8px;
@@ -193,7 +190,7 @@
         display: none;
         flex-direction: column;
         align-items: stretch;
-        background: rgba(22,20,18,.98);
+        background: rgba(13,13,13,.98);
         padding: 20px;
         border-radius: 18px;
         box-shadow: var(--shadow);
@@ -206,7 +203,7 @@
     @media (max-width: 640px) {
       .container { width: min(100% - 28px, 1180px); }
       .top-strip { display: none; }
-      .nav { top: 0; background: rgba(22,20,18,.92); }
+      .nav { top: 0; background: rgba(13,13,13,.92); }
       .booking-hero { padding-top: 120px; }
       .booking-section { padding-bottom: 84px; }
       .booking-frame-wrap { border-radius: 0; width: calc(100% + 28px); margin-left: -14px; }
@@ -217,6 +214,7 @@
       .mobile-sticky { display: flex; }
     }
   </style>
+  <link rel="stylesheet" href="../assets/brand/brand.css?v=20261106">
 </head>
 <body>
 
@@ -225,7 +223,7 @@
       <a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">&#x1F4CD; 16/96 Oxford Terrace, Riverside Market, Christchurch</a>
       <div class="top-actions">
         <a href="tel:+64272891487">027 289 1487</a>
-        <a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a>
+        <a href="mailto:hola@elquincho.co.nz" target="_blank" rel="noopener">hola@elquincho.co.nz</a>
       </div>
     </div>
   </div>
@@ -233,13 +231,12 @@
   <nav class="nav" id="nav">
     <div class="container">
       <a class="logo" href="../index.html" aria-label="El Quincho home">
-        <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <img data-site-logo="white" src="../assets/brand/logo-white.svg" alt="El Quincho logo">
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../menu.html">Menu</a></li>
-        <li><a href="../index.html#events">Groups</a></li>
         <li><a href="../index.html#visit">Visit</a></li>
         <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
         <li><a class="btn btn-fire" href="./">Book a Table</a></li>
@@ -262,11 +259,11 @@
           <iframe
             class="booking-frame"
             title="Now Book It reservations for El Quincho"
-            src="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,161412,d4451a"
+            src="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,0D0D0D,EE4E26"
             loading="lazy">
           </iframe>
         </div>
-        <p class="booking-note">If the booking widget does not load, <a href="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,161412,d4451a" target="_blank" rel="noopener">open bookings in a new tab</a>.</p>
+        <p class="booking-note">If the booking widget does not load, <a href="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,0D0D0D,EE4E26" target="_blank" rel="noopener">open bookings in a new tab</a>.</p>
       </div>
     </section>
   </main>
@@ -274,8 +271,8 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
-        <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
+        <a class="footer-home" href="../index.html" aria-label="El Quincho home"><img class="footer-logo" data-site-logo="orange" src="../assets/brand/logo-orange.svg" alt="El Quincho logo"></a>
+        <p class="footer-tagline">The Ritual of Fire, Meat and Wine</p>
         <p style="margin-top:14px;">Argentine BBQ at Riverside Market, Christchurch. Wood fire, handmade food, Argentine wine, and a table worth sharing.</p>
       </div>
       <div>
@@ -284,7 +281,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../menu.html">Menu</a></li>
           <li><a href="./">Book a Table</a></li>
-          <li><a href="../index.html#events">Groups</a></li>
+          <li><a href="../index.html#visit">Visit</a></li>
           <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
           <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
         </ul>
@@ -292,15 +289,15 @@
       <div>
         <h4>Find us</h4>
         <p><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">16/96 Oxford Terrace<br>Riverside Market<br>Christchurch 8013</a></p>
-        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Get Directions &rarr;</a></p>
+        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" class="footer-directions">Get Directions &rarr;</a></p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
-        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ">Facebook</a></p>
+        <p><a href="mailto:hola@elquincho.co.nz" target="_blank" rel="noopener">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
+        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ" target="_blank" rel="noopener">Facebook</a></p>
       </div>
     </div>
-    <div class="container" style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; font-size:12px; color:rgba(255,255,255,.3);">
+    <div class="container footer-bottom">
       <span>&copy; 2026 El Quincho. All rights reserved.</span>
       <span>Riverside Market, Christchurch NZ</span>
     </div>
@@ -315,7 +312,7 @@
     const nav = document.getElementById('nav');
     const topStrip = document.getElementById('topStrip');
 
-    window.addEventListener('scroll', () => {
+    function updateHeader() {
       const y = window.scrollY;
       if (y > 40) {
         nav.classList.add('is-scrolled');
@@ -326,68 +323,11 @@
         topStrip.classList.remove('hidden');
         nav.style.top = window.matchMedia('(max-width: 640px)').matches ? '0' : '34px';
       }
-    });
-
-    const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
-    const SITE_ASSETS_SHEET = 'Site Assets';
-
-    async function fetchSheet(sheetName, options = {}) {
-      const headersParam = options.headers ? `&headers=${encodeURIComponent(options.headers)}` : '';
-      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}${headersParam}`;
-      try {
-        const res = await fetch(url);
-        const text = await res.text();
-        const json = JSON.parse(text.substring(47).slice(0, -2));
-        const headers = json.table.cols.map(c => c.label || '');
-        return json.table.rows.map(r => {
-          const obj = {};
-          r.c.forEach((cell, i) => { obj[headers[i]] = cell ? (cell.v !== null ? String(cell.v) : '') : ''; });
-          return obj;
-        });
-      } catch (e) { console.error('Sheet fetch error:', e); return []; }
     }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
 
-    function normalizeAssetUrl(value, type) {
-      const raw = String(value || '').trim();
-      if (!raw) return '';
-      const driveFileMatch = raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/);
-      const driveIdMatch = raw.match(/[?&]id=([^&]+)/);
-      const driveId = driveFileMatch?.[1] || driveIdMatch?.[1];
-      if (driveId && String(type || '').toLowerCase() === 'image') {
-        return `https://drive.google.com/thumbnail?id=${driveId}&sz=w1600`;
-      }
-      return raw;
-    }
-
-    async function loadSiteAssets() {
-      const rows = await fetchSheet(SITE_ASSETS_SHEET, { headers: 1 });
-      return rows.reduce((assets, row) => {
-        const key = String(row.key || '').trim();
-        const type = String(row.type || '').trim();
-        const active = String(row.active || '').trim().toLowerCase();
-        const value = normalizeAssetUrl(row.value, type);
-        if (!key || active !== 'yes' || !value) return assets;
-        assets[key] = { type, value, alt: String(row.alt || '').trim() };
-        return assets;
-      }, {});
-    }
-
-    function applyImageAsset(assets, key, selector) {
-      const asset = assets[key];
-      if (!asset?.value) return;
-      document.querySelectorAll(selector).forEach(img => {
-        img.src = asset.value;
-        if (asset.alt) img.alt = asset.alt;
-      });
-    }
-
-    async function applySiteAssets() {
-      const assets = await loadSiteAssets();
-      applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
-      applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
-    }
-
-    applySiteAssets();
   </script>
 </body>
 </html>

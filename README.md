@@ -4,6 +4,8 @@
 
 Agency handover notes for the interactive menu, homepage menu preview, Google reviews flow, and WordPress integration options are in `HANDOVER.md`.
 
+Shared El Quincho fonts, palette, and vector logos are in `assets/brand/`. All three HTML pages load `brand.css`. Logos are local SVGs; food, drinks, specials and homepage photos remain spreadsheet driven. See the brand styling section in `HANDOVER.md` before changing those assets.
+
 ## Google review sync
 
 The home page review cards are updated from `data/reviews.json`. The static review cards in `index.html` remain as the fallback if the generated file is empty, unavailable, or invalid in the browser.

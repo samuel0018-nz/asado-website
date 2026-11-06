@@ -7,37 +7,34 @@
   <title>El Quincho | Argentine BBQ Restaurant in Christchurch</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --fire: #d4451a;
-      --fire-dark: #a83213;
-      --ember: #f06a2f;
-      --oxblood: #5c1714;
-      --charcoal: #161412;
-      --smoke: #2d2925;
-      --ash: #6d655d;
-      --cream: #fbf4ea;
-      --paper: #fffaf2;
-      --sand: #e8d8c4;
-      --gold: #c6a15b;
-      --menu-panel: #eadfce;
-      --veg: #4f8a3a;
-      --teal: #0f8b70;
-      --blue: #1587a8;
-      --purple: #6b3d83;
+      --fire: #EE4E26;
+      --fire-dark: #F48142;
+      --ember: #F48142;
+      --oxblood: #0D0D0D;
+      --charcoal: #0D0D0D;
+      --smoke: #0D0D0D;
+      --ash: #45413E;
+      --cream: #DBD4CD;
+      --paper: #FFFFFF;
+      --sand: #CAB89C;
+      --gold: #F8AC23;
+      --menu-panel: #DBD4CD;
+      --veg: #72B054;
+      --teal: #09927B;
+      --blue: #5D9EB1;
+      --purple: #784995;
       --white: #ffffff;
-      --shadow: 0 18px 50px rgba(22, 20, 18, 0.14);
+      --shadow: 0 18px 50px rgba(13, 13, 13, 0.14);
       --radius: 18px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Cormorant Garamond', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--charcoal);
       background: var(--cream);
       line-height: 1.55;
@@ -58,7 +55,7 @@
 
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; line-height: 1.05; }
 
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
     .eyebrow {
@@ -89,11 +86,11 @@
       min-height: 50px;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(212,69,26,.3); }
+    .btn-fire { background: var(--fire); color: var(--white); box-shadow: 0 12px 30px rgba(238,78,38,.3); }
     .btn-fire:hover { background: var(--fire-dark); }
     .btn-dark { background: var(--charcoal); color: var(--white); }
     .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
-    .btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid rgba(22,20,18,.22); }
+    .btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid rgba(13,13,13,.22); }
 
     /* ─── TOP STRIP ─── */
     .top-strip {
@@ -128,7 +125,7 @@
       transition: all .25s ease;
       color: var(--white);
     }
-    .nav.is-scrolled { top: 0; background: rgba(22,20,18,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+    .nav.is-scrolled { top: 0; background: rgba(13,13,13,.95); backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
     .nav .container {
       min-height: 78px;
       display: flex;
@@ -136,7 +133,7 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 25px; color: var(--white); }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 25px; color: var(--white); }
     .logo img { width: clamp(180px, 14vw, 240px); height: auto; object-fit: contain; margin-inline: 0; }
     .nav-links { display: flex; list-style: none; gap: 26px; align-items: center; }
     .nav-links a { font-size: 12px; text-transform: uppercase; letter-spacing: 1.7px; font-weight: 700; color: rgba(255,255,255,.78); }
@@ -183,7 +180,7 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(22,20,18,.92) 0%, rgba(22,20,18,.72) 42%, rgba(22,20,18,.2) 100%);
+        linear-gradient(90deg, rgba(13,13,13,.92) 0%, rgba(13,13,13,.72) 42%, rgba(13,13,13,.2) 100%);
     }
 
     .hero-overlay-glow {
@@ -191,7 +188,7 @@
       inset: 0;
       z-index: 2;
       background:
-        radial-gradient(circle at 72% 42%, rgba(212,69,26,.28), transparent 33%),
+        radial-gradient(circle at 72% 42%, rgba(238,78,38,.28), transparent 33%),
         linear-gradient(180deg, transparent 65%, var(--charcoal) 100%);
     }
 
@@ -224,7 +221,7 @@
     .special-label { display: inline-flex; margin-bottom: 10px; color: var(--fire); font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; }
 
     /* ─── STORY ─── */
-    .story-note { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; margin-top: 36px; padding-top: 30px; border-top: 1px solid rgba(22,20,18,.12); }
+    .story-note { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; margin-top: 36px; padding-top: 30px; border-top: 1px solid rgba(13,13,13,.12); }
     .story-photo { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; }
     .story-note h3 { font-size: 28px; margin-bottom: 10px; }
     .story-note p { color: var(--ash); max-width: 700px; }
@@ -235,8 +232,8 @@
     .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 22px; }
     .menu-item {
       --cat-color: var(--fire);
-      background: rgba(255,250,242,.78);
-      border: 1px solid rgba(22,20,18,.08);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(13,13,13,.08);
       border-left: 4px solid var(--cat-color);
       border-radius: 4px;
       overflow: hidden;
@@ -246,14 +243,14 @@
       cursor: pointer;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .menu-item:hover { background: #fffdf8; transform: translateY(-3px); box-shadow: 0 16px 34px rgba(22,20,18,.09); }
+    .menu-item:hover { background: #fffdf8; transform: translateY(-3px); box-shadow: 0 16px 34px rgba(13,13,13,.09); }
     .menu-img { background: var(--menu-panel); position: relative; overflow: hidden; min-height: 100%; }
     .menu-img img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
     .menu-badge { position: absolute; top: 10px; left: 10px; background: var(--cat-color); color: var(--white); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 800; padding: 5px 7px; border-radius: 2px; }
     .menu-body { padding: 16px 18px; display: flex; flex-direction: column; }
     .menu-title-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: baseline; margin-bottom: 7px; }
-    .menu-title-row h3 { font-family: 'DM Sans', system-ui, sans-serif; font-size: 17px; font-weight: 800; line-height: 1.2; }
-    .price { font-family: 'Playfair Display', serif; font-size: 21px; color: var(--fire); font-weight: 700; white-space: nowrap; }
+    .menu-title-row h3 { font-family: 'Cormorant Garamond', system-ui, sans-serif; font-size: 17px; font-weight: 800; line-height: 1.2; }
+    .price { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--fire); font-weight: 700; white-space: nowrap; }
     .menu-body p { color: #4b4540; font-size: 13px; line-height: 1.45; margin-bottom: 12px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
     .tag { font-size: 10px; padding: 0; border-radius: 0; background: transparent; color: var(--ash); font-weight: 800; }
@@ -263,12 +260,12 @@
     .visit-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 36px; align-items: stretch; }
     .visit-card { background: var(--paper); border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow); }
     .hours-list { margin: 26px 0; display: grid; gap: 12px; }
-    .hours-row { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgba(22,20,18,.08); padding-bottom: 10px; }
+    .hours-row { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgba(13,13,13,.08); padding-bottom: 10px; }
     .map-card { min-height: 420px; border-radius: var(--radius); overflow: hidden; background: url('https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg') center/cover; position: relative; box-shadow: var(--shadow); cursor: pointer; }
-    .map-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,20,18,.12), rgba(22,20,18,.76)); }
+    .map-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,13,13,.12), rgba(13,13,13,.76)); }
     .map-overlay { position: absolute; left: 26px; right: 26px; bottom: 26px; z-index: 2; color: white; }
 
-    .group-enquiry { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(22,20,18,.12); color: var(--ash); font-size: 14px; }
+    .group-enquiry { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(13,13,13,.12); color: var(--ash); font-size: 14px; }
     .group-enquiry a { color: var(--fire); text-decoration: underline; text-underline-offset: 3px; }
 
     /* ─── REVIEWS ─── */
@@ -282,12 +279,12 @@
       padding: 2px 4px 18px;
       scroll-padding: 4px;
       scroll-snap-type: x mandatory;
-      scrollbar-color: rgba(219,178,94,.65) rgba(255,255,255,.12);
+      scrollbar-color: rgba(248,172,35,.65) rgba(255,255,255,.12);
       scrollbar-width: thin;
     }
     .reviews-grid::-webkit-scrollbar { height: 8px; }
     .reviews-grid::-webkit-scrollbar-track { background: rgba(255,255,255,.12); border-radius: 999px; }
-    .reviews-grid::-webkit-scrollbar-thumb { background: rgba(219,178,94,.65); border-radius: 999px; }
+    .reviews-grid::-webkit-scrollbar-thumb { background: rgba(248,172,35,.65); border-radius: 999px; }
     .review {
       flex: 0 0 clamp(340px, 32vw, 430px);
       min-height: 232px;
@@ -325,7 +322,7 @@
       margin: 0 0 16px;
       padding: 8px 12px;
     }
-    .review-toggle:hover { border-color: rgba(219,178,94,.65); color: var(--gold); }
+    .review-toggle:hover { border-color: rgba(248,172,35,.65); color: var(--gold); }
     .review.is-expanded { flex-basis: min(560px, calc(100vw - 48px)); }
 
     /* ─── FOOTER ─── */
@@ -344,7 +341,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(22,20,18,.96);
+      background: rgba(13,13,13,.96);
       z-index: 90;
       display: none;
       gap: 8px;
@@ -364,7 +361,7 @@
         display: none;
         flex-direction: column;
         align-items: stretch;
-        background: rgba(22,20,18,.98);
+        background: rgba(13,13,13,.98);
         padding: 20px;
         border-radius: 18px;
         box-shadow: var(--shadow);
@@ -382,7 +379,7 @@
     @media (max-width: 640px) {
       .container { width: min(100% - 28px, 1180px); }
       .top-strip { display: none; }
-      .nav { top: 0; background: rgba(22,20,18,.92); }
+      .nav { top: 0; background: rgba(13,13,13,.92); }
       .hero { padding-top: 120px; min-height: 88vh; }
       .hero-buttons, .special-card { display: grid; grid-template-columns: 1fr; }
       .special-card { padding: 20px; }
@@ -398,6 +395,7 @@
       .mobile-sticky { display: flex; }
     }
   </style>
+  <link rel="stylesheet" href="assets/brand/brand.css?v=20261106">
 
   <!-- Restaurant structured data for Google -->
   <script type="application/ld+json">
@@ -433,7 +431,7 @@
       <a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">&#x1F4CD; 16/96 Oxford Terrace, Riverside Market, Christchurch</a>
       <div class="top-actions">
         <a href="tel:+64272891487">027 289 1487</a>
-        <a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a>
+        <a href="mailto:hola@elquincho.co.nz" target="_blank" rel="noopener">hola@elquincho.co.nz</a>
       </div>
     </div>
   </div>
@@ -442,14 +440,13 @@
   <nav class="nav" id="nav">
     <div class="container">
       <a class="logo" href="index.html" aria-label="El Quincho home">
-        <img data-site-logo="white" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
+        <img data-site-logo="white" src="assets/brand/logo-white.svg" alt="El Quincho logo">
       </a>
       <button class="mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="index.html#events">Groups</a></li>
-        <li><a href="index.html#visit">Visit</a></li>
+        <li><a href="#visit">Visit</a></li>
         <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
         <li><a class="btn btn-fire" href="book-a-table/">Book a Table</a></li>
       </ul>
@@ -504,7 +501,7 @@
         <!-- Loaded dynamically from Google Sheets -->
         <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--ash);">Loading menu highlights...</div>
       </div>
-      <div class="story-note">
+      <div class="story-note" aria-label="A little piece of Argentina">
         <img class="story-photo" data-site-image="story_main_image" src="https://elquincho.co.nz/wp-content/uploads/2024/07/Home-Desktop-2-1024x806.jpg" alt="Wood-fired grill at El Quincho Christchurch" loading="lazy" width="440" height="300">
         <div>
           <h3>A little piece of Argentina.</h3>
@@ -568,13 +565,13 @@
           <div class="hours-row"><strong>Monday to Sunday</strong><span>11am to 9pm</span></div>
           <div class="hours-row"><strong>Address</strong><span><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire);">16/96 Oxford Terrace</a></span></div>
           <div class="hours-row"><strong>Phone</strong><span><a href="tel:+64272891487">027 289 1487</a></span></div>
-          <div class="hours-row"><strong>Email</strong><span><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a></span></div>
+          <div class="hours-row"><strong>Email</strong><span><a href="mailto:hola@elquincho.co.nz" target="_blank" rel="noopener">hola@elquincho.co.nz</a></span></div>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-fire" href="book-a-table/">Book a Table</a>
           <a class="btn btn-outline-dark" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">Get Directions</a>
         </div>
-        <p class="group-enquiry" id="events"><strong>Coming with a group?</strong> For birthdays, team dinners and private celebrations, <a href="mailto:hola@elquincho.co.nz?subject=Group%20booking%20enquiry">tell us what you have in mind</a>.</p>
+        <p class="group-enquiry" id="events"><strong>Coming with a group?</strong> For birthdays, team dinners and private celebrations, <a href="mailto:hola@elquincho.co.nz?subject=Group%20booking%20enquiry" target="_blank" rel="noopener">tell us what you have in mind</a>.</p>
       </div>
       <a class="map-card" data-site-background="map_background" href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" aria-label="Open in Google Maps">
         <div class="map-overlay">
@@ -589,10 +586,10 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <img class="footer-logo" data-site-logo="orange" src="https://elquincho.co.nz/wp-content/uploads/2024/07/elquincho.webp" alt="El Quincho logo">
-        <p style="margin-top:6px; color: var(--gold); font-size:13px; letter-spacing:1.5px;">The Ritual of Fire, Meat and Wine</p>
+        <a class="footer-home" href="index.html" aria-label="El Quincho home"><img class="footer-logo" data-site-logo="orange" src="assets/brand/logo-orange.svg" alt="El Quincho logo"></a>
+        <p class="footer-tagline">The Ritual of Fire, Meat and Wine</p>
         <p style="margin-top:14px;">Wood fire, handmade food and Argentine wine.</p>
-        <a class="footer-signup" href="https://elquincho.co.nz/#form-field-email">Join our email list for specials &rarr;</a>
+        <a class="footer-signup" href="https://elquincho.co.nz/#form-field-email" target="_blank" rel="noopener">Join our email list for specials &rarr;</a>
       </div>
       <div>
         <h4>Navigate</h4>
@@ -600,7 +597,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="book-a-table/">Book a Table</a></li>
-          <li><a href="index.html#events">Groups</a></li>
+          <li><a href="#visit">Visit</a></li>
           <li><a href="https://elquincho.co.nz/shop/">Shop</a></li>
           <li><a href="https://elquincho.co.nz/gift-cards">Gift Vouchers</a></li>
         </ul>
@@ -608,12 +605,12 @@
       <div>
         <h4>Find us</h4>
         <p><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener">16/96 Oxford Terrace<br>Riverside Market<br>Christchurch 8013</a></p>
-        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" style="color: var(--fire); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">Get Directions &rarr;</a></p>
+        <p style="margin-top:14px;"><a href="https://maps.app.goo.gl/hMW3yQzyrihPscGa9" target="_blank" rel="noopener" class="footer-directions">Get Directions &rarr;</a></p>
       </div>
       <div>
         <h4>Contact</h4>
-        <p><a href="mailto:hola@elquincho.co.nz">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
-        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ">Facebook</a></p>
+        <p><a href="mailto:hola@elquincho.co.nz" target="_blank" rel="noopener">hola@elquincho.co.nz</a><br><a href="tel:+64272891487">027 289 1487</a></p>
+        <p style="margin-top:14px;"><a href="https://www.instagram.com/elquincho.nz/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.facebook.com/ElQuinchoNZ" target="_blank" rel="noopener">Facebook</a></p>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -633,7 +630,7 @@
     const nav = document.getElementById('nav');
     const topStrip = document.getElementById('topStrip');
 
-    window.addEventListener('scroll', () => {
+    function updateHeader() {
       const y = window.scrollY;
       // Nav scroll effect
       if (y > 40) {
@@ -645,7 +642,10 @@
         topStrip.classList.remove('hidden');
         nav.style.top = window.matchMedia('(max-width: 640px)').matches ? '0' : '34px';
       }
-    });
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -664,15 +664,15 @@
     const SHEET_ID = '1uOcFbvVAKiBRvTz6iNdWMleoeAW9kT9Bg5Lw-TejPG4';
     const SITE_ASSETS_SHEET = 'Site Assets';
     const CATEGORY_ACCENTS = {
-      entrees: '#c73a1c',
-      mains: '#0f8b70',
-      quickest: '#6b3d83',
-      sides: '#edae26',
-      dessert: '#1587a8',
-      extra: '#6b3d83',
-      'buns & breads': '#4f8a3a',
-      'signature for sharing': '#0f8b70',
-      'lunch special': '#6b3d83'
+      entrees: '#EE4E26',
+      mains: '#09927B',
+      quickest: '#784995',
+      sides: '#F8AC23',
+      dessert: '#5D9EB1',
+      extra: '#784995',
+      'buns & breads': '#72B054',
+      'signature for sharing': '#09927B',
+      'lunch special': '#784995'
     };
 
     async function fetchSheet(sheetName, options = {}) {
@@ -747,9 +747,6 @@
 
     async function applySiteAssets() {
       const assets = await loadSiteAssets();
-      applyImageAsset(assets, 'logo_white', '[data-site-logo="white"]');
-      applyImageAsset(assets, 'logo_black', '[data-site-logo="black"]');
-      applyImageAsset(assets, 'logo_orange', '[data-site-logo="orange"]');
       applyImageAsset(assets, 'story_main_image', '[data-site-image="story_main_image"]');
       applyImageAsset(assets, 'story_small_image', '[data-site-image="story_small_image"]');
       applyBackgroundAsset(assets, 'map_background', '[data-site-background="map_background"]');
@@ -847,7 +844,7 @@
     }
 
     function getCategoryAccent(category) {
-      return CATEGORY_ACCENTS[String(category || '').trim().toLowerCase()] || '#d4451a';
+      return CATEGORY_ACCENTS[String(category || '').trim().toLowerCase()] || '#EE4E26';
     }
 
     async function loadLatestReviews() {
@@ -888,8 +885,8 @@
           const isVeg = item.vegetarian === 'Yes';
           const accent = getCategoryAccent(item.category);
 
-          return `<article class="menu-item" style="--cat-color:${accent}">
-            <div class="menu-img" style="${hasImg ? '' : 'background:linear-gradient(135deg, #eadfce, #d4451a);'}">
+          return `<article class="menu-item" style="--cat-color:${accent};--cat-ink:${accent === '#784995' ? '#FFFFFF' : '#0D0D0D'}">
+            <div class="menu-img" style="${hasImg ? '' : 'background:linear-gradient(135deg, #DBD4CD, #EE4E26);'}">
               ${hasImg ? `<img src="${imgUrl}" alt="${item.item_name}" style="width:100%;height:100%;object-fit:cover;">` : '<span style="font-size:48px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.3;">🔥</span>'}
               ${item.category ? `<span class="menu-badge">${item.category}</span>` : ''}
             </div>
@@ -900,7 +897,7 @@
               </div>
               <p>${item.description || ''}</p>
               <div class="tags">
-                ${isVeg ? '<span class="tag" style="color:#4f8a3a;">Vegetarian</span>' : ''}
+                ${isVeg ? '<span class="tag" style="color:#72B054;">Vegetarian</span>' : ''}
                 ${allergens.slice(0, 2).map(a => `<span class="tag">${a}</span>`).join('')}
               </div>
             </div>

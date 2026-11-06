@@ -89,7 +89,7 @@ Important code areas:
 
 - Sheet configuration: `SHEET_ID`, `SHEETS`
 - Data fetch: `fetchSheet()`
-- Asset loading: `loadSiteAssets()`, `applySiteLogos()`
+- Logos: local SVG files in `assets/brand/`; no spreadsheet logo replacement
 - Food categories: `FOOD_CAT_ORDER`
 - Drink categories: `DRINK_CAT_ORDER`
 - Category color system: `CATEGORY_ACCENTS`, `getCategoryAccent()`
@@ -237,7 +237,7 @@ Google's Review resource can include media in `reviewMediaItems`, with fields su
 
 ## Site Assets
 
-The `Site Assets` tab powers replaceable website assets. Existing keys include:
+The `Site Assets` tab powers replaceable homepage photos and map artwork. Existing keys include:
 
 - `logo_white`
 - `logo_black`
@@ -255,6 +255,27 @@ Site Assets tab
 ```
 
 Google Drive file links are normalized to thumbnail URLs for images.
+
+The three `logo_*` keys are retained in the spreadsheet for reference, but are no longer read by the website. Header and footer logos use the supplied vector artwork in `assets/brand/`, cropped to the artwork bounds so its visible size is consistent. The footer logo links home. Keeping these SVGs local avoids delayed Google Drive logo swaps and extra whitespace around the artwork.
+
+## Brand styling — November 2026
+
+All three pages load `assets/brand/brand.css` after their base styles. This shared stylesheet applies the El Quincho manual's Knockout HTF49 Liteweight headings and controls, Cormorant Garamond body and prices, and brand palette. The local WOFF2 files preserve the source fonts' character sets, including Spanish accents. The Cormorant licence is included alongside the fonts.
+
+The homepage keeps the compact food cards and their spreadsheet images. The short “A little piece of Argentina” story uses a teal background with dark text. The existing Asado hero video is retained; its section fits the content instead of forcing a full-screen height. Header and footer logos use white and orange variants respectively.
+
+Menu, drinks, specials, reviews and booking connections remain in place. The NowBookIt embed retains the same account and venue; its theme colours match the brand palette. These changes apply only to Asado. They do not update the WordPress site at elquincho.co.nz.
+
+Navigation has one Visit destination. Group enquiries remain inside that section; the legacy `events` anchor is retained for existing links. Email links open the visitor's configured email handler in a separate browsing context; Instagram, Facebook and the interim newsletter link also preserve the Asado page. The header updates its position on resize as well as scroll so the top strip cannot cover the logo when changing viewport sizes.
+
+## WordPress transfer and customer signup — decisions to preserve
+
+Samuel confirmed on 6 November that the final design will first be tested on WordPress staging, then published on the existing elquincho.co.nz domain. The Asado static site remains the design reference until that separately approved release.
+
+- The Shop link currently points to the existing live WooCommerce store at `https://elquincho.co.nz/shop/`. When building WordPress staging, deliberately route test shop/cart/checkout links to the isolated staging store. Verify no staging action sends a test customer into live payment or live order email flows. Restore the production routes for the approved live release; preserve existing product URLs, order data, shipping rules, Stripe account/webhooks and the Thursday paid-delivery email.
+- Newsletter signup currently opens the existing WordPress form at `https://elquincho.co.nz/#form-field-email` in a new tab. This is an interim route, not a completed CRM connection. The marketing plan still lists the destination as an open decision. Replace this route with a direct signup form connected to the agreed customer/email manager once its destination, consent handling and unsubscribe sync are tested.
+- The planned customer view combines newsletter signups, WordPress subscribers, WooCommerce customers and NowBookIt marketing-permitted contacts while retaining source and consent status. An order or booking alone must not silently become a marketing subscription. Preserve old Mailchimp unsubscribe and cleaned records as suppression data when preparing any combined list; the verified export contains 395 subscribed, 13 unsubscribed and 6 cleaned contacts. Do not re-subscribe suppressed contacts through an import.
+- Before the design swap, test booking, gift cards, shop, signup, order emails, analytics events, tracking tags, canonicals, redirects and sitemap on staging, then check the approved production release. No staging database should replace production orders or subscribers.
 
 ## Style Direction Applied Before Handover
 
