@@ -89,7 +89,12 @@ h1, h2, .eyebrow, .hero-kicker, .footer h4 {
 .hero-video { width: 100%; height: 100%; min-width: 0; min-height: 0; }
 .hero-overlay-glow { background: linear-gradient(180deg, transparent 65%, var(--charcoal) 100%); }
 
-.menu-section { background: var(--cream); }
+.menu-section { background: var(--charcoal); color: var(--white); }
+.menu-section > .container > .menu-head .eyebrow { color: var(--fire); }
+.menu-section .section-intro { color: rgba(255,255,255,.8); }
+.menu-section .menu-head > .btn-outline-dark { color: var(--white); border-color: rgba(255,255,255,.55); }
+.menu-section .menu-head > .btn-outline-dark:hover { background: rgba(255,255,255,.08); }
+.menu-section .special-card, .menu-section .menu-item { color: var(--charcoal); }
 .menu-item { background: var(--paper); }
 .menu-item:hover { background: var(--paper); }
 .menu-title-row h3 { font-family: 'Knockout', 'Arial Narrow', Arial, sans-serif; font-size: 25px; font-weight: 400; }

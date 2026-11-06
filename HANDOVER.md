@@ -262,7 +262,7 @@ The three `logo_*` keys are retained in the spreadsheet for reference, but are n
 
 All three pages load `assets/brand/brand.css` after their base styles. This shared stylesheet applies the El Quincho manual's Knockout HTF49 Liteweight headings and controls, Cormorant Garamond body and prices, and brand palette. The local WOFF2 files preserve the source fonts' character sets, including Spanish accents. The Cormorant licence is included alongside the fonts.
 
-The homepage keeps the compact food cards and their spreadsheet images. The short “A little piece of Argentina” story uses a teal background with dark text. The existing Asado hero video is retained; its section fits the content instead of forcing a full-screen height. Header and footer logos use white and orange variants respectively.
+The homepage keeps the compact white food cards and their spreadsheet images. Samuel approved the full kitchen section's charcoal background on 6 November, with white heading text, an orange eyebrow and a light menu button. The short “A little piece of Argentina” story keeps its teal background with dark text. The existing Asado hero video is retained; its section fits the content instead of forcing a full-screen height. Header and footer logos use white and orange variants respectively.
 
 Menu, drinks, specials, reviews and booking connections remain in place. The NowBookIt embed retains the same account and venue; its theme colours match the brand palette. These changes apply only to Asado. They do not update the WordPress site at elquincho.co.nz.
 
