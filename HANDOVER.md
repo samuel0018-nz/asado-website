@@ -266,6 +266,10 @@ The homepage keeps the compact food cards and their spreadsheet images. The shor
 
 Menu, drinks, specials, reviews and booking connections remain in place. The NowBookIt embed retains the same account and venue; its theme colours match the brand palette. These changes apply only to Asado. They do not update the WordPress site at elquincho.co.nz.
 
+The Book a Table page now has one continuous `#0D0D0D` canvas, a shorter gap above the controls, and no outer card border, radius or shadow. Its introduction keeps the full larger-groups/private-events sentence, with an email enquiry link that preserves the booking page. The widget URL uses `bg=0D0D0D`, `theme=dark` and `colors=hex,EE4E26`. The current widget uses only the first colour and ignores a second legacy colour; putting black first made the selected Evening label unreadable. The corrected single orange accent applies only to this embed and its fallback link, without changing NowBookIt venue/admin settings.
+
+The iframe uses the official `data-id="nbi-widget"` and NowBookIt resizer script so its height follows booking steps on desktop and mobile. A 560px initial height is retained as a fallback. The page's more specific frame selector removes the border injected by the vendor script. Keep the fallback booking link available. Reference: [NowBookIt embed parameters and resizer](https://bookings.nowbookit.com/layout-view/index.html).
+
 Navigation has one Visit destination. Group enquiries remain inside that section; the legacy `events` anchor is retained for existing links. Email links open the visitor's configured email handler in a separate browsing context; Instagram, Facebook and the interim newsletter link also preserve the Asado page. The header updates its position on resize as well as scroll so the top strip cannot cover the logo when changing viewport sizes.
 
 ## WordPress transfer and customer signup — decisions to preserve

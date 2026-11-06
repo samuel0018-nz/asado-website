@@ -29,8 +29,8 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Cormorant Garamond', system-ui, sans-serif;
-      color: var(--charcoal);
-      background: var(--cream);
+      color: var(--white);
+      background: var(--charcoal);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -121,8 +121,8 @@
     .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.52); }
 
     .booking-hero {
-      padding: 170px 0 42px;
-      background: linear-gradient(90deg, rgba(13,13,13,.96), rgba(13,13,13,.86));
+      padding: 152px 0 20px;
+      background: var(--charcoal);
       color: var(--white);
     }
     .eyebrow {
@@ -134,25 +134,25 @@
       margin-bottom: 14px;
     }
     .booking-hero h1 { font-size: clamp(42px, 6vw, 76px); margin-bottom: 16px; }
-    .booking-hero p { max-width: 680px; color: rgba(255,255,255,.78); font-size: 18px; }
+    .booking-hero p { max-width: 800px; color: rgba(255,255,255,.86); font-size: 18px; }
 
-    .booking-section { padding: 42px 0 96px; background: var(--cream); }
+    .booking-section { padding: 0 0 48px; background: var(--charcoal); }
     .booking-frame-wrap {
       background: var(--charcoal);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius: 0;
+      box-shadow: none;
       overflow: hidden;
-      border: 1px solid rgba(13,13,13,.08);
+      border: 0;
     }
-    .booking-frame {
+    .booking-frame-wrap .booking-frame {
       display: block;
       width: 100%;
-      min-height: 720px;
+      height: 560px;
       border: 0;
       background: var(--charcoal);
     }
     .booking-note {
-      color: var(--ash);
+      color: rgba(255,255,255,.72);
       font-size: 14px;
       margin-top: 18px;
       text-align: center;
@@ -204,17 +204,18 @@
       .container { width: min(100% - 28px, 1180px); }
       .top-strip { display: none; }
       .nav { top: 0; background: rgba(13,13,13,.92); }
-      .booking-hero { padding-top: 120px; }
+      .booking-hero { padding-top: 112px; }
       .booking-section { padding-bottom: 84px; }
       .booking-frame-wrap { border-radius: 0; width: calc(100% + 28px); margin-left: -14px; }
-      .booking-frame { min-height: 760px; }
+      .booking-frame { transition: height .3s ease; }
       .logo img { width: 150px; margin-inline: 0; }
       .footer-logo { width: 180px; margin-left: 0; }
       .footer-grid { grid-template-columns: 1fr; }
       .mobile-sticky { display: flex; }
     }
   </style>
-  <link rel="stylesheet" href="../assets/brand/brand.css?v=20261106">
+  <link rel="stylesheet" href="../assets/brand/brand.css?v=20261106-booking">
+  <script src="https://plugins.nowbookit.com/iframe-resizer-build/bundle.js" defer></script>
 </head>
 <body>
 
@@ -249,7 +250,7 @@
       <div class="container">
         <div class="eyebrow">Reserve your table</div>
         <h1>Book a table at El Quincho.</h1>
-        <p>Choose your date, time and party size below. For larger groups or private events, contact us directly and we will help shape the evening.</p>
+        <p>Choose your date, guests and time. For larger groups or private events, <a class="booking-group-link" href="mailto:hola@elquincho.co.nz?subject=Group%20booking%20enquiry" target="_blank" rel="noopener">contact us directly</a> and we will help shape the evening.</p>
       </div>
     </section>
 
@@ -258,12 +259,14 @@
         <div class="booking-frame-wrap">
           <iframe
             class="booking-frame"
+            data-id="nbi-widget"
+            height="560"
             title="Now Book It reservations for El Quincho"
-            src="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,0D0D0D,EE4E26"
+            src="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=0D0D0D&amp;banner=hidden&amp;theme=dark&amp;colors=hex,EE4E26"
             loading="lazy">
           </iframe>
         </div>
-        <p class="booking-note">If the booking widget does not load, <a href="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=transparent&amp;banner=hidden&amp;theme=dark&amp;colors=hex,0D0D0D,EE4E26" target="_blank" rel="noopener">open bookings in a new tab</a>.</p>
+        <p class="booking-note">If the booking widget does not load, <a href="https://bookings.nowbookit.com/?accountid=d30a0d32-5f8c-46ef-b147-20d4072d3f78&amp;venueid=2701&amp;bg=0D0D0D&amp;banner=hidden&amp;theme=dark&amp;colors=hex,EE4E26" target="_blank" rel="noopener">open bookings in a new tab</a>.</p>
       </div>
     </section>
   </main>

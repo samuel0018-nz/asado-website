@@ -150,7 +150,8 @@ h1, h2, .eyebrow, .hero-kicker, .footer h4 {
 .booking-hero p { font-size: 23px; line-height: 1.35; }
 .booking-hero h1 { line-height: 1.05; font-weight: 400; }
 .booking-note { font-size: 20px; }
-.booking-note a { color: var(--charcoal); text-decoration: underline; }
+.booking-note a, .booking-group-link { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+.booking-note a:hover, .booking-group-link:hover { color: var(--gold); }
 .footer { font-size: 19px; }
 .footer h4 { font-size: 24px; }
 .footer-tagline { color: var(--fire); font-size: 21px; line-height: 1.2; margin-top: 6px; letter-spacing: .6px; }
