@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T23:47:38.317Z",
+  "updatedAt": "2026-11-08T22:17:05.514Z",
   "source": "google_business_profile",
   "reviews": [
     {
@@ -9,6 +9,14 @@
       "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
       "reviewedAt": "2026-11-04T01:33:59.854Z",
       "displayDate": "4 November 2026"
+    },
+    {
+      "id": "AbFvOqnTdhJRNeHGvlhtxKB9bG0Pjq1Mma3Alg1RnSL_fycFb7nhE7VaAKc_uMpt0qJvW2LPh5SgUQ",
+      "authorName": "Ben Cheng",
+      "rating": 5,
+      "text": "If you happen to be on death row and need a recommendation for your last meal - The flank steak burger and fries El Quincho.",
+      "reviewedAt": "2026-11-02T02:29:43.327Z",
+      "displayDate": "2 November 2026"
     },
     {
       "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
@@ -33,14 +41,6 @@
       "text": "I celebrate my birthday at El quincho every year. They have never failed to provide the best experience for me and my friends and family. The people always go above and beyond to accommodate to unexpected changes and to make sure the evening goes smoothly. The food has always been the most authentic and it makes me feel like at home. I will forever celebrate my birthday here and I cannot wait to see what the future holds for this special place 🦋🤍🦋",
       "reviewedAt": "2026-10-27T19:37:17.850Z",
       "displayDate": "28 October 2026"
-    },
-    {
-      "id": "AbFvOqmvV-HDMnayDFXDoDMvJj_3WkiLFMQKTs8wUCthXWstgr0EhS_2ZTTI7UXDYiPLaIn8y8S8uQ",
-      "authorName": "Tomas Dreller",
-      "rating": 5,
-      "text": "Everytime I go to Christchurch for work, I make my official stop here to have lunch. As an Argentinian, I can confirm that the quality and taste of many items in the menu are very good. Also, special mention to the manager: Candelaria Cursa",
-      "reviewedAt": "2026-10-22T21:43:07.410Z",
-      "displayDate": "23 October 2026"
     }
   ]
 }
