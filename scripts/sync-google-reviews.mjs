@@ -94,7 +94,10 @@ export function normalizeReview(raw) {
   const reviewedAt = raw.createTime || raw.reviewedAt || raw.updateTime;
   const reviewedDate = new Date(reviewedAt);
 
-  if (rating !== 5 || !text || Number.isNaN(reviewedDate.valueOf())) {
+  // A genuine rating may have no written comment. Keep the source text empty;
+  // any explanatory caption belongs to the website, never to the reviewer.
+  const rawText = raw.comment ?? raw.text ?? '';
+  if (rating !== 5 || typeof rawText !== 'string' || Number.isNaN(reviewedDate.valueOf())) {
     return null;
   }
 
@@ -155,7 +158,7 @@ export function validateReviewsPayload(payload) {
       }
       if (!normalizeReviewText(review.id)) errors.push(`reviews[${index}].id is required`);
       if (Number(review.rating) !== 5) errors.push(`reviews[${index}].rating must be 5`);
-      if (!normalizeReviewText(review.text)) errors.push(`reviews[${index}].text is required`);
+      if (typeof review.text !== 'string') errors.push(`reviews[${index}].text must be a string (empty is valid for rating-only reviews)`);
       if (Number.isNaN(new Date(review.reviewedAt).valueOf())) {
         errors.push(`reviews[${index}].reviewedAt must be a valid ISO date`);
       }

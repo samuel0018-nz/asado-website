@@ -108,9 +108,12 @@ assert.throws(
 );
 
 const reviews = selectLatestFiveStarReviews(fixture);
-assert.deepEqual(reviews.map(review => review.id), ['five-1', 'five-2', 'five-3', 'five-4', 'five-5']);
-assert.equal(reviews[0].authorName, 'Newest Guest');
-assert.equal(reviews[0].displayDate, '18 May 2026');
+assert.deepEqual(reviews.map(review => review.id), ['latest-empty', 'five-1', 'five-2', 'five-3', 'five-4']);
+assert.equal(reviews[0].authorName, 'Empty Comment');
+assert.equal(reviews[0].displayDate, '20 May 2026');
+assert.equal(reviews[0].text, '', 'no invented customer quote for a rating-only review');
+assert.equal(selectLatestFiveStarReviews([{...fixture[0], comment:undefined}])[0].text, '');
+assert.equal(selectLatestFiveStarReviews([{...fixture[0], comment:{bad:'data'}}]).length, 0);
 assert.equal(new Set(reviews.map(review => review.id)).size, reviews.length);
 
 const fallbackAuthorReview = selectLatestFiveStarReviews([fixture.at(-1)])[0];
