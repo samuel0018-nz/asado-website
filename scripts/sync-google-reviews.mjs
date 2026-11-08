@@ -94,7 +94,10 @@ export function normalizeReview(raw) {
   const reviewedAt = raw.createTime || raw.reviewedAt || raw.updateTime;
   const reviewedDate = new Date(reviewedAt);
 
-  if (rating !== 5 || !text || Number.isNaN(reviewedDate.valueOf())) {
+  // A genuine rating may have no written comment. Keep the source text empty;
+  // any explanatory caption belongs to the website, never to the reviewer.
+  const rawText = raw.comment ?? raw.text ?? '';
+  if (rating !== 5 || typeof rawText !== 'string' || Number.isNaN(reviewedDate.valueOf())) {
     return null;
   }
 
@@ -155,7 +158,7 @@ export function validateReviewsPayload(payload) {
       }
       if (!normalizeReviewText(review.id)) errors.push(`reviews[${index}].id is required`);
       if (Number(review.rating) !== 5) errors.push(`reviews[${index}].rating must be 5`);
-      if (!normalizeReviewText(review.text)) errors.push(`reviews[${index}].text is required`);
+      if (typeof review.text !== 'string') errors.push(`reviews[${index}].text must be a string (empty is valid for rating-only reviews)`);
       if (Number.isNaN(new Date(review.reviewedAt).valueOf())) {
         errors.push(`reviews[${index}].reviewedAt must be a valid ISO date`);
       }
@@ -179,7 +182,7 @@ export function buildReviewsPayload(rawReviews, options = {}) {
   const payload = {
     updatedAt: new Date(options.now || Date.now()).toISOString(),
     source: 'google_business_profile',
-    reviews: selectLatestFiveStarReviews(rawReviews, options.limit || REVIEW_LIMIT)
+    reviews: selectLatestFiveStarReviews(options.excludeRatingOnly ? rawReviews.filter(review => normalizeReviewText(review?.comment || review?.text)) : rawReviews, options.limit || REVIEW_LIMIT)
   };
 
   validateReviewsPayload(payload);
@@ -271,7 +274,8 @@ function parseArgs(argv) {
   const args = {
     dryRun: false,
     fixture: '',
-    output: DEFAULT_OUTPUT_PATH
+    output: DEFAULT_OUTPUT_PATH,
+    ratingOnlyOutput: ''
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -279,6 +283,10 @@ function parseArgs(argv) {
     if (arg === '--dry-run') args.dryRun = true;
     else if (arg === '--fixture') args.fixture = argv[++i] || '';
     else if (arg === '--output') args.output = argv[++i] || DEFAULT_OUTPUT_PATH;
+    else if (arg === '--rating-only-output') {
+      args.ratingOnlyOutput = argv[++i] || '';
+      if (!args.ratingOnlyOutput || args.ratingOnlyOutput.startsWith('--')) throw new Error('--rating-only-output requires a file path');
+    }
     else throw new Error(`Unknown argument: ${arg}`);
   }
 
@@ -335,6 +343,8 @@ export async function writeReviewsFile(outputPath, nextPayload) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const outputPath = resolve(args.output);
+  const inclusivePath = args.ratingOnlyOutput ? resolve(args.ratingOnlyOutput) : '';
+  if (inclusivePath && inclusivePath === outputPath) throw new Error('Legacy and inclusive review output paths must differ.');
 
   if (!args.fixture) {
     assertRequiredEnv();
@@ -349,14 +359,17 @@ async function main() {
         pageSize: Number(process.env.GBP_PAGE_SIZE || DEFAULT_PAGE_SIZE)
       });
 
-  const nextPayload = buildReviewsPayload(rawReviews);
+  // One API read, two validated payloads. Keep the existing Asado contract intact.
+  const nextPayload = buildReviewsPayload(rawReviews, {excludeRatingOnly:true});
+  const inclusivePayload = inclusivePath ? buildReviewsPayload(rawReviews) : null;
 
   if (args.dryRun) {
-    process.stdout.write(stringifyPayload(nextPayload));
+    process.stdout.write(stringifyPayload(inclusivePayload ? {legacy:nextPayload, inclusive:inclusivePayload} : nextPayload));
     return;
   }
 
   await writeReviewsFile(outputPath, nextPayload);
+  if (inclusivePayload) await writeReviewsFile(inclusivePath, inclusivePayload);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
