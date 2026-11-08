@@ -69,16 +69,16 @@ jobs:
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           GBP_ACCOUNT_ID: ${{ secrets.GBP_ACCOUNT_ID }}
           GBP_LOCATION_ID: ${{ secrets.GBP_LOCATION_ID }}
-        run: node scripts/sync-google-reviews.mjs
+        run: node scripts/sync-google-reviews.mjs --rating-only-output data/reviews-inclusive.json
 
       - name: Commit updated reviews
         run: |
-          if git diff --quiet -- data/reviews.json; then
+          git add data/reviews.json data/reviews-inclusive.json
+          if git diff --cached --quiet -- data/reviews.json data/reviews-inclusive.json; then
             echo "No review changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/reviews.json
           git commit -m "Update Google reviews [skip ci]"
           git push
