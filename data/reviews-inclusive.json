@@ -1,0 +1,46 @@
+{
+  "updatedAt": "2026-11-08T23:31:23.509Z",
+  "source": "google_business_profile",
+  "reviews": [
+    {
+      "id": "AbFvOqlquxdGwnopA1nWUBvapR-rOHmaeHWw3_j6aMmUKc9sFedlySk_ADEtxl2z0Zaaj086yJ5CFg",
+      "authorName": "MICHAEL ESLING",
+      "rating": 5,
+      "text": "",
+      "reviewedAt": "2026-11-05T03:04:00.462Z",
+      "displayDate": "5 November 2026"
+    },
+    {
+      "id": "AbFvOqlXolHtguhjfJ6mq1U81d7MYEeytKjbhCP1UFPsc84QM1cLqpLd4EVPObybuH3DUV7R2MFqJQ",
+      "authorName": "L. A Chevez",
+      "rating": 5,
+      "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
+      "reviewedAt": "2026-11-04T01:33:59.854Z",
+      "displayDate": "4 November 2026"
+    },
+    {
+      "id": "AbFvOqnTdhJRNeHGvlhtxKB9bG0Pjq1Mma3Alg1RnSL_fycFb7nhE7VaAKc_uMpt0qJvW2LPh5SgUQ",
+      "authorName": "Ben Cheng",
+      "rating": 5,
+      "text": "If you happen to be on death row and need a recommendation for your last meal - The flank steak burger and fries El Quincho.",
+      "reviewedAt": "2026-11-02T02:29:43.327Z",
+      "displayDate": "2 November 2026"
+    },
+    {
+      "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
+      "authorName": "Benjamin Fleming",
+      "rating": 5,
+      "text": "Amazing food and great service. Will definitely be returning",
+      "reviewedAt": "2026-10-30T07:41:26.348Z",
+      "displayDate": "30 October 2026"
+    },
+    {
+      "id": "AbFvOqmdduuPp_wiKho606bK1WsfrL-cdAeT24AKF_BWLIsCIiGVSEmFCricr4qE6diVQf24v_4h",
+      "authorName": "Nico de Groot",
+      "rating": 5,
+      "text": "(Translated by Google) Nice people, delicious food (Original) Aardige mensen heerlijk eten",
+      "reviewedAt": "2026-10-30T05:17:06.054Z",
+      "displayDate": "30 October 2026"
+    }
+  ]
+}
