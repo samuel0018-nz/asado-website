@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-10T01:39:49.118Z",
+  "updatedAt": "2026-11-10T23:34:27.132Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqldZeU3Tjm6TuTsfmst3Y8U2MKvJ3i-XKGiV0ZNKXe4MWlnbIkiZj3AYLzeEO9Rkx17D0LJbQ",
+      "authorName": "Lara Medialdea",
+      "rating": 5,
+      "text": "Lovely food (I felt like back home for a bit) and great service from the two girls that serves us ( a girl from Argentina and a chilean gal). We liked the steak sandwich so much that we came back for dinner before we left Christchurch",
+      "reviewedAt": "2026-11-10T09:34:21.935Z",
+      "displayDate": "10 November 2026"
+    },
     {
       "id": "AbFvOqlUC3OWPrpYBNrRhGMy0XxM7IEwVvXyTu5ttPSdPBqWkquvyiA7yd92vfnZ7R7dWY4lhRtU3w",
       "authorName": "Lola Dee",
@@ -33,14 +41,6 @@
       "text": "If you happen to be on death row and need a recommendation for your last meal - The flank steak burger and fries El Quincho.",
       "reviewedAt": "2026-11-02T02:29:43.327Z",
       "displayDate": "2 November 2026"
-    },
-    {
-      "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
-      "authorName": "Benjamin Fleming",
-      "rating": 5,
-      "text": "Amazing food and great service. Will definitely be returning",
-      "reviewedAt": "2026-10-30T07:41:26.348Z",
-      "displayDate": "30 October 2026"
     }
   ]
 }
