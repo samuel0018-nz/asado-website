@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-08T23:31:23.509Z",
+  "updatedAt": "2026-11-10T01:39:49.118Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlUC3OWPrpYBNrRhGMy0XxM7IEwVvXyTu5ttPSdPBqWkquvyiA7yd92vfnZ7R7dWY4lhRtU3w",
+      "authorName": "Lola Dee",
+      "rating": 5,
+      "text": "",
+      "reviewedAt": "2026-11-09T19:12:45.995Z",
+      "displayDate": "10 November 2026"
+    },
     {
       "id": "AbFvOqlquxdGwnopA1nWUBvapR-rOHmaeHWw3_j6aMmUKc9sFedlySk_ADEtxl2z0Zaaj086yJ5CFg",
       "authorName": "MICHAEL ESLING",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "Amazing food and great service. Will definitely be returning",
       "reviewedAt": "2026-10-30T07:41:26.348Z",
-      "displayDate": "30 October 2026"
-    },
-    {
-      "id": "AbFvOqmdduuPp_wiKho606bK1WsfrL-cdAeT24AKF_BWLIsCIiGVSEmFCricr4qE6diVQf24v_4h",
-      "authorName": "Nico de Groot",
-      "rating": 5,
-      "text": "(Translated by Google) Nice people, delicious food (Original) Aardige mensen heerlijk eten",
-      "reviewedAt": "2026-10-30T05:17:06.054Z",
       "displayDate": "30 October 2026"
     }
   ]
