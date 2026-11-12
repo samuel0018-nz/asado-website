@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-10T23:34:27.124Z",
+  "updatedAt": "2026-11-12T23:42:55.227Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlXrHSpjnZxSlvROXN2lp1ddVs_8M9tyl8e7Ex8XaSbL9keRbWYNy2xGc3KKSh44-SwJoToGA",
+      "authorName": "Agustina Pino",
+      "rating": 5,
+      "text": "(Translated by Google) Cande welcomed us with incredible warmth and, for a little while, made us feel like we were back in Argentina. The barbecue area embraced us like a little piece of home, despite being thousands of kilometers away, and made being away from home much easier. (Original) Cande nos atendió con una calidez increíble y, por un ratito, nos hizo sentir de nuevo en Argentina. El quincho nos abrazó como un pedacito de casa, a pesar de estar a miles de kilómetros de distancia, y nos hizo mucho más liviano estar lejos de nuestro hogar.",
+      "reviewedAt": "2026-11-12T07:29:13.549Z",
+      "displayDate": "12 November 2026"
+    },
     {
       "id": "AbFvOqldZeU3Tjm6TuTsfmst3Y8U2MKvJ3i-XKGiV0ZNKXe4MWlnbIkiZj3AYLzeEO9Rkx17D0LJbQ",
       "authorName": "Lara Medialdea",
@@ -32,14 +40,6 @@
       "rating": 5,
       "text": "Amazing food and great service. Will definitely be returning",
       "reviewedAt": "2026-10-30T07:41:26.348Z",
-      "displayDate": "30 October 2026"
-    },
-    {
-      "id": "AbFvOqmdduuPp_wiKho606bK1WsfrL-cdAeT24AKF_BWLIsCIiGVSEmFCricr4qE6diVQf24v_4h",
-      "authorName": "Nico de Groot",
-      "rating": 5,
-      "text": "(Translated by Google) Nice people, delicious food (Original) Aardige mensen heerlijk eten",
-      "reviewedAt": "2026-10-30T05:17:06.054Z",
       "displayDate": "30 October 2026"
     }
   ]

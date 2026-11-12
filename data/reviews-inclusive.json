@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-12T00:52:15.813Z",
+  "updatedAt": "2026-11-12T23:42:55.236Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlXrHSpjnZxSlvROXN2lp1ddVs_8M9tyl8e7Ex8XaSbL9keRbWYNy2xGc3KKSh44-SwJoToGA",
+      "authorName": "Agustina Pino",
+      "rating": 5,
+      "text": "(Translated by Google) Cande welcomed us with incredible warmth and, for a little while, made us feel like we were back in Argentina. The barbecue area embraced us like a little piece of home, despite being thousands of kilometers away, and made being away from home much easier. (Original) Cande nos atendió con una calidez increíble y, por un ratito, nos hizo sentir de nuevo en Argentina. El quincho nos abrazó como un pedacito de casa, a pesar de estar a miles de kilómetros de distancia, y nos hizo mucho más liviano estar lejos de nuestro hogar.",
+      "reviewedAt": "2026-11-12T07:29:13.549Z",
+      "displayDate": "12 November 2026"
+    },
     {
       "id": "AbFvOqmAk3pvRongHF9bR68GNBe0QWflHXIkscQSRr8_FsHuGdz2DDJcSlF2wk721D9pHGB8xrCBWg",
       "authorName": "pedro catania",
@@ -33,14 +41,6 @@
       "text": "",
       "reviewedAt": "2026-11-05T03:04:00.462Z",
       "displayDate": "5 November 2026"
-    },
-    {
-      "id": "AbFvOqlXolHtguhjfJ6mq1U81d7MYEeytKjbhCP1UFPsc84QM1cLqpLd4EVPObybuH3DUV7R2MFqJQ",
-      "authorName": "L. A Chevez",
-      "rating": 5,
-      "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
-      "reviewedAt": "2026-11-04T01:33:59.854Z",
-      "displayDate": "4 November 2026"
     }
   ]
 }
