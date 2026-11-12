@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-10T23:34:27.132Z",
+  "updatedAt": "2026-11-12T00:52:15.813Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqmAk3pvRongHF9bR68GNBe0QWflHXIkscQSRr8_FsHuGdz2DDJcSlF2wk721D9pHGB8xrCBWg",
+      "authorName": "pedro catania",
+      "rating": 5,
+      "text": "",
+      "reviewedAt": "2026-11-11T04:55:20.819Z",
+      "displayDate": "11 November 2026"
+    },
     {
       "id": "AbFvOqldZeU3Tjm6TuTsfmst3Y8U2MKvJ3i-XKGiV0ZNKXe4MWlnbIkiZj3AYLzeEO9Rkx17D0LJbQ",
       "authorName": "Lara Medialdea",
@@ -33,14 +41,6 @@
       "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
       "reviewedAt": "2026-11-04T01:33:59.854Z",
       "displayDate": "4 November 2026"
-    },
-    {
-      "id": "AbFvOqnTdhJRNeHGvlhtxKB9bG0Pjq1Mma3Alg1RnSL_fycFb7nhE7VaAKc_uMpt0qJvW2LPh5SgUQ",
-      "authorName": "Ben Cheng",
-      "rating": 5,
-      "text": "If you happen to be on death row and need a recommendation for your last meal - The flank steak burger and fries El Quincho.",
-      "reviewedAt": "2026-11-02T02:29:43.327Z",
-      "displayDate": "2 November 2026"
     }
   ]
 }
