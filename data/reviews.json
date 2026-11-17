@@ -1,7 +1,23 @@
 {
-  "updatedAt": "2026-11-12T23:42:55.227Z",
+  "updatedAt": "2026-11-17T01:54:43.948Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqlt83an0ZEbaUnZlZPkC1mqcjQ_C2hehF5TnTrMHfWM68gSFVhj8i6gntdvBKO5bZQ3AroW",
+      "authorName": "Abiam Rivas",
+      "rating": 5,
+      "text": "Flew 32 hours to New Zealand to explore and enjoy its culture. Only to find myself eating at this establishment multiple times. How crazy does that sound, the asador was a magician. The tomohawk steak, the ribeye, the empanadas, the chorizo and the Argentina wine were superb. The craziest statement is that I will miss this place the most when I return home. Thank you for a wonderful taste of home!",
+      "reviewedAt": "2026-11-15T07:34:32.025Z",
+      "displayDate": "15 November 2026"
+    },
+    {
+      "id": "AbFvOqm60wTGPqkXdxsB6LGXu3xAX294CqWyItz6dDE0hYUmrkMKCZhgsdjNh7v-p7xAW2a9JUgT",
+      "authorName": "dana white",
+      "rating": 5,
+      "text": "Empanadas, roasted potatoes, french fries, chicken, pimpanada and beef and banana. Absolutely fantastic amazing highly recommend!",
+      "reviewedAt": "2026-11-15T01:17:56.263Z",
+      "displayDate": "15 November 2026"
+    },
     {
       "id": "AbFvOqlXrHSpjnZxSlvROXN2lp1ddVs_8M9tyl8e7Ex8XaSbL9keRbWYNy2xGc3KKSh44-SwJoToGA",
       "authorName": "Agustina Pino",
@@ -25,22 +41,6 @@
       "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
       "reviewedAt": "2026-11-04T01:33:59.854Z",
       "displayDate": "4 November 2026"
-    },
-    {
-      "id": "AbFvOqnTdhJRNeHGvlhtxKB9bG0Pjq1Mma3Alg1RnSL_fycFb7nhE7VaAKc_uMpt0qJvW2LPh5SgUQ",
-      "authorName": "Ben Cheng",
-      "rating": 5,
-      "text": "If you happen to be on death row and need a recommendation for your last meal - The flank steak burger and fries El Quincho.",
-      "reviewedAt": "2026-11-02T02:29:43.327Z",
-      "displayDate": "2 November 2026"
-    },
-    {
-      "id": "AbFvOqloWmhGpZXdgTV4royuv4TFj1wMbiCwTxISbROgqnZofCTWyNTrg-0vykfKXp-tYN9FuAxjAQ",
-      "authorName": "Benjamin Fleming",
-      "rating": 5,
-      "text": "Amazing food and great service. Will definitely be returning",
-      "reviewedAt": "2026-10-30T07:41:26.348Z",
-      "displayDate": "30 October 2026"
     }
   ]
 }
