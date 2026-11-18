@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-17T01:54:43.948Z",
+  "updatedAt": "2026-11-18T01:03:14.157Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqn-UXIWoyUjS8ONnYFymIyb3MvGzL83koOwkH2_pA_BUmtGvgPe89VtDqo5D-Y-31H1p5mF",
+      "authorName": "Yaru雅茹",
+      "rating": 5,
+      "text": "(Translated by Google) Thank you to that pretty cashier girl; without you, we would have had to eat sandwiches tonight. (Original) 感谢收银员那位漂亮女生，没有你的话，晚上我们只能吃三文治",
+      "reviewedAt": "2026-11-17T07:56:48.032Z",
+      "displayDate": "17 November 2026"
+    },
     {
       "id": "AbFvOqlt83an0ZEbaUnZlZPkC1mqcjQ_C2hehF5TnTrMHfWM68gSFVhj8i6gntdvBKO5bZQ3AroW",
       "authorName": "Abiam Rivas",
@@ -33,14 +41,6 @@
       "text": "Lovely food (I felt like back home for a bit) and great service from the two girls that serves us ( a girl from Argentina and a chilean gal). We liked the steak sandwich so much that we came back for dinner before we left Christchurch",
       "reviewedAt": "2026-11-10T09:34:21.935Z",
       "displayDate": "10 November 2026"
-    },
-    {
-      "id": "AbFvOqlXolHtguhjfJ6mq1U81d7MYEeytKjbhCP1UFPsc84QM1cLqpLd4EVPObybuH3DUV7R2MFqJQ",
-      "authorName": "L. A Chevez",
-      "rating": 5,
-      "text": "We visted the city as part of our international cruise and we ate at El Quincho. The food is so good. Love the sauce or chimichurri over the flame grilled meat. The perfect place for delicious food and wine at a resanoble price. Thank you.",
-      "reviewedAt": "2026-11-04T01:33:59.854Z",
-      "displayDate": "4 November 2026"
     }
   ]
 }
