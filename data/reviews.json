@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-18T01:03:14.157Z",
+  "updatedAt": "2026-11-19T00:33:10.239Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqn3brcDMJzMTENUumiYnn9c_vsngOZ_P6aYnd3D_MwYkyhGgytdkrWkmz2hs3D5PBNccsmV",
+      "authorName": "Justin Boonzaier",
+      "rating": 5,
+      "text": "Awesome food, awesome service Seriously recommend the tomahawk steak",
+      "reviewedAt": "2026-11-18T05:58:27.229Z",
+      "displayDate": "18 November 2026"
+    },
     {
       "id": "AbFvOqn-UXIWoyUjS8ONnYFymIyb3MvGzL83koOwkH2_pA_BUmtGvgPe89VtDqo5D-Y-31H1p5mF",
       "authorName": "Yaru雅茹",
@@ -33,14 +41,6 @@
       "text": "(Translated by Google) Cande welcomed us with incredible warmth and, for a little while, made us feel like we were back in Argentina. The barbecue area embraced us like a little piece of home, despite being thousands of kilometers away, and made being away from home much easier. (Original) Cande nos atendió con una calidez increíble y, por un ratito, nos hizo sentir de nuevo en Argentina. El quincho nos abrazó como un pedacito de casa, a pesar de estar a miles de kilómetros de distancia, y nos hizo mucho más liviano estar lejos de nuestro hogar.",
       "reviewedAt": "2026-11-12T07:29:13.549Z",
       "displayDate": "12 November 2026"
-    },
-    {
-      "id": "AbFvOqldZeU3Tjm6TuTsfmst3Y8U2MKvJ3i-XKGiV0ZNKXe4MWlnbIkiZj3AYLzeEO9Rkx17D0LJbQ",
-      "authorName": "Lara Medialdea",
-      "rating": 5,
-      "text": "Lovely food (I felt like back home for a bit) and great service from the two girls that serves us ( a girl from Argentina and a chilean gal). We liked the steak sandwich so much that we came back for dinner before we left Christchurch",
-      "reviewedAt": "2026-11-10T09:34:21.935Z",
-      "displayDate": "10 November 2026"
     }
   ]
 }
