@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-11-19T00:33:10.239Z",
+  "updatedAt": "2026-11-22T23:40:31.177Z",
   "source": "google_business_profile",
   "reviews": [
+    {
+      "id": "AbFvOqkov6aVXvlKhjjorbg5U_QwXKLv16FhPXtyLy0LxTTrmjryETmT2Dz-KdP2L8alM03yfCMovA",
+      "authorName": "Lucas Ezequiel Blanes Pino",
+      "rating": 5,
+      "text": "(Translated by Google) Absolutely delicious!!! Maipucino wine, the meat was excellent, and the hand-cut empanadas were amazing. Not a crumb was left! (Original) Riquísimo culiaaaaa!!! Vino Maipucino, la carne muy buena y las empanadas cortadas a cuchillo una bomba. No quedaron ni las migas",
+      "reviewedAt": "2026-11-22T01:06:51.399Z",
+      "displayDate": "22 November 2026"
+    },
     {
       "id": "AbFvOqn3brcDMJzMTENUumiYnn9c_vsngOZ_P6aYnd3D_MwYkyhGgytdkrWkmz2hs3D5PBNccsmV",
       "authorName": "Justin Boonzaier",
@@ -33,14 +41,6 @@
       "text": "Empanadas, roasted potatoes, french fries, chicken, pimpanada and beef and banana. Absolutely fantastic amazing highly recommend!",
       "reviewedAt": "2026-11-15T01:17:56.263Z",
       "displayDate": "15 November 2026"
-    },
-    {
-      "id": "AbFvOqlXrHSpjnZxSlvROXN2lp1ddVs_8M9tyl8e7Ex8XaSbL9keRbWYNy2xGc3KKSh44-SwJoToGA",
-      "authorName": "Agustina Pino",
-      "rating": 5,
-      "text": "(Translated by Google) Cande welcomed us with incredible warmth and, for a little while, made us feel like we were back in Argentina. The barbecue area embraced us like a little piece of home, despite being thousands of kilometers away, and made being away from home much easier. (Original) Cande nos atendió con una calidez increíble y, por un ratito, nos hizo sentir de nuevo en Argentina. El quincho nos abrazó como un pedacito de casa, a pesar de estar a miles de kilómetros de distancia, y nos hizo mucho más liviano estar lejos de nuestro hogar.",
-      "reviewedAt": "2026-11-12T07:29:13.549Z",
-      "displayDate": "12 November 2026"
     }
   ]
 }
